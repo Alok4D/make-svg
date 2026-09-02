@@ -40,11 +40,6 @@
         stroke-linecap: round;
         stroke-linejoin: round;
       }
-      .axis-3d {
-        stroke: #0bb803;
-        stroke-width: 2;
-        stroke-linecap: round;
-      }
       
       /* Moving Average Lines */
       .ma-green {
@@ -631,14 +626,8 @@
     <line class="grid-line" x1="0" y1="375" x2="700" y2="375" />
   </g>
 
-  <!-- 3D Perspective Base Origin Lines -->
+  <!-- Clean Standard Coordinate Axes (No 3D Perspective Lines) -->
   <g class="axes-group">
-    <!-- 3D Depth Origin Rays -->
-    <line class="axis-3d" x1="60" y1="365" x2="10" y2="385" />
-    <line class="axis-3d" x1="60" y1="30" x2="10" y2="50" />
-    <line class="axis-3d" x1="10" y1="385" x2="588" y2="385" />
-    <line class="axis-3d" x1="638" y1="365" x2="588" y2="385" />
-    
     <!-- Y Axis -->
     <line class="axis-main" x1="60" y1="30" x2="60" y2="365" />
     <!-- X Axis -->
