@@ -198,7 +198,7 @@
         animation: textAnim2 8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
       }
       .text-label-3 {
-        transform-origin: 1400px 455px;
+        transform-origin: 1400px 480px;
         animation: textAnim3 8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
       }
 
@@ -367,7 +367,7 @@
 
     <!-- Clear, Bold BEST Typography with Gold Glow -->
     <g class="text-label-3" text-anchor="middle" filter="url(#goldTextShadow)">
-      <text x="1400" y="455" font-size="56" font-weight="900" fill="#fbbf24" letter-spacing="5">BEST</text>
+      <text x="1400" y="480" font-size="56" font-weight="900" fill="#fbbf24" letter-spacing="5">BEST</text>
     </g>
   </g>
 

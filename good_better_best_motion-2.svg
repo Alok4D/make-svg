@@ -1,0 +1,482 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <!-- Soft Ambient Black/Dark Shadow for Line & Arrow -->
+    <filter id="blackGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+
+    <!-- Node Badge Elevation Drop Shadow -->
+    <filter id="nodeShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.15"/>
+    </filter>
+
+    <!-- Text Shadow for Contrast on White -->
+    <filter id="textShadowLight" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.1"/>
+    </filter>
+
+    <!-- Vibrant Sparkle Glow -->
+    <filter id="sparkleGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&display=swap');
+
+      /* Master Font Setup */
+      text {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        user-select: none;
+      }
+
+      /* 1. Main Solid Black Path Drawing */
+      .progression-line, .progression-glow {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: drawPath 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+
+      @keyframes drawPath {
+        0%, 4% {
+          stroke-dashoffset: 1000;
+          opacity: 0;
+        }
+        5% {
+          opacity: 1;
+        }
+        48%, 88% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+        96%, 100% {
+          stroke-dashoffset: 0;
+          opacity: 0;
+        }
+      }
+
+      /* 2. Milestone Nodes Pop and Scale */
+      .node-1 {
+        transform-origin: 440px 750px;
+        animation: popNode1 8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+      }
+      .node-2 {
+        transform-origin: 880px 560px;
+        animation: popNode2 8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+      }
+      .node-3 {
+        transform-origin: 1400px 360px;
+        animation: popNode3 8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+      }
+
+      @keyframes popNode1 {
+        0%, 14% { opacity: 0; transform: scale(0.2); }
+        18% { opacity: 1; transform: scale(1.15); }
+        22%, 88% { opacity: 1; transform: scale(1); }
+        95%, 100% { opacity: 0; transform: scale(0.8); }
+      }
+
+      @keyframes popNode2 {
+        0%, 28% { opacity: 0; transform: scale(0.2); }
+        32% { opacity: 1; transform: scale(1.15); }
+        36%, 88% { opacity: 1; transform: scale(1); }
+        95%, 100% { opacity: 0; transform: scale(0.8); }
+      }
+
+      @keyframes popNode3 {
+        0%, 42% { opacity: 0; transform: scale(0.2); }
+        46% { opacity: 1; transform: scale(1.2); }
+        50%, 88% { opacity: 1; transform: scale(1); }
+        95%, 100% { opacity: 0; transform: scale(0.8); }
+      }
+
+      /* 3. Checkmarks Draw */
+      .check-1 {
+        stroke-dasharray: 60;
+        stroke-dashoffset: 60;
+        animation: drawCheck1 8s ease-out infinite;
+      }
+      .check-2 {
+        stroke-dasharray: 60;
+        stroke-dashoffset: 60;
+        animation: drawCheck2 8s ease-out infinite;
+      }
+      .check-3 {
+        stroke-dasharray: 60;
+        stroke-dashoffset: 60;
+        animation: drawCheck3 8s ease-out infinite;
+      }
+
+      @keyframes drawCheck1 {
+        0%, 17% { stroke-dashoffset: 60; opacity: 0; }
+        18% { opacity: 1; }
+        24%, 88% { stroke-dashoffset: 0; opacity: 1; }
+        95%, 100% { opacity: 0; }
+      }
+      @keyframes drawCheck2 {
+        0%, 31% { stroke-dashoffset: 60; opacity: 0; }
+        32% { opacity: 1; }
+        38%, 88% { stroke-dashoffset: 0; opacity: 1; }
+        95%, 100% { opacity: 0; }
+      }
+      @keyframes drawCheck3 {
+        0%, 45% { stroke-dashoffset: 60; opacity: 0; }
+        46% { opacity: 1; }
+        52%, 88% { stroke-dashoffset: 0; opacity: 1; }
+        95%, 100% { opacity: 0; }
+      }
+
+      /* 4. Large Clear Text Labels Slide and Fade */
+      .text-label-1 {
+        transform-origin: 440px 845px;
+        animation: textAnim1 8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+      }
+      .text-label-2 {
+        transform-origin: 880px 655px;
+        animation: textAnim2 8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+      }
+      .text-label-3 {
+        transform-origin: 1400px 480px;
+        animation: textAnim3 8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+      }
+
+      @keyframes textAnim1 {
+        0%, 16% { opacity: 0; transform: translateY(24px) scale(0.9); }
+        22%, 88% { opacity: 1; transform: translateY(0) scale(1); }
+        95%, 100% { opacity: 0; transform: translateY(12px) scale(0.95); }
+      }
+      @keyframes textAnim2 {
+        0%, 30% { opacity: 0; transform: translateY(24px) scale(0.9); }
+        36%, 88% { opacity: 1; transform: translateY(0) scale(1); }
+        95%, 100% { opacity: 0; transform: translateY(12px) scale(0.95); }
+      }
+      @keyframes textAnim3 {
+        0%, 44% { opacity: 0; transform: translateY(24px) scale(0.9); }
+        50%, 88% { opacity: 1; transform: translateY(0) scale(1); }
+        95%, 100% { opacity: 0; transform: translateY(12px) scale(0.95); }
+      }
+
+      /* 5. Pulse Ring Waves */
+      .pulse-ring-1 {
+        transform-origin: 440px 750px;
+        animation: pulseRing1 8s ease-out infinite;
+      }
+      .pulse-ring-2 {
+        transform-origin: 880px 560px;
+        animation: pulseRing2 8s ease-out infinite;
+      }
+      .pulse-ring-3 {
+        transform-origin: 1400px 360px;
+        animation: pulseRing3 8s ease-out infinite;
+      }
+
+      @keyframes pulseRing1 {
+        0%, 18% { transform: scale(0.8); opacity: 0; }
+        22% { opacity: 0.8; }
+        30%, 88% { transform: scale(1.6); opacity: 0; }
+        100% { opacity: 0; }
+      }
+      @keyframes pulseRing2 {
+        0%, 32% { transform: scale(0.8); opacity: 0; }
+        36% { opacity: 0.8; }
+        44%, 88% { transform: scale(1.6); opacity: 0; }
+        100% { opacity: 0; }
+      }
+      @keyframes pulseRing3 {
+        0%, 46% { transform: scale(0.8); opacity: 0; }
+        50% { opacity: 0.9; }
+        58%, 88% { transform: scale(1.7); opacity: 0; }
+        100% { opacity: 0; }
+      }
+
+      /* 6. Bold Large Arrow Head Animation */
+      .arrow-group {
+        transform-origin: 1710px 210px;
+        animation: arrowAnim 8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+      }
+      @keyframes arrowAnim {
+        0%, 47% { opacity: 0; transform: scale(0.3); }
+        52% { opacity: 1; transform: scale(1.12); }
+        56% { transform: scale(1); }
+        66% { transform: scale(1.06); }
+        76% { transform: scale(1); }
+        86% { opacity: 1; transform: scale(1.04); }
+        94%, 100% { opacity: 0; transform: scale(0.5); }
+      }
+
+      /* 7. Beautiful Dynamic Colorful Sparkle Animations */
+      .sparkle-star-1 {
+        transform-origin: 1500px 270px;
+        animation: starPop1 8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+      }
+      .sparkle-star-2 {
+        transform-origin: 1740px 145px;
+        animation: starPop2 8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+      }
+      .sparkle-star-3 {
+        transform-origin: 1300px 290px;
+        animation: starPop3 8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+      }
+      .sparkle-star-4 {
+        transform-origin: 1530px 480px;
+        animation: starPop4 8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+      }
+      .sparkle-star-5 {
+        transform-origin: 1675px 300px;
+        animation: starPop5 8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+      }
+
+      .sparkle-cross-1 {
+        transform-origin: 1650px 150px;
+        animation: crossSpin1 8s ease-in-out infinite;
+      }
+      .sparkle-cross-2 {
+        transform-origin: 1420px 230px;
+        animation: crossSpin2 8s ease-in-out infinite;
+      }
+      .sparkle-cross-3 {
+        transform-origin: 1590px 490px;
+        animation: crossSpin3 8s ease-in-out infinite;
+      }
+
+      .sparkle-dot-1 {
+        transform-origin: 1585px 220px;
+        animation: dotPulse 8s ease-in-out infinite;
+      }
+      .sparkle-dot-2 {
+        transform-origin: 1715px 280px;
+        animation: dotPulse 8s ease-in-out infinite;
+      }
+      .sparkle-dot-3 {
+        transform-origin: 1360px 240px;
+        animation: dotPulse 8s ease-in-out infinite;
+      }
+
+      @keyframes starPop1 {
+        0%, 48% { opacity: 0; transform: scale(0.1) rotate(0deg); }
+        53% { opacity: 1; transform: scale(1.3) rotate(45deg); }
+        60% { opacity: 0.95; transform: scale(1) rotate(90deg); }
+        70% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+        80% { opacity: 0.9; transform: scale(0.95) rotate(270deg); }
+        88% { opacity: 1; transform: scale(1.1) rotate(360deg); }
+        94%, 100% { opacity: 0; transform: scale(0.2) rotate(400deg); }
+      }
+
+      @keyframes starPop2 {
+        0%, 50% { opacity: 0; transform: scale(0.1) rotate(0deg); }
+        55% { opacity: 1; transform: scale(1.35) rotate(-45deg); }
+        63% { opacity: 0.95; transform: scale(1) rotate(-90deg); }
+        73% { opacity: 1; transform: scale(1.25) rotate(-180deg); }
+        83% { opacity: 0.9; transform: scale(0.95) rotate(-270deg); }
+        88% { opacity: 1; transform: scale(1.15) rotate(-360deg); }
+        94%, 100% { opacity: 0; transform: scale(0.2) rotate(-400deg); }
+      }
+
+      @keyframes starPop3 {
+        0%, 46% { opacity: 0; transform: scale(0.1) rotate(0deg); }
+        51% { opacity: 1; transform: scale(1.25) rotate(30deg); }
+        60% { opacity: 0.9; transform: scale(1) rotate(90deg); }
+        72% { opacity: 1; transform: scale(1.15) rotate(180deg); }
+        84% { opacity: 0.85; transform: scale(0.95) rotate(270deg); }
+        88% { opacity: 1; transform: scale(1.05) rotate(360deg); }
+        93%, 100% { opacity: 0; transform: scale(0.2); }
+      }
+
+      @keyframes starPop4 {
+        0%, 52% { opacity: 0; transform: scale(0.1) rotate(0deg); }
+        57% { opacity: 1; transform: scale(1.3) rotate(45deg); }
+        66% { opacity: 0.9; transform: scale(1) rotate(120deg); }
+        76% { opacity: 1; transform: scale(1.2) rotate(220deg); }
+        88% { opacity: 1; transform: scale(1.1) rotate(360deg); }
+        94%, 100% { opacity: 0; transform: scale(0.2); }
+      }
+
+      @keyframes starPop5 {
+        0%, 53% { opacity: 0; transform: scale(0.1) rotate(0deg); }
+        58% { opacity: 1; transform: scale(1.25) rotate(-40deg); }
+        68% { opacity: 0.9; transform: scale(1) rotate(-110deg); }
+        78% { opacity: 1; transform: scale(1.15) rotate(-200deg); }
+        88% { opacity: 1; transform: scale(1.05) rotate(-360deg); }
+        94%, 100% { opacity: 0; transform: scale(0.2); }
+      }
+
+      @keyframes crossSpin1 {
+        0%, 49% { opacity: 0; transform: scale(0.2) rotate(0deg); }
+        54% { opacity: 1; transform: scale(1.2) rotate(90deg); }
+        70% { opacity: 0.85; transform: scale(1) rotate(180deg); }
+        88% { opacity: 1; transform: scale(1.15) rotate(360deg); }
+        94%, 100% { opacity: 0; transform: scale(0.2); }
+      }
+
+      @keyframes crossSpin2 {
+        0%, 47% { opacity: 0; transform: scale(0.2) rotate(0deg); }
+        52% { opacity: 1; transform: scale(1.2) rotate(-90deg); }
+        68% { opacity: 0.85; transform: scale(1) rotate(-180deg); }
+        88% { opacity: 1; transform: scale(1.1) rotate(-360deg); }
+        94%, 100% { opacity: 0; transform: scale(0.2); }
+      }
+
+      @keyframes crossSpin3 {
+        0%, 53% { opacity: 0; transform: scale(0.2) rotate(0deg); }
+        58% { opacity: 1; transform: scale(1.2) rotate(90deg); }
+        75% { opacity: 0.85; transform: scale(1) rotate(180deg); }
+        88% { opacity: 1; transform: scale(1.1) rotate(360deg); }
+        94%, 100% { opacity: 0; transform: scale(0.2); }
+      }
+
+      @keyframes dotPulse {
+        0%, 49% { opacity: 0; transform: scale(0.2); }
+        55% { opacity: 1; transform: scale(1.4); }
+        65% { opacity: 0.6; transform: scale(0.8); }
+        77% { opacity: 1; transform: scale(1.3); }
+        88% { opacity: 0.9; transform: scale(1); }
+        94%, 100% { opacity: 0; transform: scale(0.2); }
+      }
+    ]]></style>
+  </defs>
+
+  <!-- 1. Pure Clean Solid White Background -->
+  <rect width="1920" height="1080" fill="#ffffff"/>
+
+  <!-- 2. Single Solid Sleek Black Progression Curve -->
+  <!-- Soft Ambient Shadow -->
+  <path class="progression-glow" pathLength="1000"
+        d="M 140 820 C 250 820, 350 750, 440 750 C 580 750, 730 560, 880 560 C 1050 560, 1230 360, 1400 360 C 1530 360, 1635 275, 1704 215"
+        fill="none" stroke="#0f172a" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" opacity="0.12" filter="url(#blackGlow)"/>
+
+  <!-- Crisp Core Solid Black Line -->
+  <path class="progression-line" pathLength="1000"
+        d="M 140 820 C 250 820, 350 750, 440 750 C 580 750, 730 560, 880 560 C 1050 560, 1230 360, 1400 360 C 1530 360, 1635 275, 1704 215"
+        fill="none" stroke="#0f172a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- 3. Large, Bold, Symmetrical Solid Black Arrow Head -->
+  <g class="arrow-group">
+    <!-- Glow/Shadow Arrow -->
+    <path d="M 1635 216 L 1710 210 L 1693 283"
+          fill="none" stroke="#0f172a" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" opacity="0.2" filter="url(#blackGlow)"/>
+    <!-- Sharp Bold Solid Black Arrow -->
+    <path d="M 1635 216 L 1710 210 L 1693 283"
+          fill="none" stroke="#0f172a" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 4. Milestone Nodes & High-Contrast Typography -->
+
+  <!-- NODE 1: GOOD -->
+  <g>
+    <!-- Pulse Ring Wave -->
+    <circle class="pulse-ring-1" cx="440" cy="750" r="38" fill="none" stroke="#0f172a" stroke-width="3.5" stroke-opacity="0.4"/>
+
+    <!-- Node Badge (Elevated Crisp White Badge with Bold Black Accent) -->
+    <g class="node-1" filter="url(#nodeShadow)">
+      <circle cx="440" cy="750" r="38" fill="#0f172a" fill-opacity="0.08" stroke="#0f172a" stroke-width="2.5"/>
+      <circle cx="440" cy="750" r="28" fill="#ffffff" stroke="#0f172a" stroke-width="4.5"/>
+      <!-- Checkmark -->
+      <path class="check-1" d="M 429 750 L 437 758 L 453 741" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Clear, Bold GOOD Typography -->
+    <g class="text-label-1" text-anchor="middle" filter="url(#textShadowLight)">
+      <text x="440" y="845" font-size="52" font-weight="900" fill="#0f172a" letter-spacing="4">GOOD</text>
+    </g>
+  </g>
+
+  <!-- NODE 2: BETTER -->
+  <g>
+    <!-- Pulse Ring Wave -->
+    <circle class="pulse-ring-2" cx="880" cy="560" r="44" fill="none" stroke="#0f172a" stroke-width="3.5" stroke-opacity="0.4"/>
+
+    <!-- Node Badge (Elevated Crisp White Badge with Bold Black Accent) -->
+    <g class="node-2" filter="url(#nodeShadow)">
+      <circle cx="880" cy="560" r="44" fill="#0f172a" fill-opacity="0.08" stroke="#0f172a" stroke-width="2.5"/>
+      <circle cx="880" cy="560" r="32" fill="#ffffff" stroke="#0f172a" stroke-width="4.5"/>
+      <!-- Checkmark -->
+      <path class="check-2" d="M 868 560 L 876 568 L 894 550" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Clear, Bold BETTER Typography -->
+    <g class="text-label-2" text-anchor="middle" filter="url(#textShadowLight)">
+      <text x="880" y="655" font-size="52" font-weight="900" fill="#0f172a" letter-spacing="4">BETTER</text>
+    </g>
+  </g>
+
+  <!-- NODE 3: BEST -->
+  <g>
+    <!-- Pulse Ring Wave -->
+    <circle class="pulse-ring-3" cx="1400" cy="360" r="52" fill="none" stroke="#0f172a" stroke-width="4" stroke-opacity="0.45"/>
+
+    <!-- Node Badge (Elevated Crisp White Badge with Bold Black Accent) -->
+    <g class="node-3" filter="url(#nodeShadow)">
+      <circle cx="1400" cy="360" r="52" fill="#0f172a" fill-opacity="0.1" stroke="#0f172a" stroke-width="3"/>
+      <circle cx="1400" cy="360" r="36" fill="#ffffff" stroke="#0f172a" stroke-width="5"/>
+      <!-- Checkmark -->
+      <path class="check-3" d="M 1385 360 L 1395 370 L 1417 347" fill="none" stroke="#0f172a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Clear, Bold BEST Typography in Solid Black -->
+    <g class="text-label-3" text-anchor="middle" filter="url(#textShadowLight)">
+      <text x="1400" y="480" font-size="56" font-weight="900" fill="#0f172a" letter-spacing="5">BEST</text>
+    </g>
+  </g>
+
+  <!-- 5. Vibrant, Beautiful, Colorful Sparkles & Twinkle Celebration Burst -->
+  <g id="colorfulSparklesGroup">
+    <!-- Star 1: Brilliant Glowing Gold 4-Point Star above BEST -->
+    <g class="sparkle-star-1" filter="url(#sparkleGlow)">
+      <path d="M 1500 245 Q 1500 270 1525 270 Q 1500 270 1500 295 Q 1500 270 1475 270 Q 1500 270 1500 245 Z"
+            fill="#f59e0b"/>
+      <circle cx="1500" cy="270" r="3.5" fill="#fef08a"/>
+    </g>
+
+    <!-- Star 2: Vibrant Electric Cyan 4-Point Star near Arrow Apex -->
+    <g class="sparkle-star-2" filter="url(#sparkleGlow)">
+      <path d="M 1740 125 Q 1740 145 1760 145 Q 1740 145 1740 165 Q 1740 145 1720 145 Q 1740 145 1740 125 Z"
+            fill="#06b6d4"/>
+      <circle cx="1740" cy="145" r="3" fill="#cffafe"/>
+    </g>
+
+    <!-- Star 3: Rich Royal Purple 4-Point Star to the left of BEST -->
+    <g class="sparkle-star-3" filter="url(#sparkleGlow)">
+      <path d="M 1300 272 Q 1300 290 1318 290 Q 1300 290 1300 308 Q 1300 290 1282 290 Q 1300 290 1300 272 Z"
+            fill="#8b5cf6"/>
+      <circle cx="1300" cy="290" r="2.5" fill="#ede9fe"/>
+    </g>
+
+    <!-- Star 4: Vibrant Coral Pink 4-Point Star right of BEST label -->
+    <g class="sparkle-star-4" filter="url(#sparkleGlow)">
+      <path d="M 1530 462 Q 1530 480 1548 480 Q 1530 480 1530 498 Q 1530 480 1512 480 Q 1530 480 1530 462 Z"
+            fill="#f43f5e"/>
+      <circle cx="1530" cy="480" r="2.5" fill="#ffe4e6"/>
+    </g>
+
+    <!-- Star 5: Emerald Green 4-Point Star below Arrow -->
+    <g class="sparkle-star-5" filter="url(#sparkleGlow)">
+      <path d="M 1675 284 Q 1675 300 1691 300 Q 1675 300 1675 316 Q 1675 300 1659 300 Q 1675 300 1675 284 Z"
+            fill="#10b981"/>
+      <circle cx="1675" cy="300" r="2.5" fill="#d1fae5"/>
+    </g>
+
+    <!-- Twinkle Cross 1: Vibrant Amber Gold -->
+    <g class="sparkle-cross-1">
+      <path d="M 1650 138 L 1650 162 M 1638 150 L 1662 150" stroke="#f59e0b" stroke-width="3.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Twinkle Cross 2: Electric Cyan -->
+    <g class="sparkle-cross-2">
+      <path d="M 1420 218 L 1420 242 M 1408 230 L 1432 230" stroke="#0ea5e9" stroke-width="3" stroke-linecap="round"/>
+    </g>
+
+    <!-- Twinkle Cross 3: Violet Purple -->
+    <g class="sparkle-cross-3">
+      <path d="M 1590 478 L 1590 502 M 1578 490 L 1602 490" stroke="#a855f7" stroke-width="3" stroke-linecap="round"/>
+    </g>
+
+    <!-- Floating Twinkle Dots -->
+    <circle class="sparkle-dot-1" cx="1585" cy="220" r="5" fill="#ec4899"/>
+    <circle class="sparkle-dot-2" cx="1715" cy="280" r="4.5" fill="#3b82f6"/>
+    <circle class="sparkle-dot-3" cx="1360" cy="240" r="4" fill="#eab308"/>
+  </g>
+
+</svg>
