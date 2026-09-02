@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trading Candlestick Animation Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #090d16;
+      --bg-surface: #111827;
+      --bg-elevated: #1e293b;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --accent-primary: #10b981;
+      --accent-secondary: #f59e0b;
+      --accent-rose: #f43f5e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      max-width: 1440px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent-primary), #059669);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+    }
+
+    .brand-text h1 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-secondary {
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+    }
+
+    /* Tabs */
+    .tab-bar {
+      width: 100%;
+      max-width: 1440px;
+      display: flex;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 6px;
+      gap: 6px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .tab-btn.active {
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .tab-badge {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+    }
+
+    /* Main Showcase Stage */
+    .stage-container {
+      width: 100%;
+      max-width: 1440px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .stage-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .stage-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stage-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stage-media-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000000;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .stage-media-wrapper video,
+    .stage-media-wrapper object,
+    .stage-media-wrapper svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Floating Controls Bar */
+    .controls-bar {
+      width: 100%;
+      max-width: 1440px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .timeline-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .time-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--text-muted);
+      min-width: 90px;
+    }
+
+    .timeline-slider {
+      flex: 1;
+      -webkit-appearance: none;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--bg-elevated);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .timeline-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent-primary);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+
+    .timeline-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    /* Features Grid */
+    .features-grid {
+      width: 100%;
+      max-width: 1440px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+
+    .feature-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .feature-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--bg-elevated);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981, #34d399);
+      transition: width 0.1s;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">📈</div>
+      <div class="brand-text">
+        <h1>Trading Candlestick Animation Studio</h1>
+        <p>3D Multi-MA Breakout Vector Engine & 1080p Exporter</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-secondary" onclick="syncAllMedia()">
+        🔄 Sync All
+      </button>
+      <a class="btn btn-secondary" id="downloadSvgBtn" href="unique_trading_candlestick.svg" download="unique_trading_candlestick.svg">
+        📥 Download SVG
+      </a>
+      <button class="btn btn-primary" onclick="startExport()">
+        🎥 Export 1080p Video
+      </button>
+    </div>
+  </header>
+
+  <!-- View Mode Tabs -->
+  <div class="tab-bar">
+    <button class="tab-btn active" id="tabUnique" onclick="switchTab('unique')">
+      ✨ Adobe Stock Unique Edition (Recommended) <span class="tab-badge">1920x1080 60fps</span>
+    </button>
+    <button class="tab-btn" id="tabExact" onclick="switchTab('exact')">
+      🎯 Exact 1:1 Stock Replica (Verification) <span class="tab-badge">700x394</span>
+    </button>
+  </div>
+
+  <!-- Showcase Stage -->
+  <div class="stage-container">
+    <!-- Reference Stock Video Card -->
+    <div class="stage-card">
+      <div class="stage-card-header">
+        <div class="stage-card-title">
+          <span>Original Stock Video Reference</span>
+          <span class="tab-badge" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">Reference</span>
+        </div>
+        <span style="font-size: 12px; color: var(--text-muted);">Stock Preview</span>
+      </div>
+      <div class="stage-media-wrapper">
+        <video id="refVideo" src="700_F_2077522275_hkieurKUAbr6wgSFEuXrdZCEhN65gVnd_ST.mp4" loop muted playsinline></video>
+      </div>
+    </div>
+
+    <!-- Vector SVG Animation Card -->
+    <div class="stage-card">
+      <div class="stage-card-header">
+        <div class="stage-card-title">
+          <span id="svgCardTitle">Adobe Stock Unique Master SVG</span>
+          <span class="tab-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Ready for Marketplace</span>
+        </div>
+        <span style="font-size: 12px; color: var(--text-muted);" id="svgCardRes">Vector 60fps</span>
+      </div>
+      <div class="stage-media-wrapper" id="svgHost">
+        <object id="svgObject" data="unique_trading_candlestick.svg" type="image/svg+xml"></object>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Floating Controls Bar -->
+  <div class="controls-bar">
+    <button class="btn btn-primary" id="playBtn" onclick="togglePlay()">
+      ▶ Play / Pause
+    </button>
+    <button class="btn btn-secondary" onclick="restartPlayback()">
+      🔄 Restart
+    </button>
+    <button class="btn btn-secondary" id="speedBtn" onclick="cycleSpeed()">
+      1.0x Speed
+    </button>
+
+    <div class="timeline-container">
+      <input type="range" class="timeline-slider" id="scrubber" min="0" max="11" step="0.05" value="0" oninput="onScrub(this.value)" />
+      <div class="time-label" id="timeDisplay">0.00s / 11.0s</div>
+    </div>
+  </div>
+
+  <!-- Key FinTech Features Grid -->
+  <div class="features-grid">
+    <div class="feature-card">
+      <h3>🕯️ 20 Dynamic Candlesticks</h3>
+      <p>Precision sequenced bullish & bearish candlesticks with specular highlights & shadow wicks.</p>
+    </div>
+    <div class="feature-card">
+      <h3>📈 Triple MA Golden Cross</h3>
+      <p>Multi-stop glowing EMA 9, EMA 21, and EMA 50 trend curves drawing in mathematical harmony.</p>
+    </div>
+    <div class="feature-card">
+      <h3>📊 Volume Histogram Base</h3>
+      <p>Real-time responsive trading volume indicators positioned cleanly along the lower axis.</p>
+    </div>
+    <div class="feature-card">
+      <h3>💎 1080p FinTech Resolution</h3>
+      <p>Native 1920x1080 16:9 master resolution engineered specifically for high-earning microstock sales.</p>
+    </div>
+  </div>
+
+  <!-- Export Modal -->
+  <div class="modal-overlay" id="exportModal">
+    <div class="modal-card">
+      <h3 style="font-size: 18px; font-weight: 800;">🎥 Rendering 1080p 60fps Video</h3>
+      <p style="font-size: 13px; color: var(--text-muted);" id="exportStatus">Initializing frames...</p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="exportProgress"></div>
+      </div>
+      <button class="btn btn-secondary" onclick="cancelExport()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    let isPlaying = true;
+    let currentTab = 'unique';
+    let playbackSpeed = 1.0;
+    const TOTAL_DURATION = 11.0;
+    let startTime = performance.now();
+    let animationTimer = null;
+
+    const refVideo = document.getElementById('refVideo');
+    const svgObject = document.getElementById('svgObject');
+    const scrubber = document.getElementById('scrubber');
+    const timeDisplay = document.getElementById('timeDisplay');
+    const downloadSvgBtn = document.getElementById('downloadSvgBtn');
+
+    function syncAllMedia() {
+      startTime = performance.now();
+      refVideo.currentTime = 0;
+      refVideo.play();
+      reloadSvg();
+    }
+
+    function reloadSvg() {
+      const file = currentTab === 'unique' ? 'unique_trading_candlestick.svg' : 'trading_candlestick.svg';
+      const host = document.getElementById('svgHost');
+      host.innerHTML = `<object id="svgObject" data="${file}?t=${Date.now()}" type="image/svg+xml"></object>`;
+      downloadSvgBtn.href = file;
+      downloadSvgBtn.download = file;
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.getElementById('tabUnique').classList.toggle('active', tab === 'unique');
+      document.getElementById('tabExact').classList.toggle('active', tab === 'exact');
+      
+      const title = document.getElementById('svgCardTitle');
+      const res = document.getElementById('svgCardRes');
+      
+      if (tab === 'unique') {
+        title.textContent = 'Adobe Stock Unique Master SVG';
+        res.textContent = '1920x1080 60fps';
+      } else {
+        title.textContent = 'Exact 1:1 Stock Candlestick Replica';
+        res.textContent = '700x394 Vector';
+      }
+      
+      reloadSvg();
+      restartPlayback();
+    }
+
+    function togglePlay() {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        refVideo.play();
+      } else {
+        refVideo.pause();
+      }
+    }
+
+    function restartPlayback() {
+      startTime = performance.now();
+      refVideo.currentTime = 0;
+      refVideo.play();
+      reloadSvg();
+    }
+
+    function cycleSpeed() {
+      const speeds = [0.5, 1.0, 1.5, 2.0];
+      let nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+      playbackSpeed = speeds[nextIdx];
+      refVideo.playbackRate = playbackSpeed;
+      document.getElementById('speedBtn').textContent = playbackSpeed.toFixed(1) + 'x Speed';
+    }
+
+    function onScrub(val) {
+      refVideo.currentTime = parseFloat(val);
+      timeDisplay.textContent = parseFloat(val).toFixed(2) + 's / ' + TOTAL_DURATION.toFixed(1) + 's';
+    }
+
+    // Loop Sync Heartbeat
+    setInterval(() => {
+      if (refVideo && isPlaying) {
+        const t = refVideo.currentTime;
+        scrubber.value = t;
+        timeDisplay.textContent = t.toFixed(2) + 's / ' + TOTAL_DURATION.toFixed(1) + 's';
+      }
+    }, 100);
+
+    // Initial play
+    refVideo.play().catch(() => {});
+
+    // Export Logic
+    let exportCancelled = false;
+    async function startExport() {
+      const modal = document.getElementById('exportModal');
+      const progress = document.getElementById('exportProgress');
+      const status = document.getElementById('exportStatus');
+      modal.style.display = 'flex';
+      exportCancelled = false;
+
+      const file = currentTab === 'unique' ? 'unique_trading_candlestick.svg' : 'trading_candlestick.svg';
+      const response = await fetch(file);
+      const svgText = await response.text();
+
+      const canvas = document.createElement('canvas');
+      canvas.width = 1920;
+      canvas.height = 1080;
+      const ctx = canvas.getContext('2d');
+
+      const stream = canvas.captureStream(60);
+      const recorder = new MediaRecorder(stream, { mimeType: 'video/webm;codecs=vp9', videoBitsPerSecond: 12000000 });
+      const chunks = [];
+
+      recorder.ondataavailable = e => { if (e.data.size > 0) chunks.push(e.data); };
+      recorder.onstop = () => {
+        if (exportCancelled) return;
+        const blob = new Blob(chunks, { type: 'video/webm' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = currentTab === 'unique' ? 'trading_candlestick_1080p.webm' : 'replica_candlestick.webm';
+        a.click();
+        modal.style.display = 'none';
+      };
+
+      recorder.start();
+      const totalFrames = 60 * TOTAL_DURATION;
+      let frame = 0;
+
+      const img = new Image();
+      const svgBlob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(svgBlob);
+      img.src = url;
+      await new Promise(r => img.onload = r);
+
+      const interval = setInterval(() => {
+        if (exportCancelled || frame >= totalFrames) {
+          clearInterval(interval);
+          recorder.stop();
+          return;
+        }
+        ctx.clearRect(0, 0, 1920, 1080);
+        ctx.drawImage(img, 0, 0, 1920, 1080);
+        frame++;
+        const pct = ((frame / totalFrames) * 100).toFixed(0);
+        progress.style.width = pct + '%';
+        status.textContent = `Rendering frame ${frame} of ${totalFrames} (${pct}%)`;
+      }, 1000 / 60);
+    }
+
+    function cancelExport() {
+      exportCancelled = true;
+      document.getElementById('exportModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
