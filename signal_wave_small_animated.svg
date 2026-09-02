@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 2048 1480"
+     width="2048" height="1480"
+     preserveAspectRatio="xMidYMid meet">
+
+  <title>Small Signal Wave Animated SVG</title>
+
+  <style>
+    .signal {
+      fill:none;
+      stroke:#EA1615;
+      stroke-width:74;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    /* Overall icon is intentionally smaller and centered */
+    .icon {
+      transform-box:fill-box;
+      transform-origin:center;
+      transform:scale(.72);
+    }
+
+    .core {
+      fill:#EA1615;
+      transform-box:fill-box;
+      transform-origin:center;
+      animation:core 6s cubic-bezier(.22,.8,.25,1) infinite;
+    }
+
+    .wave {
+      opacity:0;
+      stroke-dasharray:1600;
+      stroke-dashoffset:1600;
+      animation-duration:6s;
+      animation-timing-function:cubic-bezier(.35,.75,.2,1);
+      animation-iteration-count:infinite;
+    }
+
+    .inner.left{animation-name:innerLeft}
+    .inner.right{animation-name:innerRight}
+    .middle.left{animation-name:middleLeft}
+    .middle.right{animation-name:middleRight}
+    .outer.left{animation-name:outerLeft}
+    .outer.right{animation-name:outerRight}
+
+    @keyframes core{
+      0%,83.33%{opacity:1;transform:scale(1)}
+      0.1%,8%{opacity:0;transform:scale(.15)}
+      8%{opacity:1;transform:scale(1.06)}
+      13%{opacity:1;transform:scale(1)}
+      83.34%,100%{opacity:0;transform:scale(.15)}
+    }
+
+    @keyframes innerLeft{
+      0%,13%{opacity:0;stroke-dashoffset:1600}
+      25%{opacity:1;stroke-dashoffset:650}
+      35%,83.33%{opacity:1;stroke-dashoffset:0}
+      83.34%,100%{opacity:0;stroke-dashoffset:1600}
+    }
+
+    @keyframes innerRight{
+      0%,15%{opacity:0;stroke-dashoffset:1600}
+      27%{opacity:1;stroke-dashoffset:650}
+      37%,83.33%{opacity:1;stroke-dashoffset:0}
+      83.34%,100%{opacity:0;stroke-dashoffset:1600}
+    }
+
+    @keyframes middleLeft{
+      0%,37%{opacity:0;stroke-dashoffset:1600}
+      49%{opacity:1;stroke-dashoffset:650}
+      59%,83.33%{opacity:1;stroke-dashoffset:0}
+      83.34%,100%{opacity:0;stroke-dashoffset:1600}
+    }
+
+    @keyframes middleRight{
+      0%,39%{opacity:0;stroke-dashoffset:1600}
+      51%{opacity:1;stroke-dashoffset:650}
+      61%,83.33%{opacity:1;stroke-dashoffset:0}
+      83.34%,100%{opacity:0;stroke-dashoffset:1600}
+    }
+
+    @keyframes outerLeft{
+      0%,61%{opacity:0;stroke-dashoffset:1600}
+      70%{opacity:1;stroke-dashoffset:650}
+      80%,83.33%{opacity:1;stroke-dashoffset:0}
+      83.34%,100%{opacity:0;stroke-dashoffset:1600}
+    }
+
+    @keyframes outerRight{
+      0%,63%{opacity:0;stroke-dashoffset:1600}
+      72%{opacity:1;stroke-dashoffset:650}
+      82%,83.33%{opacity:1;stroke-dashoffset:0}
+      83.34%,100%{opacity:0;stroke-dashoffset:1600}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      .core,.wave{
+        animation:none!important;
+        opacity:1!important;
+        transform:none!important;
+        stroke-dashoffset:0!important;
+      }
+    }
+  </style>
+
+  <g class="icon">
+
+    <!-- Center circle -->
+    <circle class="core" cx="1024" cy="740" r="227"/>
+
+    <!-- Inner -->
+    <path class="signal wave inner left"
+          d="M698 300 C500 505 500 975 698 1180"/>
+    <path class="signal wave inner right"
+          d="M1350 300 C1548 505 1548 975 1350 1180"/>
+
+    <!-- Middle -->
+    <path class="signal wave middle left"
+          d="M518 170 C185 490 185 990 518 1310"/>
+    <path class="signal wave middle right"
+          d="M1530 170 C1863 490 1863 990 1530 1310"/>
+
+    <!-- Outer -->
+    <path class="signal wave outer left"
+          d="M342 38 C-85 420 -85 1060 342 1442"/>
+    <path class="signal wave outer right"
+          d="M1706 38 C2133 420 2133 1060 1706 1442"/>
+
+  </g>
+</svg>
