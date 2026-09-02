@@ -1,0 +1,440 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <style><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap');
+
+      * {
+        box-sizing: border-box;
+      }
+
+      text {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        user-select: none;
+      }
+
+      /* 1. Master Container Animation */
+      .dashboard-card {
+        transform-origin: 960px 540px;
+        animation: cardEntry 10s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+      }
+
+      @keyframes cardEntry {
+        0% {
+          opacity: 0;
+          transform: scale(0.96);
+        }
+        5%, 86% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        94%, 100% {
+          opacity: 0;
+          transform: scale(0.98);
+        }
+      }
+
+      /* 2. Grid and Axes Entrance */
+      .grid-layer {
+        animation: gridIn 10s ease-out infinite;
+      }
+
+      @keyframes gridIn {
+        0%, 3% {
+          opacity: 0;
+        }
+        8%, 85% {
+          opacity: 1;
+        }
+        92%, 100% {
+          opacity: 0;
+        }
+      }
+
+      /* 3. Trend Line Drawing Animation */
+      .trend-path {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        animation: drawTrend 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+
+      .trend-area {
+        animation: areaFade 10s ease-out infinite;
+      }
+
+      @keyframes drawTrend {
+        0%, 18% {
+          stroke-dashoffset: 2000;
+          opacity: 0;
+        }
+        22% {
+          opacity: 1;
+        }
+        48%, 85% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+        90%, 100% {
+          stroke-dashoffset: 0;
+          opacity: 0;
+        }
+      }
+
+      @keyframes areaFade {
+        0%, 25% {
+          opacity: 0;
+        }
+        40%, 85% {
+          opacity: 0.12;
+        }
+        90%, 100% {
+          opacity: 0;
+        }
+      }
+
+      /* 4. Staggered Elastic Bar Rises (Origin at baseline y=780) */
+      .bar-col {
+        transform-origin: 0 780px;
+      }
+
+      .bar-1 { transform-origin: 460px 780px; animation: rise1 10s cubic-bezier(0.34, 1.3, 0.64, 1) infinite; }
+      .bar-2 { transform-origin: 620px 780px; animation: rise2 10s cubic-bezier(0.34, 1.3, 0.64, 1) infinite; }
+      .bar-3 { transform-origin: 780px 780px; animation: rise3 10s cubic-bezier(0.34, 1.3, 0.64, 1) infinite; }
+      .bar-4 { transform-origin: 940px 780px; animation: rise4 10s cubic-bezier(0.34, 1.3, 0.64, 1) infinite; }
+      .bar-5 { transform-origin: 1100px 780px; animation: rise5 10s cubic-bezier(0.34, 1.3, 0.64, 1) infinite; }
+      .bar-6 { transform-origin: 1260px 780px; animation: rise6 10s cubic-bezier(0.34, 1.3, 0.64, 1) infinite; }
+      .bar-7 { transform-origin: 1420px 780px; animation: rise7 10s cubic-bezier(0.34, 1.3, 0.64, 1) infinite; }
+
+      @keyframes rise1 {
+        0%, 7% { transform: scaleY(0); opacity: 0; }
+        9% { opacity: 1; }
+        22% { transform: scaleY(1.03); opacity: 1; }
+        26%, 84% { transform: scaleY(1); opacity: 1; }
+        90%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      @keyframes rise2 {
+        0%, 10% { transform: scaleY(0); opacity: 0; }
+        12% { opacity: 1; }
+        25% { transform: scaleY(1.03); opacity: 1; }
+        29%, 84% { transform: scaleY(1); opacity: 1; }
+        90%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      @keyframes rise3 {
+        0%, 13% { transform: scaleY(0); opacity: 0; }
+        15% { opacity: 1; }
+        28% { transform: scaleY(1.03); opacity: 1; }
+        32%, 84% { transform: scaleY(1); opacity: 1; }
+        90%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      @keyframes rise4 {
+        0%, 16% { transform: scaleY(0); opacity: 0; }
+        18% { opacity: 1; }
+        31% { transform: scaleY(1.03); opacity: 1; }
+        35%, 84% { transform: scaleY(1); opacity: 1; }
+        90%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      @keyframes rise5 {
+        0%, 19% { transform: scaleY(0); opacity: 0; }
+        21% { opacity: 1; }
+        34% { transform: scaleY(1.03); opacity: 1; }
+        38%, 84% { transform: scaleY(1); opacity: 1; }
+        90%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      @keyframes rise6 {
+        0%, 22% { transform: scaleY(0); opacity: 0; }
+        24% { opacity: 1; }
+        37% { transform: scaleY(1.03); opacity: 1; }
+        41%, 84% { transform: scaleY(1); opacity: 1; }
+        90%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      @keyframes rise7 {
+        0%, 25% { transform: scaleY(0); opacity: 0; }
+        27% { opacity: 1; }
+        40% { transform: scaleY(1.03); opacity: 1; }
+        44%, 84% { transform: scaleY(1); opacity: 1; }
+        90%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      /* 5. Tooltip Badges and Anchor Dots */
+      .badge-1 { transform-origin: 460px 434px; animation: popBadge1 10s cubic-bezier(0.34, 1.4, 0.64, 1) infinite; }
+      .badge-2 { transform-origin: 620px 549px; animation: popBadge2 10s cubic-bezier(0.34, 1.4, 0.64, 1) infinite; }
+      .badge-3 { transform-origin: 780px 357px; animation: popBadge3 10s cubic-bezier(0.34, 1.4, 0.64, 1) infinite; }
+      .badge-4 { transform-origin: 940px 477px; animation: popBadge4 10s cubic-bezier(0.34, 1.4, 0.64, 1) infinite; }
+      .badge-5 { transform-origin: 1100px 338px; animation: popBadge5 10s cubic-bezier(0.34, 1.4, 0.64, 1) infinite; }
+      .badge-6 { transform-origin: 1260px 516px; animation: popBadge6 10s cubic-bezier(0.34, 1.4, 0.64, 1) infinite; }
+      .badge-7 { transform-origin: 1420px 405px; animation: popBadge7 10s cubic-bezier(0.34, 1.4, 0.64, 1) infinite; }
+
+      @keyframes popBadge1 {
+        0%, 23% { opacity: 0; transform: scale(0.3) translateY(16px); }
+        27% { opacity: 1; transform: scale(1.1) translateY(-3px); }
+        30%, 82% { opacity: 1; transform: scale(1) translateY(0); }
+        86%, 100% { opacity: 0; transform: scale(0.6); }
+      }
+
+      @keyframes popBadge2 {
+        0%, 26% { opacity: 0; transform: scale(0.3) translateY(16px); }
+        30% { opacity: 1; transform: scale(1.1) translateY(-3px); }
+        33%, 82% { opacity: 1; transform: scale(1) translateY(0); }
+        86%, 100% { opacity: 0; transform: scale(0.6); }
+      }
+
+      @keyframes popBadge3 {
+        0%, 29% { opacity: 0; transform: scale(0.3) translateY(16px); }
+        33% { opacity: 1; transform: scale(1.1) translateY(-3px); }
+        36%, 82% { opacity: 1; transform: scale(1) translateY(0); }
+        86%, 100% { opacity: 0; transform: scale(0.6); }
+      }
+
+      @keyframes popBadge4 {
+        0%, 32% { opacity: 0; transform: scale(0.3) translateY(16px); }
+        36% { opacity: 1; transform: scale(1.1) translateY(-3px); }
+        39%, 82% { opacity: 1; transform: scale(1) translateY(0); }
+        86%, 100% { opacity: 0; transform: scale(0.6); }
+      }
+
+      @keyframes popBadge5 {
+        0%, 35% { opacity: 0; transform: scale(0.3) translateY(16px); }
+        39% { opacity: 1; transform: scale(1.1) translateY(-3px); }
+        42%, 82% { opacity: 1; transform: scale(1) translateY(0); }
+        86%, 100% { opacity: 0; transform: scale(0.6); }
+      }
+
+      @keyframes popBadge6 {
+        0%, 38% { opacity: 0; transform: scale(0.3) translateY(16px); }
+        42% { opacity: 1; transform: scale(1.1) translateY(-3px); }
+        45%, 82% { opacity: 1; transform: scale(1) translateY(0); }
+        86%, 100% { opacity: 0; transform: scale(0.6); }
+      }
+
+      @keyframes popBadge7 {
+        0%, 41% { opacity: 0; transform: scale(0.3) translateY(16px); }
+        45% { opacity: 1; transform: scale(1.1) translateY(-3px); }
+        48%, 82% { opacity: 1; transform: scale(1) translateY(0); }
+        86%, 100% { opacity: 0; transform: scale(0.6); }
+      }
+    ]]></style>
+
+    <!-- Clip Path at Baseline -->
+    <clipPath id="chartAreaClip">
+      <rect x="340" y="200" width="1240" height="580" />
+    </clipPath>
+
+    <!-- Palette Definition: #4254FB (Blue), #FFB422 (Amber Yellow), #FA4F58 (Coral Red) -->
+
+    <!-- 1. Blue Gradient (#4254FB) -->
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5f6ffc" />
+      <stop offset="25%" stop-color="#4254FB" />
+      <stop offset="100%" stop-color="#2d3fe8" />
+    </linearGradient>
+
+    <!-- 2. Amber Yellow Gradient (#FFB422) -->
+    <linearGradient id="gradYellow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffc347" />
+      <stop offset="25%" stop-color="#FFB422" />
+      <stop offset="100%" stop-color="#e89e0b" />
+    </linearGradient>
+
+    <!-- 3. Coral Red Gradient (#FA4F58) -->
+    <linearGradient id="gradRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fc6d75" />
+      <stop offset="25%" stop-color="#FA4F58" />
+      <stop offset="100%" stop-color="#e33741" />
+    </linearGradient>
+
+    <!-- Flat Highlight Strip Gradient -->
+    <linearGradient id="barGleam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.32" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Trend Line Gradient using the 3 Selected Colors -->
+    <linearGradient id="trendGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4254FB" />
+      <stop offset="30%" stop-color="#FFB422" />
+      <stop offset="65%" stop-color="#FA4F58" />
+      <stop offset="100%" stop-color="#4254FB" />
+    </linearGradient>
+
+    <!-- Trend Area Fill Gradient -->
+    <linearGradient id="areaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4254FB" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#4254FB" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Clean Minimalist Background -->
+  <rect width="1920" height="1080" fill="#ffffff" />
+
+  <!-- Master Chart Container Group -->
+  <g class="dashboard-card">
+
+    <!-- Grid Layer -->
+    <g class="grid-layer">
+      <!-- Horizontal Dashed Gridlines -->
+      <!-- 100% (y=300) -->
+      <line x1="370" y1="300" x2="1520" y2="300" stroke="#e8edf2" stroke-width="1.5" stroke-dasharray="6 6" />
+      <!-- 75% (y=420) -->
+      <line x1="370" y1="420" x2="1520" y2="420" stroke="#e8edf2" stroke-width="1.5" stroke-dasharray="6 6" />
+      <!-- 50% (y=540) -->
+      <line x1="370" y1="540" x2="1520" y2="540" stroke="#e8edf2" stroke-width="1.5" stroke-dasharray="6 6" />
+      <!-- 25% (y=660) -->
+      <line x1="370" y1="660" x2="1520" y2="660" stroke="#e8edf2" stroke-width="1.5" stroke-dasharray="6 6" />
+
+      <!-- Solid Baseline (y=780) -->
+      <line x1="370" y1="780" x2="1520" y2="780" stroke="#94a3b8" stroke-width="2" />
+
+      <!-- Left Y-Axis Line -->
+      <line x1="370" y1="300" x2="370" y2="780" stroke="#94a3b8" stroke-width="2" />
+
+      <!-- Y-Axis Value Labels (Medium Size & Weight) -->
+      <g font-size="15" font-weight="600" fill="#64748b" text-anchor="end">
+        <text x="348" y="305">100</text>
+        <text x="348" y="425">75</text>
+        <text x="348" y="545">50</text>
+        <text x="348" y="665">25</text>
+        <text x="348" y="785">0</text>
+      </g>
+
+      <!-- X-Axis Month Labels (Medium Size & Semibold Weight) -->
+      <g font-size="16" font-weight="600" fill="#475569" text-anchor="middle" letter-spacing="0.03em">
+        <text x="460" y="816">JAN</text>
+        <text x="620" y="816">FEB</text>
+        <text x="780" y="816">MAR</text>
+        <text x="940" y="816">APR</text>
+        <text x="1100" y="816">MAY</text>
+        <text x="1260" y="816">JUN</text>
+        <text x="1420" y="816">JUL</text>
+      </g>
+    </g>
+
+    <!-- Spline Trend Glow Area & Line -->
+    <path class="trend-area" d="M 460 780 L 460 434 C 540 434, 540 549, 620 549 C 700 549, 700 357, 780 357 C 860 357, 860 477, 940 477 C 1020 477, 1020 338, 1100 338 C 1180 338, 1180 516, 1260 516 C 1340 516, 1340 405, 1420 405 L 1420 780 Z" fill="url(#areaGrad)" />
+    <path class="trend-path" d="M 460 434 C 540 434, 540 549, 620 549 C 700 549, 700 357, 780 357 C 860 357, 860 477, 940 477 C 1020 477, 1020 338, 1100 338 C 1180 338, 1180 516, 1260 516 C 1340 516, 1340 405, 1420 405" fill="none" stroke="url(#trendGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Sharp Flat Rectangular Pillars (Colors: #4254FB, #FFB422, #FA4F58) -->
+    <g clip-path="url(#chartAreaClip)">
+
+      <!-- BAR 1: Jan (Blue #4254FB, Val: 72 -> height: 346, top: 434) -->
+      <g class="bar-col bar-1">
+        <rect x="415" y="434" width="90" height="346" fill="url(#gradBlue)" />
+        <rect x="415" y="434" width="10" height="346" fill="url(#barGleam)" />
+      </g>
+
+      <!-- BAR 2: Feb (Amber Yellow #FFB422, Val: 48 -> height: 231, top: 549) -->
+      <g class="bar-col bar-2">
+        <rect x="575" y="549" width="90" height="231" fill="url(#gradYellow)" />
+        <rect x="575" y="549" width="10" height="231" fill="url(#barGleam)" />
+      </g>
+
+      <!-- BAR 3: Mar (Coral Red #FA4F58, Val: 88 -> height: 423, top: 357) -->
+      <g class="bar-col bar-3">
+        <rect x="735" y="357" width="90" height="423" fill="url(#gradRed)" />
+        <rect x="735" y="357" width="10" height="423" fill="url(#barGleam)" />
+      </g>
+
+      <!-- BAR 4: Apr (Blue #4254FB, Val: 63 -> height: 303, top: 477) -->
+      <g class="bar-col bar-4">
+        <rect x="895" y="477" width="90" height="303" fill="url(#gradBlue)" />
+        <rect x="895" y="477" width="10" height="303" fill="url(#barGleam)" />
+      </g>
+
+      <!-- BAR 5: May (Coral Red #FA4F58 - Peak, Val: 92 -> height: 442, top: 338) -->
+      <g class="bar-col bar-5">
+        <rect x="1055" y="338" width="90" height="442" fill="url(#gradRed)" />
+        <rect x="1055" y="338" width="10" height="442" fill="url(#barGleam)" />
+      </g>
+
+      <!-- BAR 6: Jun (Amber Yellow #FFB422, Val: 55 -> height: 264, top: 516) -->
+      <g class="bar-col bar-6">
+        <rect x="1215" y="516" width="90" height="264" fill="url(#gradYellow)" />
+        <rect x="1215" y="516" width="10" height="264" fill="url(#barGleam)" />
+      </g>
+
+      <!-- BAR 7: Jul (Blue #4254FB, Val: 78 -> height: 375, top: 405) -->
+      <g class="bar-col bar-7">
+        <rect x="1375" y="405" width="90" height="375" fill="url(#gradBlue)" />
+        <rect x="1375" y="405" width="10" height="375" fill="url(#barGleam)" />
+      </g>
+
+    </g>
+
+    <!-- Clean Balanced Metric Badges & Anchor Dots Layer -->
+
+    <!-- BADGE 1: Jan (Blue - 72%) -->
+    <g class="badge-1">
+      <circle cx="460" cy="434" r="6.5" fill="#4254FB" stroke="#ffffff" stroke-width="2.5" />
+      <g transform="translate(460, 388)">
+        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#4254FB" />
+        <polygon points="-4,7 4,7 0,12" fill="#4254FB" />
+        <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">72%</text>
+      </g>
+    </g>
+
+    <!-- BADGE 2: Feb (Yellow - 48%) -->
+    <g class="badge-2">
+      <circle cx="620" cy="549" r="6.5" fill="#FFB422" stroke="#ffffff" stroke-width="2.5" />
+      <g transform="translate(620, 503)">
+        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#FFB422" />
+        <polygon points="-4,7 4,7 0,12" fill="#FFB422" />
+        <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">48%</text>
+      </g>
+    </g>
+
+    <!-- BADGE 3: Mar (Red - 88%) -->
+    <g class="badge-3">
+      <circle cx="780" cy="357" r="6.5" fill="#FA4F58" stroke="#ffffff" stroke-width="2.5" />
+      <g transform="translate(780, 311)">
+        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#FA4F58" />
+        <polygon points="-4,7 4,7 0,12" fill="#FA4F58" />
+        <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">88%</text>
+      </g>
+    </g>
+
+    <!-- BADGE 4: Apr (Blue - 63%) -->
+    <g class="badge-4">
+      <circle cx="940" cy="477" r="6.5" fill="#4254FB" stroke="#ffffff" stroke-width="2.5" />
+      <g transform="translate(940, 431)">
+        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#4254FB" />
+        <polygon points="-4,7 4,7 0,12" fill="#4254FB" />
+        <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">63%</text>
+      </g>
+    </g>
+
+    <!-- BADGE 5: May (Red - 92%) -->
+    <g class="badge-5">
+      <circle cx="1100" cy="338" r="7" fill="#FA4F58" stroke="#ffffff" stroke-width="2.5" />
+      <g transform="translate(1100, 292)">
+        <rect x="-34" y="-21" width="68" height="28" rx="6" fill="#FA4F58" />
+        <polygon points="-4,7 4,7 0,12" fill="#FA4F58" />
+        <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">92%</text>
+      </g>
+    </g>
+
+    <!-- BADGE 6: Jun (Yellow - 55%) -->
+    <g class="badge-6">
+      <circle cx="1260" cy="516" r="6.5" fill="#FFB422" stroke="#ffffff" stroke-width="2.5" />
+      <g transform="translate(1260, 470)">
+        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#FFB422" />
+        <polygon points="-4,7 4,7 0,12" fill="#FFB422" />
+        <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">55%</text>
+      </g>
+    </g>
+
+    <!-- BADGE 7: Jul (Blue - 78%) -->
+    <g class="badge-7">
+      <circle cx="1420" cy="405" r="6.5" fill="#4254FB" stroke="#ffffff" stroke-width="2.5" />
+      <g transform="translate(1420, 359)">
+        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#4254FB" />
+        <polygon points="-4,7 4,7 0,12" fill="#4254FB" />
+        <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">78%</text>
+      </g>
+    </g>
+
+  </g>
+</svg>

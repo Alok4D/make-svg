@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SVG Animation Comparison & Exporter - Infographic Bar Chart</title>
+  <title>Adobe Stock Infographic Animation Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #0b0f17;
-      --bg-surface: #131b26;
-      --bg-elevated: #1a2434;
+      --bg-primary: #090d16;
+      --bg-surface: #111827;
+      --bg-elevated: #1e293b;
       --border-color: rgba(255, 255, 255, 0.08);
-      --accent-primary: #3b82f6;
+      --accent-primary: #6366f1;
+      --accent-purple: #8b5cf6;
       --accent-green: #10b981;
-      --accent-yellow: #f59e0b;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --radius-lg: 16px;
-      --radius-md: 10px;
-      --radius-sm: 6px;
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
     }
 
     * {
@@ -44,40 +44,44 @@
     /* Header */
     header {
       width: 100%;
-      max-width: 1360px;
+      max-width: 1440px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
-      padding: 16px 24px;
+      padding: 18px 28px;
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .brand-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #10b981, #3b82f6);
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #8b5cf6, #3b82f6);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+      box-shadow: 0 0 24px rgba(139, 92, 246, 0.4);
     }
 
     .brand-title h1 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .brand-title p {
@@ -89,10 +93,11 @@
       display: flex;
       gap: 10px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .btn {
-      padding: 8px 16px;
+      padding: 9px 18px;
       font-size: 0.85rem;
       font-weight: 600;
       border-radius: var(--radius-sm);
@@ -108,33 +113,77 @@
     }
 
     .btn:hover {
-      background: #243248;
-      border-color: rgba(255, 255, 255, 0.15);
+      background: #28384e;
+      border-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-1px);
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #2563eb, #3b82f6);
-      border-color: #3b82f6;
-      box-shadow: 0 0 16px rgba(59, 130, 246, 0.3);
+    .btn-stock {
+      background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+      border-color: #8b5cf6;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
     }
 
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    .btn-stock:hover {
+      background: linear-gradient(135deg, #6d28d9, #7c3aed);
     }
 
     .btn-success {
       background: linear-gradient(135deg, #059669, #10b981);
       border-color: #10b981;
-      box-shadow: 0 0 16px rgba(16, 185, 129, 0.3);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
+    }
+
+    /* Tabs Bar */
+    .tab-bar {
+      width: 100%;
+      max-width: 1440px;
+      display: flex;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 6px;
+      gap: 8px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: var(--bg-elevated);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    .tab-badge {
+      font-size: 0.7rem;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(139, 92, 246, 0.2);
+      color: #c4b5fd;
+      border: 1px solid rgba(139, 92, 246, 0.4);
     }
 
     /* Main Grid */
     main {
       width: 100%;
-      max-width: 1360px;
+      max-width: 1440px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(540px, 1fr));
       gap: 24px;
     }
 
@@ -145,11 +194,11 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
     }
 
     .panel-header {
-      padding: 14px 20px;
+      padding: 16px 22px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -161,35 +210,15 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 700;
-    }
-
-    .badge {
-      font-size: 0.7rem;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .badge-source {
-      background: rgba(245, 158, 11, 0.15);
-      color: #fbbf24;
-      border: 1px solid rgba(245, 158, 11, 0.3);
-    }
-
-    .badge-svg {
-      background: rgba(16, 185, 129, 0.15);
-      color: #34d399;
-      border: 1px solid rgba(16, 185, 129, 0.3);
     }
 
     .media-container {
       position: relative;
       width: 100%;
-      aspect-ratio: 700 / 394;
-      background: #f7f3ef;
+      aspect-ratio: 16 / 9;
+      background: #f8fafc;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -197,8 +226,7 @@
     }
 
     .media-container video,
-    .media-container object,
-    .media-container svg {
+    .media-container object {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -208,11 +236,11 @@
     /* Controls Bar */
     .controls-bar {
       width: 100%;
-      max-width: 1360px;
+      max-width: 1440px;
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
-      padding: 18px 24px;
+      padding: 18px 26px;
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -242,9 +270,9 @@
 
     .time-label {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
-      min-width: 80px;
+      min-width: 90px;
     }
 
     .slider {
@@ -265,7 +293,7 @@
       border-radius: 50%;
       background: var(--accent-primary);
       cursor: pointer;
-      box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
       transition: transform 0.1s;
     }
 
@@ -273,93 +301,77 @@
       transform: scale(1.2);
     }
 
-    /* Comparison / Overlay Mode */
-    .overlay-section {
+    /* Feature Highlights for Adobe Stock */
+    .features-grid {
       width: 100%;
-      max-width: 1360px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 20px 24px;
-      display: flex;
-      flex-direction: column;
+      max-width: 1440px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 16px;
     }
 
-    .overlay-viewport {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      aspect-ratio: 700 / 394;
-      margin: 0 auto;
-      border-radius: var(--radius-md);
-      overflow: hidden;
+    .feature-card {
+      background: var(--bg-surface);
       border: 1px solid var(--border-color);
-      background: #f7f3ef;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
 
-    .overlay-layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-
-    .overlay-controls {
+    .feature-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #f1f5f9;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 8px;
     }
 
-    /* Code Modal / Drawer */
+    .feature-card p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Code Panel */
     .code-panel {
       width: 100%;
-      max-width: 1360px;
+      max-width: 1440px;
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
-      padding: 20px 24px;
+      padding: 20px 26px;
       display: flex;
       flex-direction: column;
       gap: 14px;
-    }
-
-    .code-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
 
     pre code {
       display: block;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.8rem;
-      color: #93c5fd;
-      background: #080c14;
-      padding: 16px;
+      color: #c4b5fd;
+      background: #060911;
+      padding: 18px;
       border-radius: var(--radius-md);
       overflow-x: auto;
-      max-height: 260px;
+      max-height: 280px;
       border: 1px solid var(--border-color);
     }
 
-    /* Notification Toast */
     #toast {
       position: fixed;
       bottom: 24px;
       right: 24px;
       background: #10b981;
       color: #ffffff;
-      padding: 10px 18px;
+      padding: 12px 20px;
       border-radius: var(--radius-sm);
       font-size: 0.85rem;
-      font-weight: 600;
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+      font-weight: 700;
+      box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4);
       opacity: 0;
       transform: translateY(12px);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -379,52 +391,64 @@
   <header>
     <div class="brand">
       <div class="brand-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="20" x2="18" y2="10"></line>
           <line x1="12" y1="20" x2="12" y2="4"></line>
           <line x1="6" y1="20" x2="6" y2="14"></line>
         </svg>
       </div>
       <div class="brand-title">
-        <h1>SVG Animation Replication</h1>
-        <p>Adobe Stock Infographic Bar Chart (700x394 @ 60fps)</p>
+        <h1>Adobe Stock Infographic Animation Studio</h1>
+        <p>Premium Unique Vector Motion Design &amp; 1080p 60fps Exporter</p>
       </div>
     </div>
+
     <div class="header-actions">
-      <button class="btn" id="btnSync"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg> Sync Video & SVG</button>
-      <a href="infographic_barchart.svg" download="infographic_barchart.svg" class="btn btn-primary"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download SVG</a>
-      <button class="btn btn-success" id="btnRecord"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg> Export MP4 / WebM</button>
+      <button class="btn" id="btnSync"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg> Sync All</button>
+      <a id="btnDownloadCurrent" href="unique_stock_barchart.svg" download="unique_stock_barchart.svg" class="btn btn-stock"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download SVG</a>
+      <button class="btn btn-success" id="btnRecord"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg> Export 1080p Video</button>
     </div>
   </header>
 
-  <!-- Side-by-Side Comparison -->
+  <!-- Design Mode Tab Switcher -->
+  <div class="tab-bar">
+    <button class="tab-btn active" id="tabUnique" onclick="switchDesign('unique')">
+      <span>✨ Adobe Stock Unique Edition (Recommended for Selling)</span>
+      <span class="tab-badge">1920x1080 60fps</span>
+    </button>
+    <button class="tab-btn" id="tabExact" onclick="switchDesign('exact')">
+      <span>🎯 Exact 1:1 Stock Replica (For Verification)</span>
+      <span class="tab-badge">700x394</span>
+    </button>
+  </div>
+
+  <!-- Side-by-Side Main Display -->
   <main>
-    <!-- Left: Original Video -->
+    <!-- Left: Original Source Video -->
     <div class="panel">
       <div class="panel-header">
         <div class="panel-title">
-          <span>Original Video Source</span>
-          <span class="badge badge-source">MP4 10.0s</span>
+          <span>Original Stock Video Reference</span>
+          <span style="font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">Reference</span>
         </div>
-        <span style="font-size: 0.75rem; color: var(--text-muted);">Stock Preview</span>
+        <span style="font-size: 0.78rem; color: var(--text-muted);">Stock Preview</span>
       </div>
       <div class="media-container">
         <video id="sourceVideo" src="700_F_1978501923_dGPaRqxGCMmDoenZrQXXlU2Ax78Jc3Zj_ST.mp4" playsinline loop muted autoplay></video>
       </div>
     </div>
 
-    <!-- Right: Generated SVG -->
+    <!-- Right: Selected SVG Design -->
     <div class="panel">
       <div class="panel-header">
         <div class="panel-title">
-          <span>Vector SVG Animation</span>
-          <span class="badge badge-svg">Pure SVG / CSS</span>
+          <span id="svgPanelTitle">Adobe Stock Unique Master SVG</span>
+          <span id="svgPanelBadge" style="font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; background: rgba(139, 92, 246, 0.2); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.4);">Ready for Marketplace</span>
         </div>
-        <span style="font-size: 0.75rem; color: #34d399; font-weight: 600;">Pixel-Perfect 60fps</span>
+        <span style="font-size: 0.78rem; color: #34d399; font-weight: 700;">Vector 60fps</span>
       </div>
       <div class="media-container" id="svgContainer">
-        <!-- Embedded SVG Object or Inline -->
-        <object id="svgObject" type="image/svg+xml" data="infographic_barchart.svg"></object>
+        <object id="svgObject" type="image/svg+xml" data="unique_stock_barchart.svg"></object>
       </div>
     </div>
   </main>
@@ -433,7 +457,7 @@
   <section class="controls-bar">
     <div class="controls-row">
       <div class="playback-buttons">
-        <button class="btn btn-primary" id="btnPlayPause"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Play / Pause</button>
+        <button class="btn btn-stock" id="btnPlayPause"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Play / Pause</button>
         <button class="btn" id="btnRestart"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg> Restart</button>
         <button class="btn" id="btnSpeed">1.0x Speed</button>
       </div>
@@ -445,85 +469,108 @@
     </div>
   </section>
 
-  <!-- Pixel Overlay Verification -->
-  <section class="overlay-section">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <h2 style="font-size: 1rem; font-weight: 700;">Pixel Overlay Alignment Inspector</h2>
-      <span style="font-size: 0.8rem; color: var(--text-muted);">Adjust opacity to verify alignment against original video</span>
+  <!-- Unique Features Highlights for Microstock -->
+  <section class="features-grid">
+    <div class="feature-card">
+      <h3>🎨 Unique FinTech Palette</h3>
+      <p>Multi-stop modern SaaS gradients (Emerald, Cyan, Amber, Coral, Royal Violet, Indigo, Gold) engineered for maximum commercial appeal.</p>
     </div>
-
-    <div class="overlay-viewport">
-      <!-- Background Video Layer -->
-      <video id="overlayVideo" src="700_F_1978501923_dGPaRqxGCMmDoenZrQXXlU2Ax78Jc3Zj_ST.mp4" class="overlay-layer" playsinline loop muted autoplay></video>
-      <!-- Foreground SVG Layer with Opacity -->
-      <object id="overlaySvg" type="image/svg+xml" data="infographic_barchart.svg" class="overlay-layer" style="opacity: 0.75;"></object>
+    <div class="feature-card">
+      <h3>📈 Dynamic Spline Trend Line</h3>
+      <p>Added animated spline curve + area glow tracing over bar peaks, giving microstock buyers higher perceived value.</p>
     </div>
-
-    <div class="overlay-controls">
-      <label style="font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 10px;">
-        <span>SVG Opacity:</span>
-        <input type="range" class="slider" id="opacitySlider" min="0" max="1" step="0.05" value="0.75" style="width: 180px;">
-        <span id="opacityLabel" style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; min-width: 40px;">75%</span>
-      </label>
-      <button class="btn" id="btnToggleDiff">Toggle Blend Mode (Difference)</button>
+    <div class="feature-card">
+      <h3>🏷️ Floating Tooltip Badges</h3>
+      <p>Modern pointer pill badges with percentages, dark elevation drop shadows, and a live pulsing peak indicator.</p>
+    </div>
+    <div class="feature-card">
+      <h3>💎 1080p Full HD Vector Scale</h3>
+      <p>1920x1080 native 16:9 master resolution with responsive SVG viewBox scaling for 4K video exports and presentations.</p>
     </div>
   </section>
 
   <!-- SVG Code Viewer -->
   <section class="code-panel">
-    <div class="code-header">
-      <h2 style="font-size: 1rem; font-weight: 700;">Embedded SVG Code</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h2 style="font-size: 1rem; font-weight: 700;" id="codePanelTitle">Embedded SVG Code (unique_stock_barchart.svg)</h2>
       <button class="btn" id="btnCopyCode"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy SVG Code</button>
     </div>
     <pre><code id="codeBlock">Loading SVG code...</code></pre>
   </section>
 
-  <div id="toast">Code copied to clipboard!</div>
+  <div id="toast">SVG Code copied to clipboard!</div>
 
   <script>
+    let currentMode = 'unique';
     const video = document.getElementById('sourceVideo');
-    const overlayVideo = document.getElementById('overlayVideo');
     const svgObj = document.getElementById('svgObject');
-    const overlaySvg = document.getElementById('overlaySvg');
     const btnPlayPause = document.getElementById('btnPlayPause');
     const btnRestart = document.getElementById('btnRestart');
     const btnSpeed = document.getElementById('btnSpeed');
     const btnSync = document.getElementById('btnSync');
     const scrubber = document.getElementById('scrubber');
     const timeDisplay = document.getElementById('timeDisplay');
-    const opacitySlider = document.getElementById('opacitySlider');
-    const opacityLabel = document.getElementById('opacityLabel');
-    const btnToggleDiff = document.getElementById('btnToggleDiff');
     const codeBlock = document.getElementById('codeBlock');
     const btnCopyCode = document.getElementById('btnCopyCode');
     const toast = document.getElementById('toast');
     const btnRecord = document.getElementById('btnRecord');
+    const btnDownloadCurrent = document.getElementById('btnDownloadCurrent');
+    const svgPanelTitle = document.getElementById('svgPanelTitle');
+    const svgPanelBadge = document.getElementById('svgPanelBadge');
+    const codePanelTitle = document.getElementById('codePanelTitle');
 
     let isPlaying = true;
     let playbackRate = 1.0;
     const speeds = [0.5, 1.0, 1.5, 2.0];
     let speedIdx = 1;
 
-    // Fetch and display SVG code
-    fetch('infographic_barchart.svg')
-      .then(res => res.text())
-      .then(text => {
-        codeBlock.textContent = text;
-      });
+    function loadSvgCode(file) {
+      fetch(file)
+        .then(res => res.text())
+        .then(text => {
+          codeBlock.textContent = text;
+        });
+    }
 
-    // Sync helper
+    loadSvgCode('unique_stock_barchart.svg');
+
+    function switchDesign(mode) {
+      currentMode = mode;
+      document.getElementById('tabUnique').classList.toggle('active', mode === 'unique');
+      document.getElementById('tabExact').classList.toggle('active', mode === 'exact');
+
+      if (mode === 'unique') {
+        svgObj.setAttribute('data', 'unique_stock_barchart.svg');
+        btnDownloadCurrent.setAttribute('href', 'unique_stock_barchart.svg');
+        btnDownloadCurrent.setAttribute('download', 'unique_stock_barchart.svg');
+        svgPanelTitle.textContent = 'Adobe Stock Unique Master SVG';
+        svgPanelBadge.textContent = 'Ready for Marketplace';
+        svgPanelBadge.style.background = 'rgba(139, 92, 246, 0.2)';
+        svgPanelBadge.style.color = '#c4b5fd';
+        codePanelTitle.textContent = 'Embedded SVG Code (unique_stock_barchart.svg)';
+        loadSvgCode('unique_stock_barchart.svg');
+      } else {
+        svgObj.setAttribute('data', 'infographic_barchart.svg');
+        btnDownloadCurrent.setAttribute('href', 'infographic_barchart.svg');
+        btnDownloadCurrent.setAttribute('download', 'infographic_barchart.svg');
+        svgPanelTitle.textContent = 'Exact 1:1 Stock Replica SVG';
+        svgPanelBadge.textContent = 'Exact Replica';
+        svgPanelBadge.style.background = 'rgba(16, 185, 129, 0.2)';
+        svgPanelBadge.style.color = '#34d399';
+        codePanelTitle.textContent = 'Embedded SVG Code (infographic_barchart.svg)';
+        loadSvgCode('infographic_barchart.svg');
+      }
+      restartSvgAnimations();
+    }
+
     function restartSvgAnimations() {
-      // Reload or reset SVG animation clock
       const data = svgObj.getAttribute('data');
       svgObj.setAttribute('data', data);
-      overlaySvg.setAttribute('data', data);
     }
 
     function syncAll() {
       video.currentTime = 0;
-      overlayVideo.currentTime = 0;
       video.play();
-      overlayVideo.play();
       restartSvgAnimations();
       isPlaying = true;
     }
@@ -534,8 +581,6 @@
     btnPlayPause.addEventListener('click', () => {
       if (isPlaying) {
         video.pause();
-        overlayVideo.pause();
-        // Pause SVG animations by setting animation-play-state
         try {
           const svgDoc = svgObj.contentDocument;
           if (svgDoc) {
@@ -548,7 +593,6 @@
         isPlaying = false;
       } else {
         video.play();
-        overlayVideo.play();
         try {
           const svgDoc = svgObj.contentDocument;
           if (svgDoc) {
@@ -568,7 +612,6 @@
       speedIdx = (speedIdx + 1) % speeds.length;
       playbackRate = speeds[speedIdx];
       video.playbackRate = playbackRate;
-      overlayVideo.playbackRate = playbackRate;
       btnSpeed.textContent = playbackRate + 'x Speed';
     });
 
@@ -584,26 +627,10 @@
     scrubber.addEventListener('input', () => {
       isDraggingScrubber = true;
       video.currentTime = scrubber.value;
-      overlayVideo.currentTime = scrubber.value;
       timeDisplay.textContent = `${parseFloat(scrubber.value).toFixed(2)}s / 10.0s`;
     });
     scrubber.addEventListener('change', () => {
       isDraggingScrubber = false;
-    });
-
-    // Opacity Slider
-    opacitySlider.addEventListener('input', () => {
-      const val = opacitySlider.value;
-      overlaySvg.style.opacity = val;
-      opacityLabel.textContent = `${Math.round(val * 100)}%`;
-    });
-
-    // Difference blend mode toggle
-    let isDiffMode = false;
-    btnToggleDiff.addEventListener('click', () => {
-      isDiffMode = !isDiffMode;
-      overlaySvg.style.mixBlendMode = isDiffMode ? 'difference' : 'normal';
-      btnToggleDiff.style.background = isDiffMode ? '#3b82f6' : 'var(--bg-elevated)';
     });
 
     // Copy SVG code
@@ -614,16 +641,16 @@
       });
     });
 
-    // High quality recorder
+    // 1080p Video Exporter
     btnRecord.addEventListener('click', async () => {
-      btnRecord.textContent = 'Rendering 10s MP4...';
+      btnRecord.textContent = 'Rendering 1080p Video...';
       btnRecord.disabled = true;
 
       try {
         const svgText = codeBlock.textContent;
         const canvas = document.createElement('canvas');
-        canvas.width = 1400; // 2x 1080p equivalent crisp resolution
-        canvas.height = 788;
+        canvas.width = 1920;
+        canvas.height = 1080;
         const ctx = canvas.getContext('2d');
 
         const stream = canvas.captureStream(60);
@@ -631,7 +658,7 @@
         if (!MediaRecorder.isTypeSupported(mimeType)) {
           mimeType = 'video/webm';
         }
-        const recorder = new MediaRecorder(stream, { mimeType, videoBitsPerSecond: 12000000 });
+        const recorder = new MediaRecorder(stream, { mimeType, videoBitsPerSecond: 16000000 });
         const chunks = [];
 
         recorder.ondataavailable = e => chunks.push(e.data);
@@ -640,24 +667,22 @@
           const url = URL.createObjectURL(blob);
           const a = document.createElement('a');
           a.href = url;
-          a.download = 'infographic_barchart_animation.webm';
+          a.download = currentMode === 'unique' ? 'adobe_stock_infographic_chart_1080p.webm' : 'infographic_barchart_1080p.webm';
           a.click();
           btnRecord.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Download Ready!';
           setTimeout(() => {
-            btnRecord.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg> Export MP4 / WebM';
+            btnRecord.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg> Export 1080p Video';
             btnRecord.disabled = false;
           }, 3000);
         };
 
         recorder.start();
 
-        // Render loop for 10 seconds (600 frames at 60fps)
         const totalDuration = 10;
         const fps = 60;
         const totalFrames = totalDuration * fps;
         let currentFrame = 0;
 
-        // Use svg image rendering
         const img = new Image();
         const svgBlob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
         const url = URL.createObjectURL(svgBlob);
@@ -680,7 +705,7 @@
       } catch (err) {
         console.error(err);
         alert('Export failed: ' + err.message);
-        btnRecord.textContent = 'Export MP4 / WebM';
+        btnRecord.textContent = 'Export 1080p Video';
         btnRecord.disabled = false;
       }
     });
