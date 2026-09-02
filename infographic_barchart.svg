@@ -1,0 +1,424 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 394" width="100%" height="100%">
+  <defs>
+    <style><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap');
+
+      * {
+        box-sizing: border-box;
+      }
+
+      text {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        user-select: none;
+      }
+
+      /* Base card and grid animation */
+      .chart-container {
+        transform-origin: 350px 197px;
+        animation: cardAnim 10s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+      }
+
+      @keyframes cardAnim {
+        0% {
+          opacity: 0;
+          transform: scale(0.96);
+        }
+        5%, 58% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        64%, 100% {
+          opacity: 0;
+          transform: scale(0.98);
+        }
+      }
+
+      /* Axes and Grid Lines Draw/Fade */
+      .grid-layer {
+        animation: gridFade 10s ease-out infinite;
+      }
+
+      @keyframes gridFade {
+        0%, 2% {
+          opacity: 0;
+        }
+        6%, 57% {
+          opacity: 1;
+        }
+        62%, 100% {
+          opacity: 0;
+        }
+      }
+
+      /* Bar Rise Animations with Spring / Overshoot */
+      .bar-group {
+        transform-box: fill-box;
+      }
+
+      .bar-1 {
+        transform-origin: 153px 314px;
+        animation: riseBar1 10s cubic-bezier(0.34, 1.25, 0.64, 1) infinite;
+      }
+      .bar-2 {
+        transform-origin: 219px 314px;
+        animation: riseBar2 10s cubic-bezier(0.34, 1.25, 0.64, 1) infinite;
+      }
+      .bar-3 {
+        transform-origin: 284.5px 314px;
+        animation: riseBar3 10s cubic-bezier(0.34, 1.25, 0.64, 1) infinite;
+      }
+      .bar-4 {
+        transform-origin: 350px 314px;
+        animation: riseBar4 10s cubic-bezier(0.34, 1.25, 0.64, 1) infinite;
+      }
+      .bar-5 {
+        transform-origin: 415.5px 314px;
+        animation: riseBar5 10s cubic-bezier(0.34, 1.25, 0.64, 1) infinite;
+      }
+      .bar-6 {
+        transform-origin: 481px 314px;
+        animation: riseBar6 10s cubic-bezier(0.34, 1.25, 0.64, 1) infinite;
+      }
+      .bar-7 {
+        transform-origin: 546.5px 314px;
+        animation: riseBar7 10s cubic-bezier(0.34, 1.25, 0.64, 1) infinite;
+      }
+
+      @keyframes riseBar1 {
+        0%, 7% { transform: scaleY(0); opacity: 0; }
+        8% { opacity: 1; }
+        19% { transform: scaleY(1.03); opacity: 1; }
+        22%, 50% { transform: scaleY(1); opacity: 1; }
+        56%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      @keyframes riseBar2 {
+        0%, 9% { transform: scaleY(0); opacity: 0; }
+        10% { opacity: 1; }
+        21% { transform: scaleY(1.03); opacity: 1; }
+        24%, 50% { transform: scaleY(1); opacity: 1; }
+        56%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      @keyframes riseBar3 {
+        0%, 11% { transform: scaleY(0); opacity: 0; }
+        12% { opacity: 1; }
+        23% { transform: scaleY(1.03); opacity: 1; }
+        26%, 50% { transform: scaleY(1); opacity: 1; }
+        56%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      @keyframes riseBar4 {
+        0%, 13% { transform: scaleY(0); opacity: 0; }
+        14% { opacity: 1; }
+        25% { transform: scaleY(1.03); opacity: 1; }
+        28%, 50% { transform: scaleY(1); opacity: 1; }
+        56%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      @keyframes riseBar5 {
+        0%, 15% { transform: scaleY(0); opacity: 0; }
+        16% { opacity: 1; }
+        27% { transform: scaleY(1.03); opacity: 1; }
+        30%, 50% { transform: scaleY(1); opacity: 1; }
+        56%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      @keyframes riseBar6 {
+        0%, 17% { transform: scaleY(0); opacity: 0; }
+        18% { opacity: 1; }
+        29% { transform: scaleY(1.03); opacity: 1; }
+        32%, 50% { transform: scaleY(1); opacity: 1; }
+        56%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      @keyframes riseBar7 {
+        0%, 19% { transform: scaleY(0); opacity: 0; }
+        20% { opacity: 1; }
+        31% { transform: scaleY(1.03); opacity: 1; }
+        34%, 50% { transform: scaleY(1); opacity: 1; }
+        56%, 100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      /* Pin Markers & Value Badges Pop In */
+      .pin-1 {
+        transform-origin: 153px 150px;
+        animation: popPin1 10s cubic-bezier(0.34, 1.5, 0.64, 1) infinite;
+      }
+      .pin-2 {
+        transform-origin: 219px 210px;
+        animation: popPin2 10s cubic-bezier(0.34, 1.5, 0.64, 1) infinite;
+      }
+      .pin-3 {
+        transform-origin: 284.5px 112px;
+        animation: popPin3 10s cubic-bezier(0.34, 1.5, 0.64, 1) infinite;
+      }
+      .pin-4 {
+        transform-origin: 350px 168px;
+        animation: popPin4 10s cubic-bezier(0.34, 1.5, 0.64, 1) infinite;
+      }
+      .pin-5 {
+        transform-origin: 415.5px 108px;
+        animation: popPin5 10s cubic-bezier(0.34, 1.5, 0.64, 1) infinite;
+      }
+      .pin-6 {
+        transform-origin: 481px 190px;
+        animation: popPin6 10s cubic-bezier(0.34, 1.5, 0.64, 1) infinite;
+      }
+      .pin-7 {
+        transform-origin: 546.5px 133px;
+        animation: popPin7 10s cubic-bezier(0.34, 1.5, 0.64, 1) infinite;
+      }
+
+      @keyframes popPin1 {
+        0%, 19% { opacity: 0; transform: scale(0.2) translateY(8px); }
+        23% { opacity: 1; transform: scale(1.18) translateY(-1px); }
+        26%, 49% { opacity: 1; transform: scale(1) translateY(0); }
+        52%, 100% { opacity: 0; transform: scale(0.5); }
+      }
+
+      @keyframes popPin2 {
+        0%, 21% { opacity: 0; transform: scale(0.2) translateY(8px); }
+        25% { opacity: 1; transform: scale(1.18) translateY(-1px); }
+        28%, 49% { opacity: 1; transform: scale(1) translateY(0); }
+        52%, 100% { opacity: 0; transform: scale(0.5); }
+      }
+
+      @keyframes popPin3 {
+        0%, 23% { opacity: 0; transform: scale(0.2) translateY(8px); }
+        27% { opacity: 1; transform: scale(1.18) translateY(-1px); }
+        30%, 49% { opacity: 1; transform: scale(1) translateY(0); }
+        52%, 100% { opacity: 0; transform: scale(0.5); }
+      }
+
+      @keyframes popPin4 {
+        0%, 25% { opacity: 0; transform: scale(0.2) translateY(8px); }
+        29% { opacity: 1; transform: scale(1.18) translateY(-1px); }
+        32%, 49% { opacity: 1; transform: scale(1) translateY(0); }
+        52%, 100% { opacity: 0; transform: scale(0.5); }
+      }
+
+      @keyframes popPin5 {
+        0%, 27% { opacity: 0; transform: scale(0.2) translateY(8px); }
+        31% { opacity: 1; transform: scale(1.18) translateY(-1px); }
+        34%, 49% { opacity: 1; transform: scale(1) translateY(0); }
+        52%, 100% { opacity: 0; transform: scale(0.5); }
+      }
+
+      @keyframes popPin6 {
+        0%, 29% { opacity: 0; transform: scale(0.2) translateY(8px); }
+        33% { opacity: 1; transform: scale(1.18) translateY(-1px); }
+        36%, 49% { opacity: 1; transform: scale(1) translateY(0); }
+        52%, 100% { opacity: 0; transform: scale(0.5); }
+      }
+
+      @keyframes popPin7 {
+        0%, 31% { opacity: 0; transform: scale(0.2) translateY(8px); }
+        35% { opacity: 1; transform: scale(1.18) translateY(-1px); }
+        38%, 49% { opacity: 1; transform: scale(1) translateY(0); }
+        52%, 100% { opacity: 0; transform: scale(0.5); }
+      }
+    ]]></style>
+
+    <!-- Drop Shadows -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1e293b" flood-opacity="0.05" />
+    </filter>
+
+    <filter id="pinShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+
+    <!-- Clip path to keep bars strictly bounded at baseline -->
+    <clipPath id="chartClip">
+      <rect x="110" y="70" width="480" height="244" />
+    </clipPath>
+
+    <!-- Bar Color Gradients for 3D Body Realism -->
+    <!-- Green Gradient (Jan, May) -->
+    <linearGradient id="gradGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#49b14f" />
+      <stop offset="50%" stop-color="#47ab4c" />
+      <stop offset="100%" stop-color="#3fa144" />
+    </linearGradient>
+
+    <!-- Blue Gradient (Feb, Jun) -->
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#289cf4" />
+      <stop offset="50%" stop-color="#1e93f0" />
+      <stop offset="100%" stop-color="#1685df" />
+    </linearGradient>
+
+    <!-- Yellow/Amber Gradient (Mar, Jul) -->
+    <linearGradient id="gradYellow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fec519" />
+      <stop offset="50%" stop-color="#f7bb05" />
+      <stop offset="100%" stop-color="#eaaf02" />
+    </linearGradient>
+
+    <!-- Red/Orange Gradient (Apr) -->
+    <linearGradient id="gradRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fe6333" />
+      <stop offset="50%" stop-color="#fe5421" />
+      <stop offset="100%" stop-color="#ec4613" />
+    </linearGradient>
+
+    <!-- Specular Gloss Highlight Gradient (Soft white overlay on left edge) -->
+    <linearGradient id="glossHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.38" />
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Top Cap Highlight Gradient -->
+    <linearGradient id="topCapHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas Outer Background -->
+  <rect width="700" height="394" fill="#f7f3ef" />
+
+  <!-- Main Chart Container Group -->
+  <g class="chart-container">
+    <!-- Chart Card Background -->
+    <rect x="100" y="76" width="500" height="262" rx="10" ry="10" fill="#eaeae7" filter="url(#cardShadow)" />
+
+    <!-- Grid Lines & Axis Layer -->
+    <g class="grid-layer">
+      <!-- Horizontal Dotted Grid Lines (25, 50, 75, 100) -->
+      <line x1="113" y1="88" x2="587" y2="88" stroke="#d3d7da" stroke-width="1" stroke-dasharray="3 3" />
+      <line x1="113" y1="144.5" x2="587" y2="144.5" stroke="#d3d7da" stroke-width="1" stroke-dasharray="3 3" />
+      <line x1="113" y1="201" x2="587" y2="201" stroke="#d3d7da" stroke-width="1" stroke-dasharray="3 3" />
+      <line x1="113" y1="257.5" x2="587" y2="257.5" stroke="#d3d7da" stroke-width="1" stroke-dasharray="3 3" />
+
+      <!-- Y-Axis Solid Line -->
+      <line x1="113" y1="88" x2="113" y2="314" stroke="#808a93" stroke-width="1.5" />
+
+      <!-- X-Axis Baseline Solid Line -->
+      <line x1="113" y1="314" x2="587" y2="314" stroke="#808a93" stroke-width="1.5" />
+
+      <!-- Y-Axis Value Labels -->
+      <g fill="#8c949b" font-size="9.5" font-weight="600" text-anchor="end">
+        <text x="105" y="91.5">100</text>
+        <text x="105" y="148">75</text>
+        <text x="105" y="204.5">50</text>
+        <text x="105" y="261">25</text>
+        <text x="105" y="317.5">0</text>
+      </g>
+
+      <!-- X-Axis Month Labels -->
+      <g fill="#8c949b" font-size="9.5" font-weight="600" text-anchor="middle">
+        <text x="153" y="327.5">Jan</text>
+        <text x="219" y="327.5">Feb</text>
+        <text x="284.5" y="327.5">Mar</text>
+        <text x="350" y="327.5">Apr</text>
+        <text x="415.5" y="327.5">May</text>
+        <text x="481" y="327.5">Jun</text>
+        <text x="546.5" y="327.5">Jul</text>
+      </g>
+    </g>
+
+    <!-- Bars Layer (Clipped at Baseline) -->
+    <g clip-path="url(#chartClip)">
+
+      <!-- BAR 1: Jan (Green, Val: 72, Top: 150) -->
+      <g class="bar-group bar-1">
+        <!-- Main Rounded Bar Body -->
+        <rect x="128" y="150" width="50" height="164" rx="6" ry="6" fill="url(#gradGreen)" />
+        <!-- 3D Specular Highlight Strip (Left Bevel) -->
+        <path d="M 128 314 L 128 156 Q 128 150 134 150 L 138 150 Q 133 150 133 156 L 133 314 Z" fill="url(#glossHighlight)" />
+        <!-- Top Curve Glow -->
+        <rect x="128" y="150" width="50" height="12" rx="6" ry="6" fill="url(#topCapHighlight)" />
+      </g>
+
+      <!-- BAR 2: Feb (Blue, Val: 48, Top: 210) -->
+      <g class="bar-group bar-2">
+        <rect x="194" y="210" width="50" height="104" rx="6" ry="6" fill="url(#gradBlue)" />
+        <path d="M 194 314 L 194 216 Q 194 210 200 210 L 204 210 Q 199 210 199 216 L 199 314 Z" fill="url(#glossHighlight)" />
+        <rect x="194" y="210" width="50" height="12" rx="6" ry="6" fill="url(#topCapHighlight)" />
+      </g>
+
+      <!-- BAR 3: Mar (Yellow, Val: 88, Top: 112) -->
+      <g class="bar-group bar-3">
+        <rect x="259.5" y="112" width="50" height="202" rx="6" ry="6" fill="url(#gradYellow)" />
+        <path d="M 259.5 314 L 259.5 118 Q 259.5 112 265.5 112 L 269.5 112 Q 264.5 112 264.5 118 L 264.5 314 Z" fill="url(#glossHighlight)" />
+        <rect x="259.5" y="112" width="50" height="12" rx="6" ry="6" fill="url(#topCapHighlight)" />
+      </g>
+
+      <!-- BAR 4: Apr (Red/Orange, Val: 63, Top: 168) -->
+      <g class="bar-group bar-4">
+        <rect x="325" y="168" width="50" height="146" rx="6" ry="6" fill="url(#gradRed)" />
+        <path d="M 325 314 L 325 174 Q 325 168 331 168 L 335 168 Q 330 168 330 174 L 330 314 Z" fill="url(#glossHighlight)" />
+        <rect x="325" y="168" width="50" height="12" rx="6" ry="6" fill="url(#topCapHighlight)" />
+      </g>
+
+      <!-- BAR 5: May (Green, Val: 92, Top: 108) -->
+      <g class="bar-group bar-5">
+        <rect x="390.5" y="108" width="50" height="206" rx="6" ry="6" fill="url(#gradGreen)" />
+        <path d="M 390.5 314 L 390.5 114 Q 390.5 108 396.5 108 L 400.5 108 Q 395.5 108 395.5 114 L 395.5 314 Z" fill="url(#glossHighlight)" />
+        <rect x="390.5" y="108" width="50" height="12" rx="6" ry="6" fill="url(#topCapHighlight)" />
+      </g>
+
+      <!-- BAR 6: Jun (Blue, Val: 55, Top: 190) -->
+      <g class="bar-group bar-6">
+        <rect x="456" y="190" width="50" height="124" rx="6" ry="6" fill="url(#gradBlue)" />
+        <path d="M 456 314 L 456 196 Q 456 190 462 190 L 466 190 Q 461 190 461 196 L 461 314 Z" fill="url(#glossHighlight)" />
+        <rect x="456" y="190" width="50" height="12" rx="6" ry="6" fill="url(#topCapHighlight)" />
+      </g>
+
+      <!-- BAR 7: Jul (Yellow, Val: 78, Top: 133) -->
+      <g class="bar-group bar-7">
+        <rect x="521.5" y="133" width="50" height="181" rx="6" ry="6" fill="url(#gradYellow)" />
+        <path d="M 521.5 314 L 521.5 139 Q 521.5 133 527.5 133 L 531.5 133 Q 526.5 133 526.5 139 L 526.5 314 Z" fill="url(#glossHighlight)" />
+        <rect x="521.5" y="133" width="50" height="12" rx="6" ry="6" fill="url(#topCapHighlight)" />
+      </g>
+
+    </g>
+
+    <!-- Badges & Indicator Pins Layer (Dots and Value Labels) -->
+    <!-- PIN 1 (Jan - 72) -->
+    <g class="pin-1">
+      <circle cx="153" cy="150" r="4.5" fill="#343c44" filter="url(#pinShadow)" />
+      <text x="153" y="141.5" text-anchor="middle" fill="#343c44" font-size="10.5" font-weight="700">72</text>
+    </g>
+
+    <!-- PIN 2 (Feb - 48) -->
+    <g class="pin-2">
+      <circle cx="219" cy="210" r="4.5" fill="#343c44" filter="url(#pinShadow)" />
+      <text x="219" y="201.5" text-anchor="middle" fill="#343c44" font-size="10.5" font-weight="700">48</text>
+    </g>
+
+    <!-- PIN 3 (Mar - 88) -->
+    <g class="pin-3">
+      <circle cx="284.5" cy="112" r="4.5" fill="#343c44" filter="url(#pinShadow)" />
+      <text x="284.5" y="103.5" text-anchor="middle" fill="#343c44" font-size="10.5" font-weight="700">88</text>
+    </g>
+
+    <!-- PIN 4 (Apr - 63) -->
+    <g class="pin-4">
+      <circle cx="350" cy="168" r="4.5" fill="#343c44" filter="url(#pinShadow)" />
+      <text x="350" y="159.5" text-anchor="middle" fill="#343c44" font-size="10.5" font-weight="700">63</text>
+    </g>
+
+    <!-- PIN 5 (May - 92) -->
+    <g class="pin-5">
+      <circle cx="415.5" cy="108" r="4.5" fill="#343c44" filter="url(#pinShadow)" />
+      <text x="415.5" y="99.5" text-anchor="middle" fill="#343c44" font-size="10.5" font-weight="700">92</text>
+    </g>
+
+    <!-- PIN 6 (Jun - 55) -->
+    <g class="pin-6">
+      <circle cx="481" cy="190" r="4.5" fill="#343c44" filter="url(#pinShadow)" />
+      <text x="481" y="181.5" text-anchor="middle" fill="#343c44" font-size="10.5" font-weight="700">55</text>
+    </g>
+
+    <!-- PIN 7 (Jul - 78) -->
+    <g class="pin-7">
+      <circle cx="546.5" cy="133" r="4.5" fill="#343c44" filter="url(#pinShadow)" />
+      <text x="546.5" y="124.5" text-anchor="middle" fill="#343c44" font-size="10.5" font-weight="700">78</text>
+    </g>
+
+  </g>
+</svg>
