@@ -14,7 +14,7 @@
         stroke-width: 1;
       }
       
-      /* Progressive Continuous Axes Drawing (Slowly across full 11s duration) */
+      /* Progressive Continuous Axes Drawing (0s to 10s growth + 1s hold pause) */
       .axis-main {
         fill: none;
         stroke: #15FF05;
@@ -23,11 +23,11 @@
         stroke-linejoin: round;
       }
 
-      /* Y-Axis: Grows upwards slowly from bottom (60, 365) to top (60, 30) across timeline */
+      /* Y-Axis: Grows upwards slowly from bottom (60, 365) to top (60, 30), holds for 1s */
       .axis-y {
         stroke-dasharray: 335;
         stroke-dashoffset: 335;
-        animation: drawAxisYSlow 11.0s linear infinite;
+        animation: drawAxisYSlow 12.0s linear infinite;
       }
       @keyframes drawAxisYSlow {
         0% {
@@ -37,21 +37,21 @@
         0.5% {
           opacity: 1;
         }
-        94.5% {
+        84.0%, 93.0% {
           stroke-dashoffset: 0;
           opacity: 1;
         }
-        97.0%, 100% {
+        96.0%, 100% {
           stroke-dashoffset: 0;
           opacity: 0;
         }
       }
 
-      /* X-Axis: Grows rightwards slowly across bottom from (60, 365) to (638, 365) as candles form */
+      /* X-Axis: Grows rightwards slowly across bottom, holds for 1s */
       .axis-x {
         stroke-dasharray: 578;
         stroke-dashoffset: 578;
-        animation: drawAxisXSlow 11.0s linear infinite;
+        animation: drawAxisXSlow 12.0s linear infinite;
       }
       @keyframes drawAxisXSlow {
         0% {
@@ -61,24 +61,24 @@
         0.5% {
           opacity: 1;
         }
-        94.5% {
+        84.0%, 93.0% {
           stroke-dashoffset: 0;
           opacity: 1;
         }
-        97.0%, 100% {
+        96.0%, 100% {
           stroke-dashoffset: 0;
           opacity: 0;
         }
       }
       
-      /* Moving Average Lines (Slowly progressing in sync) */
+      /* Moving Average Lines (Draw 0s-10s, hold for 1.0s full state, then restart) */
       .ma-green {
         fill: none;
         stroke: #25FF05;
         stroke-width: 1.8;
         stroke-dasharray: 1000;
         stroke-dashoffset: 1000;
-        animation: drawMAGreen 11.0s linear infinite;
+        animation: drawMAGreen 12.0s linear infinite;
       }
       .ma-yellow {
         fill: none;
@@ -86,7 +86,7 @@
         stroke-width: 1.8;
         stroke-dasharray: 1000;
         stroke-dashoffset: 1000;
-        animation: drawMAYellow 11.0s linear infinite;
+        animation: drawMAYellow 12.0s linear infinite;
       }
       .ma-red {
         fill: none;
@@ -94,28 +94,28 @@
         stroke-width: 1.8;
         stroke-dasharray: 1000;
         stroke-dashoffset: 1000;
-        animation: drawMARed 11.0s linear infinite;
+        animation: drawMARed 12.0s linear infinite;
       }
       
       @keyframes drawMAGreen {
-        0%, 4.8% { stroke-dashoffset: 1000; opacity: 0; }
-        6.0% { opacity: 1; }
-        94.5% { stroke-dashoffset: 0; opacity: 1; }
-        97%, 100% { stroke-dashoffset: 0; opacity: 0; }
+        0%, 4.42% { stroke-dashoffset: 1000; opacity: 0; }
+        5.42% { opacity: 1; }
+        84.0%, 93.0% { stroke-dashoffset: 0; opacity: 1; }
+        96.0%, 100% { stroke-dashoffset: 0; opacity: 0; }
       }
       
       @keyframes drawMAYellow {
-        0%, 21.8% { stroke-dashoffset: 1000; opacity: 0; }
-        23.0% { opacity: 1; }
-        94.5% { stroke-dashoffset: 0; opacity: 1; }
-        97%, 100% { stroke-dashoffset: 0; opacity: 0; }
+        0%, 20.0% { stroke-dashoffset: 1000; opacity: 0; }
+        21.0% { opacity: 1; }
+        84.0%, 93.0% { stroke-dashoffset: 0; opacity: 1; }
+        96.0%, 100% { stroke-dashoffset: 0; opacity: 0; }
       }
       
       @keyframes drawMARed {
-        0%, 12.7% { stroke-dashoffset: 1000; opacity: 0; }
-        14.0% { opacity: 1; }
-        94.5% { stroke-dashoffset: 0; opacity: 1; }
-        97%, 100% { stroke-dashoffset: 0; opacity: 0; }
+        0%, 11.67% { stroke-dashoffset: 1000; opacity: 0; }
+        12.67% { opacity: 1; }
+        84.0%, 93.0% { stroke-dashoffset: 0; opacity: 1; }
+        96.0%, 100% { stroke-dashoffset: 0; opacity: 0; }
       }
       
       
@@ -123,22 +123,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 100.0px 354px;
-        animation: anim_candle-1 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-1 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-1 {
-        0%, 4.82% {
+        0%, 4.42% {
           opacity: 0;
           transform: scaleY(0);
         }
-        6.62% {
+        5.92% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        7.82%, 94.5% {
+        6.72%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -147,22 +147,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 124.0px 332px;
-        animation: anim_candle-2 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-2 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-2 {
-        0%, 7.91% {
+        0%, 7.25% {
           opacity: 0;
           transform: scaleY(0);
         }
-        9.71% {
+        8.75% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        10.91%, 94.5% {
+        9.55%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -171,22 +171,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 147.0px 311px;
-        animation: anim_candle-3 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-3 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-3 {
-        0%, 12.73% {
+        0%, 11.67% {
           opacity: 0;
           transform: scaleY(0);
         }
-        14.53% {
+        13.17% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        15.73%, 94.5% {
+        13.97%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -195,22 +195,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 170.0px 333px;
-        animation: anim_candle-4 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-4 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-4 {
-        0%, 17.64% {
+        0%, 16.17% {
           opacity: 0;
           transform: scaleY(0);
         }
-        19.44% {
+        17.67% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        20.64%, 94.5% {
+        18.47%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -219,22 +219,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 195.5px 333px;
-        animation: anim_candle-5 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-5 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-5 {
-        0%, 21.82% {
+        0%, 20.0% {
           opacity: 0;
           transform: scaleY(0);
         }
-        23.62% {
+        21.5% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        24.82%, 94.5% {
+        22.3%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -243,22 +243,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 219.0px 293px;
-        animation: anim_candle-6 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-6 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-6 {
-        0%, 26.09% {
+        0%, 23.92% {
           opacity: 0;
           transform: scaleY(0);
         }
-        27.89% {
+        25.42% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        29.09%, 94.5% {
+        26.22%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -267,22 +267,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 242.0px 261px;
-        animation: anim_candle-7 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-7 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-7 {
-        0%, 30.91% {
+        0%, 28.33% {
           opacity: 0;
           transform: scaleY(0);
         }
-        32.71% {
+        29.83% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        33.91%, 94.5% {
+        30.63%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -291,22 +291,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 265.0px 279px;
-        animation: anim_candle-8 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-8 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-8 {
-        0%, 35.18% {
+        0%, 32.25% {
           opacity: 0;
           transform: scaleY(0);
         }
-        36.98% {
+        33.75% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        38.18%, 94.5% {
+        34.55%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -315,22 +315,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 289.0px 295px;
-        animation: anim_candle-9 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-9 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-9 {
-        0%, 39.45% {
+        0%, 36.17% {
           opacity: 0;
           transform: scaleY(0);
         }
-        41.25% {
+        37.67% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        42.45%, 94.5% {
+        38.47%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -339,22 +339,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 314.5px 295px;
-        animation: anim_candle-10 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-10 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-10 {
-        0%, 44.27% {
+        0%, 40.58% {
           opacity: 0;
           transform: scaleY(0);
         }
-        46.07% {
+        42.08% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        47.27%, 94.5% {
+        42.88%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -363,22 +363,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 337.0px 243px;
-        animation: anim_candle-11 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-11 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-11 {
-        0%, 49.18% {
+        0%, 45.08% {
           opacity: 0;
           transform: scaleY(0);
         }
-        50.98% {
+        46.58% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        52.18%, 94.5% {
+        47.38%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -387,22 +387,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 364.0px 219px;
-        animation: anim_candle-12 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-12 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-12 {
-        0%, 52.82% {
+        0%, 48.42% {
           opacity: 0;
           transform: scaleY(0);
         }
-        54.62% {
+        49.92% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        55.82%, 94.5% {
+        50.72%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -411,22 +411,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 388.0px 203px;
-        animation: anim_candle-13 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-13 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-13 {
-        0%, 57.64% {
+        0%, 52.83% {
           opacity: 0;
           transform: scaleY(0);
         }
-        59.44% {
+        54.33% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        60.64%, 94.5% {
+        55.13%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -435,22 +435,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 412.5px 203px;
-        animation: anim_candle-14 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-14 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-14 {
-        0%, 62.45% {
+        0%, 57.25% {
           opacity: 0;
           transform: scaleY(0);
         }
-        64.25% {
+        58.75% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        65.45%, 94.5% {
+        59.55%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -459,22 +459,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 435.0px 165px;
-        animation: anim_candle-15 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-15 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-15 {
-        0%, 67.36% {
+        0%, 61.75% {
           opacity: 0;
           transform: scaleY(0);
         }
-        69.16% {
+        63.25% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        70.36%, 94.5% {
+        64.05%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -483,22 +483,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 460.0px 137px;
-        animation: anim_candle-16 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-16 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-16 {
-        0%, 72.18% {
+        0%, 66.17% {
           opacity: 0;
           transform: scaleY(0);
         }
-        73.98% {
+        67.67% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        75.18%, 94.5% {
+        68.47%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -507,22 +507,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 483.0px 121px;
-        animation: anim_candle-17 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-17 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-17 {
-        0%, 77.09% {
+        0%, 70.67% {
           opacity: 0;
           transform: scaleY(0);
         }
-        78.89% {
+        72.17% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        80.09%, 94.5% {
+        72.97%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -531,22 +531,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 508.0px 163px;
-        animation: anim_candle-18 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-18 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-18 {
-        0%, 81.91% {
+        0%, 75.08% {
           opacity: 0;
           transform: scaleY(0);
         }
-        83.71% {
+        76.58% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        84.91%, 94.5% {
+        77.38%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -555,22 +555,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 532.0px 163px;
-        animation: anim_candle-19 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-19 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-19 {
-        0%, 86.73% {
+        0%, 79.5% {
           opacity: 0;
           transform: scaleY(0);
         }
-        88.53% {
+        81.0% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        89.73%, 94.5% {
+        81.8%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -579,22 +579,22 @@
         opacity: 0;
         transform: scaleY(0);
         transform-origin: 554.0px 125px;
-        animation: anim_candle-20 11.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
+        animation: anim_candle-20 12.0s cubic-bezier(0.2, 1, 0.4, 1) infinite;
       }
       @keyframes anim_candle-20 {
-        0%, 91.64% {
+        0%, 84.0% {
           opacity: 0;
           transform: scaleY(0);
         }
-        93.44% {
+        85.5% {
           opacity: 1;
           transform: scaleY(1.05);
         }
-        94.5%, 94.5% {
+        86.3%, 93.0% {
           opacity: 1;
           transform: scaleY(1);
         }
-        97.0%, 100% {
+        96.0%, 100% {
           opacity: 0;
           transform: scaleY(0);
         }
@@ -656,7 +656,7 @@
     <line class="grid-line" x1="0" y1="375" x2="700" y2="375" />
   </g>
 
-  <!-- Coordinate Axes: Slowly and progressively growing throughout full duration -->
+  <!-- Coordinate Axes: Progressive Growth from Origin with 1s Complete Hold Pause -->
   <g class="axes-group">
     <!-- Y Axis: Draws slowly from bottom origin (60, 365) upwards to top (60, 30) -->
     <path class="axis-main axis-y" d="M 60 365 L 60 30" />
@@ -664,7 +664,7 @@
     <path class="axis-main axis-x" d="M 60 365 L 638 365" />
   </g>
 
-  <!-- Candlesticks Layer (Rises from bottom axis in sync) -->
+  <!-- Candlesticks Layer (Rises in sync, holds complete state for 1.0s, then restarts) -->
   <g class="candlestick-layer">
     
     <!-- Candle 1 (GREEN) -->
