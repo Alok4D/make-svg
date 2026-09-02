@@ -224,27 +224,34 @@
       <rect x="340" y="200" width="1240" height="580" />
     </clipPath>
 
-    <!-- Palette Definition: #4254FB (Blue), #FFB422 (Amber Yellow), #FA4F58 (Coral Red) -->
+    <!-- 4-Color Combination Palette: #00C49F, #0088FE, #FFBB28, #FF8042 -->
 
-    <!-- 1. Blue Gradient (#4254FB) -->
+    <!-- 1. Teal / Green Gradient (#00C49F) -->
+    <linearGradient id="gradTeal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#18dcba" />
+      <stop offset="25%" stop-color="#00C49F" />
+      <stop offset="100%" stop-color="#00a888" />
+    </linearGradient>
+
+    <!-- 2. Blue Gradient (#0088FE) -->
     <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#5f6ffc" />
-      <stop offset="25%" stop-color="#4254FB" />
-      <stop offset="100%" stop-color="#2d3fe8" />
+      <stop offset="0%" stop-color="#249dff" />
+      <stop offset="25%" stop-color="#0088FE" />
+      <stop offset="100%" stop-color="#0072d6" />
     </linearGradient>
 
-    <!-- 2. Amber Yellow Gradient (#FFB422) -->
+    <!-- 3. Vibrant Golden Yellow Gradient (Replaced with user's exact color: #FBBE04 / #FEC832) -->
     <linearGradient id="gradYellow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ffc347" />
-      <stop offset="25%" stop-color="#FFB422" />
-      <stop offset="100%" stop-color="#e89e0b" />
+      <stop offset="0%" stop-color="#FEC832" />
+      <stop offset="25%" stop-color="#FBBE04" />
+      <stop offset="100%" stop-color="#E89F02" />
     </linearGradient>
 
-    <!-- 3. Coral Red Gradient (#FA4F58) -->
-    <linearGradient id="gradRed" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#fc6d75" />
-      <stop offset="25%" stop-color="#FA4F58" />
-      <stop offset="100%" stop-color="#e33741" />
+    <!-- 4. Coral Orange Gradient (#FF8042) -->
+    <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff945b" />
+      <stop offset="25%" stop-color="#FF8042" />
+      <stop offset="100%" stop-color="#e66b2e" />
     </linearGradient>
 
     <!-- Flat Highlight Strip Gradient -->
@@ -253,18 +260,21 @@
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
     </linearGradient>
 
-    <!-- Trend Line Gradient using the 3 Selected Colors -->
+    <!-- Trend Line Gradient across the 4 Colors -->
     <linearGradient id="trendGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#4254FB" />
-      <stop offset="30%" stop-color="#FFB422" />
-      <stop offset="65%" stop-color="#FA4F58" />
-      <stop offset="100%" stop-color="#4254FB" />
+      <stop offset="0%" stop-color="#00C49F" />
+      <stop offset="20%" stop-color="#0088FE" />
+      <stop offset="40%" stop-color="#FBBE04" />
+      <stop offset="55%" stop-color="#FF8042" />
+      <stop offset="72%" stop-color="#00C49F" />
+      <stop offset="86%" stop-color="#0088FE" />
+      <stop offset="100%" stop-color="#FBBE04" />
     </linearGradient>
 
     <!-- Trend Area Fill Gradient -->
     <linearGradient id="areaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#4254FB" stop-opacity="0.18" />
-      <stop offset="100%" stop-color="#4254FB" stop-opacity="0" />
+      <stop offset="0%" stop-color="#00C49F" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#00C49F" stop-opacity="0" />
     </linearGradient>
   </defs>
 
@@ -317,48 +327,48 @@
     <path class="trend-area" d="M 460 780 L 460 434 C 540 434, 540 549, 620 549 C 700 549, 700 357, 780 357 C 860 357, 860 477, 940 477 C 1020 477, 1020 338, 1100 338 C 1180 338, 1180 516, 1260 516 C 1340 516, 1340 405, 1420 405 L 1420 780 Z" fill="url(#areaGrad)" />
     <path class="trend-path" d="M 460 434 C 540 434, 540 549, 620 549 C 700 549, 700 357, 780 357 C 860 357, 860 477, 940 477 C 1020 477, 1020 338, 1100 338 C 1180 338, 1180 516, 1260 516 C 1340 516, 1340 405, 1420 405" fill="none" stroke="url(#trendGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
 
-    <!-- Sharp Flat Rectangular Pillars (Colors: #4254FB, #FFB422, #FA4F58) -->
+    <!-- Sharp Flat Rectangular Pillars (4-Color Sequence: #00C49F, #0088FE, #FFBB28, #FF8042) -->
     <g clip-path="url(#chartAreaClip)">
 
-      <!-- BAR 1: Jan (Blue #4254FB, Val: 72 -> height: 346, top: 434) -->
+      <!-- BAR 1: Jan (Teal #00C49F, Val: 72 -> height: 346, top: 434) -->
       <g class="bar-col bar-1">
-        <rect x="415" y="434" width="90" height="346" fill="url(#gradBlue)" />
+        <rect x="415" y="434" width="90" height="346" fill="url(#gradTeal)" />
         <rect x="415" y="434" width="10" height="346" fill="url(#barGleam)" />
       </g>
 
-      <!-- BAR 2: Feb (Amber Yellow #FFB422, Val: 48 -> height: 231, top: 549) -->
+      <!-- BAR 2: Feb (Blue #0088FE, Val: 48 -> height: 231, top: 549) -->
       <g class="bar-col bar-2">
-        <rect x="575" y="549" width="90" height="231" fill="url(#gradYellow)" />
+        <rect x="575" y="549" width="90" height="231" fill="url(#gradBlue)" />
         <rect x="575" y="549" width="10" height="231" fill="url(#barGleam)" />
       </g>
 
-      <!-- BAR 3: Mar (Coral Red #FA4F58, Val: 88 -> height: 423, top: 357) -->
+      <!-- BAR 3: Mar (Yellow #FFBB28, Val: 88 -> height: 423, top: 357) -->
       <g class="bar-col bar-3">
-        <rect x="735" y="357" width="90" height="423" fill="url(#gradRed)" />
+        <rect x="735" y="357" width="90" height="423" fill="url(#gradYellow)" />
         <rect x="735" y="357" width="10" height="423" fill="url(#barGleam)" />
       </g>
 
-      <!-- BAR 4: Apr (Blue #4254FB, Val: 63 -> height: 303, top: 477) -->
+      <!-- BAR 4: Apr (Orange #FF8042, Val: 63 -> height: 303, top: 477) -->
       <g class="bar-col bar-4">
-        <rect x="895" y="477" width="90" height="303" fill="url(#gradBlue)" />
+        <rect x="895" y="477" width="90" height="303" fill="url(#gradOrange)" />
         <rect x="895" y="477" width="10" height="303" fill="url(#barGleam)" />
       </g>
 
-      <!-- BAR 5: May (Coral Red #FA4F58 - Peak, Val: 92 -> height: 442, top: 338) -->
+      <!-- BAR 5: May (Teal #00C49F - Peak, Val: 92 -> height: 442, top: 338) -->
       <g class="bar-col bar-5">
-        <rect x="1055" y="338" width="90" height="442" fill="url(#gradRed)" />
+        <rect x="1055" y="338" width="90" height="442" fill="url(#gradTeal)" />
         <rect x="1055" y="338" width="10" height="442" fill="url(#barGleam)" />
       </g>
 
-      <!-- BAR 6: Jun (Amber Yellow #FFB422, Val: 55 -> height: 264, top: 516) -->
+      <!-- BAR 6: Jun (Blue #0088FE, Val: 55 -> height: 264, top: 516) -->
       <g class="bar-col bar-6">
-        <rect x="1215" y="516" width="90" height="264" fill="url(#gradYellow)" />
+        <rect x="1215" y="516" width="90" height="264" fill="url(#gradBlue)" />
         <rect x="1215" y="516" width="10" height="264" fill="url(#barGleam)" />
       </g>
 
-      <!-- BAR 7: Jul (Blue #4254FB, Val: 78 -> height: 375, top: 405) -->
+      <!-- BAR 7: Jul (Yellow #FFBB28, Val: 78 -> height: 375, top: 405) -->
       <g class="bar-col bar-7">
-        <rect x="1375" y="405" width="90" height="375" fill="url(#gradBlue)" />
+        <rect x="1375" y="405" width="90" height="375" fill="url(#gradYellow)" />
         <rect x="1375" y="405" width="10" height="375" fill="url(#barGleam)" />
       </g>
 
@@ -366,72 +376,72 @@
 
     <!-- Clean Balanced Metric Badges & Anchor Dots Layer -->
 
-    <!-- BADGE 1: Jan (Blue - 72%) -->
+    <!-- BADGE 1: Jan (Teal - 72%) -->
     <g class="badge-1">
-      <circle cx="460" cy="434" r="6.5" fill="#4254FB" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="460" cy="434" r="6.5" fill="#00C49F" stroke="#ffffff" stroke-width="2.5" />
       <g transform="translate(460, 388)">
-        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#4254FB" />
-        <polygon points="-4,7 4,7 0,12" fill="#4254FB" />
+        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#00C49F" />
+        <polygon points="-4,7 4,7 0,12" fill="#00C49F" />
         <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">72%</text>
       </g>
     </g>
 
-    <!-- BADGE 2: Feb (Yellow - 48%) -->
+    <!-- BADGE 2: Feb (Blue - 48%) -->
     <g class="badge-2">
-      <circle cx="620" cy="549" r="6.5" fill="#FFB422" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="620" cy="549" r="6.5" fill="#0088FE" stroke="#ffffff" stroke-width="2.5" />
       <g transform="translate(620, 503)">
-        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#FFB422" />
-        <polygon points="-4,7 4,7 0,12" fill="#FFB422" />
+        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#0088FE" />
+        <polygon points="-4,7 4,7 0,12" fill="#0088FE" />
         <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">48%</text>
       </g>
     </g>
 
-    <!-- BADGE 3: Mar (Red - 88%) -->
+    <!-- BADGE 3: Mar (Yellow - 88%) -->
     <g class="badge-3">
-      <circle cx="780" cy="357" r="6.5" fill="#FA4F58" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="780" cy="357" r="6.5" fill="#FBBE04" stroke="#ffffff" stroke-width="2.5" />
       <g transform="translate(780, 311)">
-        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#FA4F58" />
-        <polygon points="-4,7 4,7 0,12" fill="#FA4F58" />
+        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#FBBE04" />
+        <polygon points="-4,7 4,7 0,12" fill="#FBBE04" />
         <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">88%</text>
       </g>
     </g>
 
-    <!-- BADGE 4: Apr (Blue - 63%) -->
+    <!-- BADGE 4: Apr (Orange - 63%) -->
     <g class="badge-4">
-      <circle cx="940" cy="477" r="6.5" fill="#4254FB" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="940" cy="477" r="6.5" fill="#FF8042" stroke="#ffffff" stroke-width="2.5" />
       <g transform="translate(940, 431)">
-        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#4254FB" />
-        <polygon points="-4,7 4,7 0,12" fill="#4254FB" />
+        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#FF8042" />
+        <polygon points="-4,7 4,7 0,12" fill="#FF8042" />
         <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">63%</text>
       </g>
     </g>
 
-    <!-- BADGE 5: May (Red - 92%) -->
+    <!-- BADGE 5: May (Teal - 92%) -->
     <g class="badge-5">
-      <circle cx="1100" cy="338" r="7" fill="#FA4F58" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="1100" cy="338" r="7" fill="#00C49F" stroke="#ffffff" stroke-width="2.5" />
       <g transform="translate(1100, 292)">
-        <rect x="-34" y="-21" width="68" height="28" rx="6" fill="#FA4F58" />
-        <polygon points="-4,7 4,7 0,12" fill="#FA4F58" />
+        <rect x="-34" y="-21" width="68" height="28" rx="6" fill="#00C49F" />
+        <polygon points="-4,7 4,7 0,12" fill="#00C49F" />
         <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">92%</text>
       </g>
     </g>
 
-    <!-- BADGE 6: Jun (Yellow - 55%) -->
+    <!-- BADGE 6: Jun (Blue - 55%) -->
     <g class="badge-6">
-      <circle cx="1260" cy="516" r="6.5" fill="#FFB422" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="1260" cy="516" r="6.5" fill="#0088FE" stroke="#ffffff" stroke-width="2.5" />
       <g transform="translate(1260, 470)">
-        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#FFB422" />
-        <polygon points="-4,7 4,7 0,12" fill="#FFB422" />
+        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#0088FE" />
+        <polygon points="-4,7 4,7 0,12" fill="#0088FE" />
         <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">55%</text>
       </g>
     </g>
 
-    <!-- BADGE 7: Jul (Blue - 78%) -->
+    <!-- BADGE 7: Jul (Yellow - 78%) -->
     <g class="badge-7">
-      <circle cx="1420" cy="405" r="6.5" fill="#4254FB" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="1420" cy="405" r="6.5" fill="#FBBE04" stroke="#ffffff" stroke-width="2.5" />
       <g transform="translate(1420, 359)">
-        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#4254FB" />
-        <polygon points="-4,7 4,7 0,12" fill="#4254FB" />
+        <rect x="-32" y="-21" width="64" height="28" rx="6" fill="#FBBE04" />
+        <polygon points="-4,7 4,7 0,12" fill="#FBBE04" />
         <text x="0" y="-3" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">78%</text>
       </g>
     </g>
