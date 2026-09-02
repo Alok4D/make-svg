@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Graph — Globally Distributed Infrastructure Animation Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #05040d;
+      --bg-card: #0c091f;
+      --bg-elevated: #161233;
+      --border-color: #272052;
+      --accent-purple: #8b5cf6;
+      --accent-glow: #6f4cff;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      gap: 20px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #6f4cff, #a855f7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 0 20px rgba(111, 76, 255, 0.5);
+    }
+
+    .brand-text h1 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-secondary {
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6f4cff, #8b5cf6);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(111, 76, 255, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(111, 76, 255, 0.6);
+    }
+
+    /* Tabs */
+    .tabs-nav {
+      display: flex;
+      gap: 8px;
+      background: var(--bg-card);
+      padding: 6px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      width: fit-content;
+    }
+
+    .tab-btn {
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: var(--bg-elevated);
+      color: #ffffff;
+      border: 1px solid var(--accent-purple);
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+    }
+
+    /* Grid Layout */
+    .main-viewport {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      flex: 1;
+    }
+
+    @media (max-width: 1200px) {
+      .main-viewport {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .preview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-ref {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .badge-svg {
+      background: rgba(139, 92, 246, 0.15);
+      color: #a78bfa;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .media-container {
+      width: 100%;
+      height: 480px;
+      background: #000000;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .media-container object, .media-container img, .media-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Controls Bar */
+    .controls-bar {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-card h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stat-card p {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    /* Modal for Exporter */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      width: 460px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--bg-elevated);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #6f4cff, #a855f7);
+      transition: width 0.1s;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">🌐</div>
+      <div class="brand-text">
+        <h1>The Graph — Globally Distributed Infrastructure Animation Studio</h1>
+        <p>Web3 Decentralized Network Map & Multi-Resolution Vector Engine</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-secondary" onclick="reloadSvg()">
+        🔄 Restart Animations
+      </button>
+      <a class="btn btn-secondary" id="downloadSvgBtn" href="thegraph_world_map_1080p.svg" download="thegraph_world_map_1080p.svg">
+        📥 Download SVG
+      </a>
+      <button class="btn btn-primary" onclick="startExport()">
+        🎥 Export 1080p Video
+      </button>
+    </div>
+  </header>
+
+  <!-- View Switcher Tabs -->
+  <div class="tabs-nav">
+    <button class="tab-btn active" id="tab1080" onclick="switchTab('1080p')">
+      ✨ 1080p Web3 Master Edition (Recommended) <span style="opacity: 0.6; font-size: 11px;">1920x1080</span>
+    </button>
+    <button class="tab-btn" id="tabReplica" onclick="switchTab('replica')">
+      🎯 Exact 1:1 Website Replica <span style="opacity: 0.6; font-size: 11px;">800x416</span>
+    </button>
+  </div>
+
+  <!-- Main Viewport -->
+  <div class="main-viewport">
+    <!-- Left: Original Website Capture Reference -->
+    <div class="preview-card">
+      <div class="card-header">
+        <span class="card-title">
+          <span>TheGraph.com Live Section Screenshot</span>
+          <span class="badge badge-ref">Official Reference</span>
+        </span>
+        <span style="font-size: 12px; color: var(--text-dim);">Live Site</span>
+      </div>
+      <div class="media-container">
+        <img id="refImg" src="C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/thegraph_world_map_1788339552513.png" alt="TheGraph Reference" />
+      </div>
+    </div>
+
+    <!-- Right: Animated Vector SVG -->
+    <div class="preview-card">
+      <div class="card-header">
+        <span class="card-title">
+          <span id="svgCardTitle">1080p Web3 Master Edition SVG</span>
+          <span class="badge badge-svg">Vector Render</span>
+        </span>
+        <span id="svgCardRes" style="font-size: 12px; color: var(--text-dim);">1920x1080 60fps</span>
+      </div>
+      <div class="media-container" id="svgHost">
+        <object id="svgObject" data="thegraph_world_map_1080p.svg" type="image/svg+xml"></object>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature & Info Cards -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <h3>🌐 42 Global Node Coordinates</h3>
+      <p>Precision geographically mapped Indexer, Curator & Delegator nodes across North America, Europe, Asia, Africa, and Australia.</p>
+    </div>
+    <div class="stat-card">
+      <h3>💫 Dynamic Ripple Waves</h3>
+      <p>Multi-phase expanding purple pulse circles with glowing center node points matching TheGraph's exact visual identity.</p>
+    </div>
+    <div class="stat-card">
+      <h3>⚡ Interconnected Transmission Arcs</h3>
+      <p>Animated glowing curved data transfer streams connecting major global infrastructure hubs across continents.</p>
+    </div>
+    <div class="stat-card">
+      <h3>💎 Ultra-HD 1080p Vector Quality</h3>
+      <p>Clean SVG vectors infinitely scalable for video production, stock marketplaces, presentations, and Web3 interfaces.</p>
+    </div>
+  </div>
+
+  <!-- Exporter Modal -->
+  <div class="modal-backdrop" id="exportModal">
+    <div class="modal-content">
+      <h3 style="font-size: 18px; font-weight: 700;">Recording 1080p Vector Video...</h3>
+      <p style="font-size: 13px; color: var(--text-muted);" id="exportStatus">Rendering 60fps frames...</p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="exportProgress"></div>
+      </div>
+      <button class="btn btn-secondary" onclick="cancelExport()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    let currentTab = '1080p';
+    const svgObject = document.getElementById('svgObject');
+    const downloadSvgBtn = document.getElementById('downloadSvgBtn');
+
+    function reloadSvg() {
+      const file = currentTab === '1080p' ? 'thegraph_world_map_1080p.svg' : 'thegraph_world_map_replica.svg';
+      const host = document.getElementById('svgHost');
+      host.innerHTML = `<object id="svgObject" data="${file}?t=${Date.now()}" type="image/svg+xml"></object>`;
+      downloadSvgBtn.href = file;
+      downloadSvgBtn.download = file;
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.getElementById('tab1080').classList.toggle('active', tab === '1080p');
+      document.getElementById('tabReplica').classList.toggle('active', tab === 'replica');
+      
+      const title = document.getElementById('svgCardTitle');
+      const res = document.getElementById('svgCardRes');
+      
+      if (tab === '1080p') {
+        title.textContent = '1080p Web3 Master Edition SVG';
+        res.textContent = '1920x1080 60fps';
+      } else {
+        title.textContent = 'Exact 1:1 Website Replica SVG';
+        res.textContent = '800x416 Vector';
+      }
+      
+      reloadSvg();
+    }
+
+    // Video Exporter
+    let mediaRecorder = null;
+    let recordedChunks = [];
+    let isExporting = false;
+
+    async function startExport() {
+      const modal = document.getElementById('exportModal');
+      const progress = document.getElementById('exportProgress');
+      const status = document.getElementById('exportStatus');
+      modal.style.display = 'flex';
+      progress.style.width = '0%';
+      isExporting = true;
+
+      const canvas = document.createElement('canvas');
+      canvas.width = 1920;
+      canvas.height = 1080;
+      const ctx = canvas.getContext('2d');
+
+      const stream = canvas.captureStream(60);
+      mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm; codecs=vp9' });
+      recordedChunks = [];
+
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data.size > 0) recordedChunks.push(e.data);
+      };
+
+      mediaRecorder.onstop = () => {
+        if (!isExporting) return;
+        const blob = new Blob(recordedChunks, { type: 'video/webm' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'TheGraph_Global_Infrastructure_1080p.webm';
+        a.click();
+        modal.style.display = 'none';
+        isExporting = false;
+      };
+
+      mediaRecorder.start();
+
+      const file = currentTab === '1080p' ? 'thegraph_world_map_1080p.svg' : 'thegraph_world_map_replica.svg';
+      const svgText = await fetch(file).then(r => r.text());
+      const svgBlob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+      const img = new Image();
+      img.src = URL.createObjectURL(svgBlob);
+      await new Promise(res => img.onload = res);
+
+      const DURATION = 10.0;
+      const FPS = 60;
+      const totalFrames = DURATION * FPS;
+      let frame = 0;
+
+      function renderFrame() {
+        if (!isExporting) return;
+        ctx.clearRect(0, 0, 1920, 1080);
+        ctx.drawImage(img, 0, 0, 1920, 1080);
+
+        frame++;
+        const pct = Math.round((frame / totalFrames) * 100);
+        progress.style.width = pct + '%';
+        status.textContent = `Rendering frame ${frame}/${totalFrames} (${pct}%)...`;
+
+        if (frame < totalFrames) {
+          requestAnimationFrame(renderFrame);
+        } else {
+          mediaRecorder.stop();
+        }
+      }
+
+      renderFrame();
+    }
+
+    function cancelExport() {
+      isExporting = false;
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+      }
+      document.getElementById('exportModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
