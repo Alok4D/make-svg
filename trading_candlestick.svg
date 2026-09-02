@@ -14,34 +14,64 @@
         stroke-width: 1;
       }
       
-      /* Axes Animation (Initial Empty State at T=0) */
-      .axes-group {
-        opacity: 0;
-        animation: animAxesReplica 11.0s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-      }
-      @keyframes animAxesReplica {
-        0%, 2.5% {
-          opacity: 0;
-          transform: scaleY(0.9);
-        }
-        4.5%, 94.5% {
-          opacity: 1;
-          transform: scaleY(1);
-        }
-        97.0%, 100% {
-          opacity: 0;
-          transform: scaleY(0.9);
-        }
-      }
-
+      /* Progressive Continuous Axes Drawing (Slowly across full 11s duration) */
       .axis-main {
+        fill: none;
         stroke: #15FF05;
         stroke-width: 3.5;
         stroke-linecap: round;
         stroke-linejoin: round;
       }
+
+      /* Y-Axis: Grows upwards slowly from bottom (60, 365) to top (60, 30) across timeline */
+      .axis-y {
+        stroke-dasharray: 335;
+        stroke-dashoffset: 335;
+        animation: drawAxisYSlow 11.0s linear infinite;
+      }
+      @keyframes drawAxisYSlow {
+        0% {
+          stroke-dashoffset: 335;
+          opacity: 0;
+        }
+        0.5% {
+          opacity: 1;
+        }
+        94.5% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+        97.0%, 100% {
+          stroke-dashoffset: 0;
+          opacity: 0;
+        }
+      }
+
+      /* X-Axis: Grows rightwards slowly across bottom from (60, 365) to (638, 365) as candles form */
+      .axis-x {
+        stroke-dasharray: 578;
+        stroke-dashoffset: 578;
+        animation: drawAxisXSlow 11.0s linear infinite;
+      }
+      @keyframes drawAxisXSlow {
+        0% {
+          stroke-dashoffset: 578;
+          opacity: 0;
+        }
+        0.5% {
+          opacity: 1;
+        }
+        94.5% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+        97.0%, 100% {
+          stroke-dashoffset: 0;
+          opacity: 0;
+        }
+      }
       
-      /* Moving Average Lines */
+      /* Moving Average Lines (Slowly progressing in sync) */
       .ma-green {
         fill: none;
         stroke: #25FF05;
@@ -626,15 +656,15 @@
     <line class="grid-line" x1="0" y1="375" x2="700" y2="375" />
   </g>
 
-  <!-- Clean Standard Coordinate Axes (No 3D Perspective Lines) -->
+  <!-- Coordinate Axes: Slowly and progressively growing throughout full duration -->
   <g class="axes-group">
-    <!-- Y Axis -->
-    <line class="axis-main" x1="60" y1="30" x2="60" y2="365" />
-    <!-- X Axis -->
-    <line class="axis-main" x1="60" y1="365" x2="638" y2="365" />
+    <!-- Y Axis: Draws slowly from bottom origin (60, 365) upwards to top (60, 30) -->
+    <path class="axis-main axis-y" d="M 60 365 L 60 30" />
+    <!-- X Axis: Draws slowly from bottom origin (60, 365) rightwards to (638, 365) -->
+    <path class="axis-main axis-x" d="M 60 365 L 638 365" />
   </g>
 
-  <!-- Candlesticks Layer -->
+  <!-- Candlesticks Layer (Rises from bottom axis in sync) -->
   <g class="candlestick-layer">
     
     <!-- Candle 1 (GREEN) -->
