@@ -1,0 +1,429 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <style>
+      /* Navy Background */
+      .bg {
+        fill: #000028;
+      }
+
+      /* Microphone Animation: Slide in from right (1.0s to 2.5s), static, slide out to left (14.7s to 15.0s) */
+      @keyframes mic-anim {
+        0%, 6.7% {
+          transform: translate(1100px, 0);
+          opacity: 0;
+          animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); /* Ease out */
+        }
+        16.7% {
+          transform: translate(0, 0);
+          opacity: 1;
+          animation-timing-function: linear;
+        }
+        98.0% {
+          transform: translate(0, 0);
+          opacity: 1;
+          animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45); /* Ease in */
+        }
+        100% {
+          transform: translate(-1100px, 0);
+          opacity: 0;
+        }
+      }
+
+      #microphone {
+        transform-origin: 960px 540px;
+        animation: mic-anim 15s infinite both;
+      }
+
+      /* Circle Animation: Draw itself clockwise from top (2.5s to 3.8s), fade out (14.4s to 14.7s) */
+      @keyframes circle-draw-anim {
+        0%, 16.7% {
+          stroke-dashoffset: 860.8;
+          opacity: 0;
+        }
+        17.3% {
+          stroke-dashoffset: 860.8;
+          opacity: 1;
+          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* Smooth drawing */
+        }
+        25.3%, 96.0% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+        98.0%, 100% {
+          stroke-dashoffset: 0;
+          opacity: 0;
+        }
+      }
+
+      /* Applied directly to circle tag to override local presentation attribute and handle top rotation */
+      #circle-group circle {
+        transform-origin: 960px 540px;
+        transform: rotate(-90deg); /* Start drawing from top (12 o'clock) */
+        animation: circle-draw-anim 15s infinite both;
+      }
+
+      /* Waves Fade and Entry/Exit Animation: delayed until 3.8s (after circle draws) */
+      @keyframes wave-fade-anim {
+        0%, 25.3% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        28.7% {
+          transform: scaleY(1);
+          opacity: 1;
+          animation-timing-function: linear;
+        }
+        93.3% {
+          transform: scaleY(1);
+          opacity: 1;
+          animation-timing-function: cubic-bezier(0.4, 0, 1, 1); /* Shrink quickly */
+        }
+        96.0%, 100% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+      }
+
+      .bar-group {
+        transform-origin: 960px 540px;
+        animation: wave-fade-anim 15s infinite both;
+      }
+
+      /* Refined Waves Bouncing Animation: Wave packet propagating through quiet standby dots */
+      @keyframes wave-bounce-anim {
+        0%, 50%, 100% {
+          transform: scaleY(0.3); /* Quiet standby state (small dots) */
+        }
+        58% {
+          transform: scaleY(4.5); /* Primary energetic peak */
+        }
+        66% {
+          transform: scaleY(0.3); /* Return to quiet */
+        }
+        74% {
+          transform: scaleY(2.5); /* Secondary bounce peak */
+        }
+        80% {
+          transform: scaleY(0.3); /* Return to quiet */
+        }
+      }
+
+      .bar {
+        transform-origin: 960px 540px;
+        animation: wave-bounce-anim 1.6s infinite ease-in-out both;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="1920" height="1080" />
+
+  <!-- Circle (with stroke-dasharray and stroke-dashoffset set to circumference 860.8) -->
+  <g id="circle-group">
+    <circle cx="960" cy="540" r="137" fill="none" stroke="white" stroke-width="5" stroke-dasharray="860.8" stroke-dashoffset="860.8" />
+  </g>
+
+  <!-- Microphone -->
+  <g id="microphone">
+    <!-- Capsule -->
+    <rect x="943.5" y="480" width="33" height="74" rx="16.5" fill="white" />
+    
+    <!-- Capsule slits (using navy blocks to simulate cutouts) -->
+    <rect x="941" y="505" width="38" height="5" fill="#000028" />
+    <rect x="941" y="515" width="38" height="3" fill="#000028" />
+    <rect x="941" y="523" width="38" height="5" fill="#000028" />
+    
+    <!-- U-shaped Cradle -->
+    <path d="M 928.5 545.5 A 30 30 0 0 0 991.5 545.5" fill="none" stroke="white" stroke-width="5" stroke-linecap="round" />
+    
+    <!-- Stem -->
+    <line x1="960" y1="575.6" x2="960" y2="597.5" stroke="white" stroke-width="5" stroke-linecap="round" />
+    
+    <!-- Base -->
+    <line x1="932.6" y1="597.5" x2="987.4" y2="597.5" stroke="white" stroke-width="5" stroke-linecap="round" />
+  </g>
+
+  <!-- Waves -->
+  <g id="waves-group">
+    <!-- Left Bar k=9 -->
+    <g class="bar-group" style="animation-delay: 0.000s;">
+      <rect class="bar" x="822.50" y="534.50" width="5" height="11.00" rx="2.5" fill="white" style="animation-delay: 0.000s;" />
+    </g>
+    <!-- Right Bar k=9 -->
+    <g class="bar-group" style="animation-delay: 0.000s;">
+      <rect class="bar" x="1092.50" y="534.50" width="5" height="11.00" rx="2.5" fill="white" style="animation-delay: 0.000s;" />
+    </g>
+    <!-- Left Bar k=10 -->
+    <g class="bar-group" style="animation-delay: 0.015s;">
+      <rect class="bar" x="807.50" y="532.98" width="5" height="14.04" rx="2.5" fill="white" style="animation-delay: 0.015s;" />
+    </g>
+    <!-- Right Bar k=10 -->
+    <g class="bar-group" style="animation-delay: 0.015s;">
+      <rect class="bar" x="1107.50" y="532.98" width="5" height="14.04" rx="2.5" fill="white" style="animation-delay: 0.015s;" />
+    </g>
+    <!-- Left Bar k=11 -->
+    <g class="bar-group" style="animation-delay: 0.030s;">
+      <rect class="bar" x="792.50" y="531.47" width="5" height="17.06" rx="2.5" fill="white" style="animation-delay: 0.030s;" />
+    </g>
+    <!-- Right Bar k=11 -->
+    <g class="bar-group" style="animation-delay: 0.030s;">
+      <rect class="bar" x="1122.50" y="531.47" width="5" height="17.06" rx="2.5" fill="white" style="animation-delay: 0.030s;" />
+    </g>
+    <!-- Left Bar k=12 -->
+    <g class="bar-group" style="animation-delay: 0.045s;">
+      <rect class="bar" x="777.50" y="529.98" width="5" height="20.03" rx="2.5" fill="white" style="animation-delay: 0.045s;" />
+    </g>
+    <!-- Right Bar k=12 -->
+    <g class="bar-group" style="animation-delay: 0.045s;">
+      <rect class="bar" x="1137.50" y="529.98" width="5" height="20.03" rx="2.5" fill="white" style="animation-delay: 0.045s;" />
+    </g>
+    <!-- Left Bar k=13 -->
+    <g class="bar-group" style="animation-delay: 0.060s;">
+      <rect class="bar" x="762.50" y="528.54" width="5" height="22.92" rx="2.5" fill="white" style="animation-delay: 0.060s;" />
+    </g>
+    <!-- Right Bar k=13 -->
+    <g class="bar-group" style="animation-delay: 0.060s;">
+      <rect class="bar" x="1152.50" y="528.54" width="5" height="22.92" rx="2.5" fill="white" style="animation-delay: 0.060s;" />
+    </g>
+    <!-- Left Bar k=14 -->
+    <g class="bar-group" style="animation-delay: 0.075s;">
+      <rect class="bar" x="747.50" y="527.15" width="5" height="25.71" rx="2.5" fill="white" style="animation-delay: 0.075s;" />
+    </g>
+    <!-- Right Bar k=14 -->
+    <g class="bar-group" style="animation-delay: 0.075s;">
+      <rect class="bar" x="1167.50" y="527.15" width="5" height="25.71" rx="2.5" fill="white" style="animation-delay: 0.075s;" />
+    </g>
+    <!-- Left Bar k=15 -->
+    <g class="bar-group" style="animation-delay: 0.090s;">
+      <rect class="bar" x="732.50" y="525.81" width="5" height="28.37" rx="2.5" fill="white" style="animation-delay: 0.090s;" />
+    </g>
+    <!-- Right Bar k=15 -->
+    <g class="bar-group" style="animation-delay: 0.090s;">
+      <rect class="bar" x="1182.50" y="525.81" width="5" height="28.37" rx="2.5" fill="white" style="animation-delay: 0.090s;" />
+    </g>
+    <!-- Left Bar k=16 -->
+    <g class="bar-group" style="animation-delay: 0.105s;">
+      <rect class="bar" x="717.50" y="524.56" width="5" height="30.89" rx="2.5" fill="white" style="animation-delay: 0.105s;" />
+    </g>
+    <!-- Right Bar k=16 -->
+    <g class="bar-group" style="animation-delay: 0.105s;">
+      <rect class="bar" x="1197.50" y="524.56" width="5" height="30.89" rx="2.5" fill="white" style="animation-delay: 0.105s;" />
+    </g>
+    <!-- Left Bar k=17 -->
+    <g class="bar-group" style="animation-delay: 0.120s;">
+      <rect class="bar" x="702.50" y="523.38" width="5" height="33.23" rx="2.5" fill="white" style="animation-delay: 0.120s;" />
+    </g>
+    <!-- Right Bar k=17 -->
+    <g class="bar-group" style="animation-delay: 0.120s;">
+      <rect class="bar" x="1212.50" y="523.38" width="5" height="33.23" rx="2.5" fill="white" style="animation-delay: 0.120s;" />
+    </g>
+    <!-- Left Bar k=18 -->
+    <g class="bar-group" style="animation-delay: 0.135s;">
+      <rect class="bar" x="687.50" y="522.31" width="5" height="35.39" rx="2.5" fill="white" style="animation-delay: 0.135s;" />
+    </g>
+    <!-- Right Bar k=18 -->
+    <g class="bar-group" style="animation-delay: 0.135s;">
+      <rect class="bar" x="1227.50" y="522.31" width="5" height="35.39" rx="2.5" fill="white" style="animation-delay: 0.135s;" />
+    </g>
+    <!-- Left Bar k=19 -->
+    <g class="bar-group" style="animation-delay: 0.150s;">
+      <rect class="bar" x="672.50" y="521.33" width="5" height="37.33" rx="2.5" fill="white" style="animation-delay: 0.150s;" />
+    </g>
+    <!-- Right Bar k=19 -->
+    <g class="bar-group" style="animation-delay: 0.150s;">
+      <rect class="bar" x="1242.50" y="521.33" width="5" height="37.33" rx="2.5" fill="white" style="animation-delay: 0.150s;" />
+    </g>
+    <!-- Left Bar k=20 -->
+    <g class="bar-group" style="animation-delay: 0.165s;">
+      <rect class="bar" x="657.50" y="520.47" width="5" height="39.06" rx="2.5" fill="white" style="animation-delay: 0.165s;" />
+    </g>
+    <!-- Right Bar k=20 -->
+    <g class="bar-group" style="animation-delay: 0.165s;">
+      <rect class="bar" x="1257.50" y="520.47" width="5" height="39.06" rx="2.5" fill="white" style="animation-delay: 0.165s;" />
+    </g>
+    <!-- Left Bar k=21 -->
+    <g class="bar-group" style="animation-delay: 0.180s;">
+      <rect class="bar" x="642.50" y="519.73" width="5" height="40.54" rx="2.5" fill="white" style="animation-delay: 0.180s;" />
+    </g>
+    <!-- Right Bar k=21 -->
+    <g class="bar-group" style="animation-delay: 0.180s;">
+      <rect class="bar" x="1272.50" y="519.73" width="5" height="40.54" rx="2.5" fill="white" style="animation-delay: 0.180s;" />
+    </g>
+    <!-- Left Bar k=22 -->
+    <g class="bar-group" style="animation-delay: 0.195s;">
+      <rect class="bar" x="627.50" y="519.11" width="5" height="41.77" rx="2.5" fill="white" style="animation-delay: 0.195s;" />
+    </g>
+    <!-- Right Bar k=22 -->
+    <g class="bar-group" style="animation-delay: 0.195s;">
+      <rect class="bar" x="1287.50" y="519.11" width="5" height="41.77" rx="2.5" fill="white" style="animation-delay: 0.195s;" />
+    </g>
+    <!-- Left Bar k=23 -->
+    <g class="bar-group" style="animation-delay: 0.210s;">
+      <rect class="bar" x="612.50" y="518.63" width="5" height="42.74" rx="2.5" fill="white" style="animation-delay: 0.210s;" />
+    </g>
+    <!-- Right Bar k=23 -->
+    <g class="bar-group" style="animation-delay: 0.210s;">
+      <rect class="bar" x="1302.50" y="518.63" width="5" height="42.74" rx="2.5" fill="white" style="animation-delay: 0.210s;" />
+    </g>
+    <!-- Left Bar k=24 -->
+    <g class="bar-group" style="animation-delay: 0.225s;">
+      <rect class="bar" x="597.50" y="518.28" width="5" height="43.44" rx="2.5" fill="white" style="animation-delay: 0.225s;" />
+    </g>
+    <!-- Right Bar k=24 -->
+    <g class="bar-group" style="animation-delay: 0.225s;">
+      <rect class="bar" x="1317.50" y="518.28" width="5" height="43.44" rx="2.5" fill="white" style="animation-delay: 0.225s;" />
+    </g>
+    <!-- Left Bar k=25 -->
+    <g class="bar-group" style="animation-delay: 0.240s;">
+      <rect class="bar" x="582.50" y="518.07" width="5" height="43.86" rx="2.5" fill="white" style="animation-delay: 0.240s;" />
+    </g>
+    <!-- Right Bar k=25 -->
+    <g class="bar-group" style="animation-delay: 0.240s;">
+      <rect class="bar" x="1332.50" y="518.07" width="5" height="43.86" rx="2.5" fill="white" style="animation-delay: 0.240s;" />
+    </g>
+    <!-- Left Bar k=26 -->
+    <g class="bar-group" style="animation-delay: 0.255s;">
+      <rect class="bar" x="567.50" y="518.00" width="5" height="44.00" rx="2.5" fill="white" style="animation-delay: 0.255s;" />
+    </g>
+    <!-- Right Bar k=26 -->
+    <g class="bar-group" style="animation-delay: 0.255s;">
+      <rect class="bar" x="1347.50" y="518.00" width="5" height="44.00" rx="2.5" fill="white" style="animation-delay: 0.255s;" />
+    </g>
+    <!-- Left Bar k=27 -->
+    <g class="bar-group" style="animation-delay: 0.270s;">
+      <rect class="bar" x="552.50" y="518.07" width="5" height="43.86" rx="2.5" fill="white" style="animation-delay: 0.270s;" />
+    </g>
+    <!-- Right Bar k=27 -->
+    <g class="bar-group" style="animation-delay: 0.270s;">
+      <rect class="bar" x="1362.50" y="518.07" width="5" height="43.86" rx="2.5" fill="white" style="animation-delay: 0.270s;" />
+    </g>
+    <!-- Left Bar k=28 -->
+    <g class="bar-group" style="animation-delay: 0.285s;">
+      <rect class="bar" x="537.50" y="518.28" width="5" height="43.44" rx="2.5" fill="white" style="animation-delay: 0.285s;" />
+    </g>
+    <!-- Right Bar k=28 -->
+    <g class="bar-group" style="animation-delay: 0.285s;">
+      <rect class="bar" x="1377.50" y="518.28" width="5" height="43.44" rx="2.5" fill="white" style="animation-delay: 0.285s;" />
+    </g>
+    <!-- Left Bar k=29 -->
+    <g class="bar-group" style="animation-delay: 0.300s;">
+      <rect class="bar" x="522.50" y="518.63" width="5" height="42.74" rx="2.5" fill="white" style="animation-delay: 0.300s;" />
+    </g>
+    <!-- Right Bar k=29 -->
+    <g class="bar-group" style="animation-delay: 0.300s;">
+      <rect class="bar" x="1392.50" y="518.63" width="5" height="42.74" rx="2.5" fill="white" style="animation-delay: 0.300s;" />
+    </g>
+    <!-- Left Bar k=30 -->
+    <g class="bar-group" style="animation-delay: 0.315s;">
+      <rect class="bar" x="507.50" y="519.11" width="5" height="41.77" rx="2.5" fill="white" style="animation-delay: 0.315s;" />
+    </g>
+    <!-- Right Bar k=30 -->
+    <g class="bar-group" style="animation-delay: 0.315s;">
+      <rect class="bar" x="1407.50" y="519.11" width="5" height="41.77" rx="2.5" fill="white" style="animation-delay: 0.315s;" />
+    </g>
+    <!-- Left Bar k=31 -->
+    <g class="bar-group" style="animation-delay: 0.330s;">
+      <rect class="bar" x="492.50" y="519.73" width="5" height="40.54" rx="2.5" fill="white" style="animation-delay: 0.330s;" />
+    </g>
+    <!-- Right Bar k=31 -->
+    <g class="bar-group" style="animation-delay: 0.330s;">
+      <rect class="bar" x="1422.50" y="519.73" width="5" height="40.54" rx="2.5" fill="white" style="animation-delay: 0.330s;" />
+    </g>
+    <!-- Left Bar k=32 -->
+    <g class="bar-group" style="animation-delay: 0.345s;">
+      <rect class="bar" x="477.50" y="520.47" width="5" height="39.06" rx="2.5" fill="white" style="animation-delay: 0.345s;" />
+    </g>
+    <!-- Right Bar k=32 -->
+    <g class="bar-group" style="animation-delay: 0.345s;">
+      <rect class="bar" x="1437.50" y="520.47" width="5" height="39.06" rx="2.5" fill="white" style="animation-delay: 0.345s;" />
+    </g>
+    <!-- Left Bar k=33 -->
+    <g class="bar-group" style="animation-delay: 0.360s;">
+      <rect class="bar" x="462.50" y="521.33" width="5" height="37.33" rx="2.5" fill="white" style="animation-delay: 0.360s;" />
+    </g>
+    <!-- Right Bar k=33 -->
+    <g class="bar-group" style="animation-delay: 0.360s;">
+      <rect class="bar" x="1452.50" y="521.33" width="5" height="37.33" rx="2.5" fill="white" style="animation-delay: 0.360s;" />
+    </g>
+    <!-- Left Bar k=34 -->
+    <g class="bar-group" style="animation-delay: 0.375s;">
+      <rect class="bar" x="447.50" y="522.31" width="5" height="35.39" rx="2.5" fill="white" style="animation-delay: 0.375s;" />
+    </g>
+    <!-- Right Bar k=34 -->
+    <g class="bar-group" style="animation-delay: 0.375s;">
+      <rect class="bar" x="1467.50" y="522.31" width="5" height="35.39" rx="2.5" fill="white" style="animation-delay: 0.375s;" />
+    </g>
+    <!-- Left Bar k=35 -->
+    <g class="bar-group" style="animation-delay: 0.390s;">
+      <rect class="bar" x="432.50" y="523.38" width="5" height="33.23" rx="2.5" fill="white" style="animation-delay: 0.390s;" />
+    </g>
+    <!-- Right Bar k=35 -->
+    <g class="bar-group" style="animation-delay: 0.390s;">
+      <rect class="bar" x="1482.50" y="523.38" width="5" height="33.23" rx="2.5" fill="white" style="animation-delay: 0.390s;" />
+    </g>
+    <!-- Left Bar k=36 -->
+    <g class="bar-group" style="animation-delay: 0.405s;">
+      <rect class="bar" x="417.50" y="524.56" width="5" height="30.89" rx="2.5" fill="white" style="animation-delay: 0.405s;" />
+    </g>
+    <!-- Right Bar k=36 -->
+    <g class="bar-group" style="animation-delay: 0.405s;">
+      <rect class="bar" x="1497.50" y="524.56" width="5" height="30.89" rx="2.5" fill="white" style="animation-delay: 0.405s;" />
+    </g>
+    <!-- Left Bar k=37 -->
+    <g class="bar-group" style="animation-delay: 0.420s;">
+      <rect class="bar" x="402.50" y="525.81" width="5" height="28.37" rx="2.5" fill="white" style="animation-delay: 0.420s;" />
+    </g>
+    <!-- Right Bar k=37 -->
+    <g class="bar-group" style="animation-delay: 0.420s;">
+      <rect class="bar" x="1512.50" y="525.81" width="5" height="28.37" rx="2.5" fill="white" style="animation-delay: 0.420s;" />
+    </g>
+    <!-- Left Bar k=38 -->
+    <g class="bar-group" style="animation-delay: 0.435s;">
+      <rect class="bar" x="387.50" y="527.15" width="5" height="25.71" rx="2.5" fill="white" style="animation-delay: 0.435s;" />
+    </g>
+    <!-- Right Bar k=38 -->
+    <g class="bar-group" style="animation-delay: 0.435s;">
+      <rect class="bar" x="1527.50" y="527.15" width="5" height="25.71" rx="2.5" fill="white" style="animation-delay: 0.435s;" />
+    </g>
+    <!-- Left Bar k=39 -->
+    <g class="bar-group" style="animation-delay: 0.450s;">
+      <rect class="bar" x="372.50" y="528.54" width="5" height="22.92" rx="2.5" fill="white" style="animation-delay: 0.450s;" />
+    </g>
+    <!-- Right Bar k=39 -->
+    <g class="bar-group" style="animation-delay: 0.450s;">
+      <rect class="bar" x="1542.50" y="528.54" width="5" height="22.92" rx="2.5" fill="white" style="animation-delay: 0.450s;" />
+    </g>
+    <!-- Left Bar k=40 -->
+    <g class="bar-group" style="animation-delay: 0.465s;">
+      <rect class="bar" x="357.50" y="529.98" width="5" height="20.03" rx="2.5" fill="white" style="animation-delay: 0.465s;" />
+    </g>
+    <!-- Right Bar k=40 -->
+    <g class="bar-group" style="animation-delay: 0.465s;">
+      <rect class="bar" x="1557.50" y="529.98" width="5" height="20.03" rx="2.5" fill="white" style="animation-delay: 0.465s;" />
+    </g>
+    <!-- Left Bar k=41 -->
+    <g class="bar-group" style="animation-delay: 0.480s;">
+      <rect class="bar" x="342.50" y="531.47" width="5" height="17.06" rx="2.5" fill="white" style="animation-delay: 0.480s;" />
+    </g>
+    <!-- Right Bar k=41 -->
+    <g class="bar-group" style="animation-delay: 0.480s;">
+      <rect class="bar" x="1572.50" y="531.47" width="5" height="17.06" rx="2.5" fill="white" style="animation-delay: 0.480s;" />
+    </g>
+    <!-- Left Bar k=42 -->
+    <g class="bar-group" style="animation-delay: 0.495s;">
+      <rect class="bar" x="327.50" y="532.98" width="5" height="14.04" rx="2.5" fill="white" style="animation-delay: 0.495s;" />
+    </g>
+    <!-- Right Bar k=42 -->
+    <g class="bar-group" style="animation-delay: 0.495s;">
+      <rect class="bar" x="1587.50" y="532.98" width="5" height="14.04" rx="2.5" fill="white" style="animation-delay: 0.495s;" />
+    </g>
+    <!-- Left Bar k=43 -->
+    <g class="bar-group" style="animation-delay: 0.510s;">
+      <rect class="bar" x="312.50" y="534.50" width="5" height="11.00" rx="2.5" fill="white" style="animation-delay: 0.510s;" />
+    </g>
+    <!-- Right Bar k=43 -->
+    <g class="bar-group" style="animation-delay: 0.510s;">
+      <rect class="bar" x="1602.50" y="534.50" width="5" height="11.00" rx="2.5" fill="white" style="animation-delay: 0.510s;" />
+    </g>
+  </g>
+</svg>
