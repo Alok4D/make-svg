@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <style><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+      * {
+        box-sizing: border-box;
+      }
+
+      text {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        user-select: none;
+      }
+
+      /* Deep Saturated Midnight Blue Canvas */
+      .bg-canvas {
+        fill: #000494;
+      }
+
+      /* Top Circular Spinner Rotation */
+      .spinner-group {
+        transform-origin: 960.0px 500.0px;
+        animation: spin 1s steps(12, end) infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Progress Bar Container Border */
+      .progress-border {
+        fill: rgba(0, 4, 80, 0.45);
+        stroke: #38bdf8;
+        stroke-width: 4;
+        filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.35));
+      }
+
+      /* Progress Bar Animated Fill (Smooth Slower Cinematic Stream) */
+      .progress-fill-bar {
+        fill: url(#progressFillGrad);
+        filter: url(#glowBar);
+        animation: fillProgress 4.8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+        transform-origin: 526px 746px;
+      }
+
+      /* Progress Bar Shimmer Highlight */
+      .progress-shimmer {
+        fill: url(#shimmerGrad);
+        animation: shimmerSlide 3.0s linear infinite;
+      }
+
+      /* Main Typography */
+      .loading-text {
+        font-size: 52px;
+        font-weight: 600;
+        fill: #38bdf8;
+        letter-spacing: 0.8px;
+        text-anchor: middle;
+      }
+
+      .loading-word {
+        fill: #38bdf8;
+        filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.6));
+        animation: wordGlow 2.0s ease-in-out infinite;
+      }
+
+      @keyframes wordGlow {
+        0%, 100% {
+          opacity: 0.9;
+          filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.4));
+        }
+        50% {
+          opacity: 1.0;
+          filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.85));
+        }
+      }
+
+      /* 3 Animated Sequential Dots */
+      .dot-1 {
+        animation: dotStep1 1.6s infinite;
+      }
+
+      .dot-2 {
+        animation: dotStep2 1.6s infinite;
+      }
+
+      .dot-3 {
+        animation: dotStep3 1.6s infinite;
+      }
+
+      @keyframes dotStep1 {
+        0%, 15% {
+          opacity: 0.08;
+          fill: #1d60ff;
+        }
+        25%, 85% {
+          opacity: 1.0;
+          fill: #00f5ff;
+          filter: drop-shadow(0 0 8px #00f5ff);
+        }
+        95%, 100% {
+          opacity: 0.08;
+          fill: #1d60ff;
+        }
+      }
+
+      @keyframes dotStep2 {
+        0%, 35% {
+          opacity: 0.08;
+          fill: #1d60ff;
+        }
+        45%, 85% {
+          opacity: 1.0;
+          fill: #00f5ff;
+          filter: drop-shadow(0 0 8px #00f5ff);
+        }
+        95%, 100% {
+          opacity: 0.08;
+          fill: #1d60ff;
+        }
+      }
+
+      @keyframes dotStep3 {
+        0%, 55% {
+          opacity: 0.08;
+          fill: #1d60ff;
+        }
+        65%, 85% {
+          opacity: 1.0;
+          fill: #00f5ff;
+          filter: drop-shadow(0 0 8px #00f5ff);
+        }
+        95%, 100% {
+          opacity: 0.08;
+          fill: #1d60ff;
+        }
+      }
+
+      @keyframes fillProgress {
+        0% {
+          width: 0px;
+          opacity: 0.8;
+        }
+        20% {
+          width: 243.0px;
+        }
+        45% {
+          width: 503.4px;
+        }
+        70% {
+          width: 711.8px;
+        }
+        88% {
+          width: 868px;
+          opacity: 1;
+        }
+        94%, 100% {
+          width: 868px;
+          opacity: 0.95;
+        }
+      }
+
+      @keyframes shimmerSlide {
+        0% {
+          transform: translateX(-300px);
+        }
+        100% {
+          transform: translateX(1200px);
+        }
+      }
+    ]]></style>
+
+    <!-- Head Dot Glow Filter -->
+    <filter id="glowHead" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Progress Bar Glow Filter -->
+    <filter id="glowBar" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Progress Fill Vibrant Gradient -->
+    <linearGradient id="progressFillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="35%" stop-color="#06b6d4" />
+      <stop offset="70%" stop-color="#22d3ee" />
+      <stop offset="100%" stop-color="#00f5ff" />
+    </linearGradient>
+
+    <!-- Shimmer Highlight Gradient -->
+    <linearGradient id="shimmerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Clip Path for Progress Bar Fill -->
+    <clipPath id="barClip">
+      <rect x="526" y="746" width="868" height="32" rx="16.0" />
+    </clipPath>
+  </defs>
+
+  <!-- Deep Midnight Blue Canvas Background -->
+  <rect class="bg-canvas" width="1920" height="1080" />
+
+  <!-- 1. Top Circular Loading Spinner (12-Dot Cyan-to-Indigo Stepped Rotation) -->
+  <g class="spinner-group">
+    <circle cx="960.0" cy="345.0" r="16.5" fill="#00f5ff" opacity="1.0" filter="url(#glowHead)" />
+    <circle cx="882.5" cy="365.77" r="16.5" fill="#00e1ff" opacity="0.92" />
+    <circle cx="825.77" cy="422.5" r="16.5" fill="#00cbff" opacity="0.83" />
+    <circle cx="805.0" cy="500.0" r="16.5" fill="#00b2ff" opacity="0.74" />
+    <circle cx="825.77" cy="577.5" r="16.5" fill="#0096ff" opacity="0.65" />
+    <circle cx="882.5" cy="634.23" r="16.5" fill="#007aff" opacity="0.55" />
+    <circle cx="960.0" cy="655.0" r="16.5" fill="#1d60ff" opacity="0.45" />
+    <circle cx="1037.5" cy="634.23" r="16.5" fill="#2d49ff" opacity="0.35" />
+    <circle cx="1094.23" cy="577.5" r="16.5" fill="#3a33ef" opacity="0.25" />
+    <circle cx="1115.0" cy="500.0" r="16.5" fill="#3420cc" opacity="0.16" />
+    <circle cx="1094.23" cy="422.5" r="16.5" fill="#2210a0" opacity="0.08" />
+    <circle cx="1037.5" cy="365.77" r="16.5" fill="#120478" opacity="0.0" />
+  </g>
+
+  <!-- 2. Horizontal Rounded Progress Bar -->
+  <g class="progress-bar-container">
+    <!-- Outer Pill Border -->
+    <rect class="progress-border" x="520" y="740" width="880" height="44" rx="22" />
+
+    <!-- Animated Fill Bar with Shimmer -->
+    <g clip-path="url(#barClip)">
+      <rect class="progress-fill-bar" x="526" y="746" width="868" height="32" rx="16.0" />
+      <rect class="progress-shimmer" x="526" y="746" width="250" height="32" />
+    </g>
+  </g>
+
+  <!-- 3. Bottom Centered Typography ("Loading...") with Animated Sequential 3 Dots -->
+  <g class="loading-text-group">
+    <text class="loading-text" x="960" y="875" text-anchor="middle">
+      <tspan class="loading-word">Loading</tspan>
+      <tspan class="text-dot dot-1">.</tspan>
+      <tspan class="text-dot dot-2">.</tspan>
+      <tspan class="text-dot dot-3">.</tspan>
+    </text>
+  </g>
+
+</svg>
