@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unique 1080p Loading Spinner Studio — Perfected Edition</title>
+  <title>Unique 1080p Loading Spinner Studio — Multi-Style Suite</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -13,8 +13,7 @@
       --bg-card: #0f111a;
       --bg-elevated: #1a1d2e;
       --border-color: #262a40;
-      --accent-blue: #0008f5;
-      --accent-cyan: #38bdf8;
+      --accent-blue: #3b82f6;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
@@ -62,12 +61,12 @@
       width: 44px;
       height: 44px;
       border-radius: var(--radius-md);
-      background: linear-gradient(135deg, #0008f5, #38bdf8);
+      background: linear-gradient(135deg, #ffffff, #64748b);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 22px;
-      box-shadow: 0 0 20px rgba(0, 8, 245, 0.5);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
     .brand-text h1 {
@@ -111,14 +110,14 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #0008f5, #2563eb);
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
       color: #ffffff;
-      box-shadow: 0 4px 15px rgba(0, 8, 245, 0.4);
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(0, 8, 245, 0.6);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
     }
 
     /* Control Bar */
@@ -170,9 +169,9 @@
     }
 
     .pill-btn.active {
-      background: #0008f5;
+      background: #2563eb;
       color: #ffffff;
-      box-shadow: 0 0 10px rgba(0, 8, 245, 0.5);
+      box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
     }
 
     /* Viewport Grid */
@@ -225,21 +224,21 @@
     }
 
     .badge-ref {
-      background: rgba(0, 8, 245, 0.2);
-      color: #60a5fa;
-      border: 1px solid rgba(0, 8, 245, 0.4);
+      background: rgba(255, 255, 255, 0.15);
+      color: #f8fafc;
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .badge-svg {
       background: rgba(59, 130, 246, 0.15);
-      color: #93c5fd;
+      color: #93c5fa;
       border: 1px solid rgba(59, 130, 246, 0.3);
     }
 
     .media-container {
       width: 100%;
       height: 380px;
-      background: #0008f5;
+      background: #000000;
       border-radius: var(--radius-md);
       overflow: hidden;
       display: flex;
@@ -329,7 +328,7 @@
     .progress-fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, #0008f5, #38bdf8);
+      background: linear-gradient(90deg, #2563eb, #60a5fa);
       transition: width 0.1s;
     }
   </style>
@@ -339,17 +338,17 @@
   <!-- Header -->
   <header>
     <div class="brand">
-      <div class="brand-icon">🔵</div>
+      <div class="brand-icon">⚫</div>
       <div class="brand-text">
-        <h1>Unique 1080p Loading Spinner Studio — Perfected Edition</h1>
-        <p>12-Dot Chroma Blue Motion Vector SVG with Exact Image Geometry & Synchronization</p>
+        <h1>Black & White 1080p Loading Spinner Studio</h1>
+        <p>12-Dot Stepped Fading Motion Vector on Pitch Black & Multi-Color Suite</p>
       </div>
     </div>
     <div class="header-actions">
       <button class="btn btn-secondary" onclick="reloadSvg()">
         🔄 Restart Animations
       </button>
-      <a class="btn btn-secondary" id="downloadSvgBtn" href="unique_dots_loading_spinner_1080p.svg" download="unique_dots_loading_spinner_1080p.svg">
+      <a class="btn btn-secondary" id="downloadSvgBtn" href="black_white_dots_loading_spinner_1080p.svg" download="black_white_dots_loading_spinner_1080p.svg">
         📥 Download SVG
       </a>
       <button class="btn btn-primary" onclick="startExport()">
@@ -363,18 +362,11 @@
     <div class="control-group">
       <span class="control-label">Edition / Style:</span>
       <div class="pill-select">
-        <button class="pill-btn active" id="btnBlue" onclick="setEdition('blue1080')">🔵 Chroma Blue 1080p</button>
+        <button class="pill-btn active" id="btnBW" onclick="setEdition('bw1080')">⚫ Pitch Black & White</button>
+        <button class="pill-btn" id="btnBlue" onclick="setEdition('blue1080')">🔵 Chroma Blue</button>
         <button class="pill-btn" id="btnNeon" onclick="setEdition('neon')">✨ Cyber Neon</button>
         <button class="pill-btn" id="btnGold" onclick="setEdition('gold')">👑 VIP Gold</button>
-        <button class="pill-btn" id="btnBlack" onclick="setEdition('replica')">⚫ Pitch Black</button>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <span class="control-label">Rotation Physics:</span>
-      <div class="pill-select">
-        <button class="pill-btn active" id="btnStepped" onclick="setMotion('stepped')">⏱️ Stepped (12 Steps)</button>
-        <button class="pill-btn" id="btnSmooth" onclick="setMotion('smooth')">🌊 Smooth Glide</button>
+        <button class="pill-btn" id="btnSquare" onclick="setEdition('square')">🔳 Square 1:1</button>
       </div>
     </div>
 
@@ -390,17 +382,17 @@
 
   <!-- Main Viewport -->
   <div class="main-viewport">
-    <!-- Left: User Uploaded Design Image Reference -->
+    <!-- Left: User Uploaded Reference Image -->
     <div class="preview-card">
       <div class="card-header">
         <span class="card-title">
-          <span>User Uploaded Reference Image</span>
-          <span class="badge badge-ref">Requested Pattern</span>
+          <span>User Uploaded Image Reference</span>
+          <span class="badge badge-ref">Black & White Style</span>
         </span>
-        <span style="font-size: 12px; color: var(--text-dim);">Chroma Blue Baseline</span>
+        <span style="font-size: 12px; color: var(--text-dim);" id="refLabel">Black Background</span>
       </div>
       <div class="media-container" id="leftMedia">
-        <img id="refImg" src="C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/.user_uploaded/media_1789206658511.png" alt="User Image Reference" />
+        <img id="refImg" src="C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/.user_uploaded/media_1789207371797.png" alt="User Image Reference" />
       </div>
     </div>
 
@@ -408,13 +400,13 @@
     <div class="preview-card">
       <div class="card-header">
         <span class="card-title">
-          <span id="svgCardTitle">Chroma Blue 1080p Master SVG</span>
+          <span id="svgCardTitle">Pitch Black & White 1080p Master SVG</span>
           <span class="badge badge-svg">Vector Render</span>
         </span>
         <span id="svgCardRes" style="font-size: 12px; color: var(--text-dim);">1920x1080 60fps</span>
       </div>
       <div class="media-container" id="svgHost">
-        <object id="svgObject" data="unique_dots_loading_spinner_1080p.svg" type="image/svg+xml"></object>
+        <object id="svgObject" data="black_white_dots_loading_spinner_1080p.svg" type="image/svg+xml"></object>
       </div>
     </div>
   </div>
@@ -422,20 +414,20 @@
   <!-- Unique Features Row -->
   <div class="stats-row">
     <div class="stat-card">
-      <h3>🔵 Solid Chroma Blue Background</h3>
-      <p>Clean background with RGB(4, 12, 246) / #0008f5 for high contrast & chroma keying.</p>
+      <h3>⚫ Deep Pitch Black Canvas</h3>
+      <p>Clean solid #000000 background maximizing visual contrast and pop for video/app production.</p>
     </div>
     <div class="stat-card">
-      <h3>⚪ Precision 12-Dot Orbit Geometry</h3>
-      <p>Mathematical r=71.4px, R=340px (exact r/R=0.2100 ratio) perfectly matching user reference.</p>
+      <h3>⚪ 12-Dot White Stepped Orbit</h3>
+      <p>12 precision white dots with 12-level opacity gradient from 100% white down to 0%.</p>
     </div>
     <div class="stat-card">
       <h3>⏱️ 1.0s Stepped 30° Clockwise Rotation</h3>
-      <p>12 discrete steps (steps(12, end)) at 0.0833s intervals with smooth, eye-catching rotation.</p>
+      <p>12 discrete steps (steps(12, end)) at 0.0833s intervals with smooth, professional motion.</p>
     </div>
     <div class="stat-card">
       <h3>💎 Ultra-HD 1080p Vector Quality</h3>
-      <p>Clean SVG vector code rendering seamlessly across any screen resolution, 100% watermark-free.</p>
+      <p>Watermark-free, razor-sharp rendering at infinite scale for Adobe Stock & UI.</p>
     </div>
   </div>
 
@@ -452,15 +444,16 @@
   </div>
 
   <script>
-    let currentEdition = 'blue1080';
-    let currentMotion = 'stepped';
+    let currentEdition = 'bw1080';
     let currentSpeed = 1.0;
     const downloadSvgBtn = document.getElementById('downloadSvgBtn');
 
     function getFileForEdition() {
+      if (currentEdition === 'bw1080') return 'black_white_dots_loading_spinner_1080p.svg';
       if (currentEdition === 'blue1080') return 'unique_dots_loading_spinner_1080p.svg';
       if (currentEdition === 'neon') return 'unique_dots_loading_spinner.svg';
       if (currentEdition === 'gold') return 'unique_dots_loading_spinner_gold.svg';
+      if (currentEdition === 'square') return 'black_white_dots_loading_spinner_square.svg';
       return 'circular_dots_loading_spinner.svg';
     }
 
@@ -474,17 +467,27 @@
 
     function setEdition(ed) {
       currentEdition = ed;
+      document.getElementById('btnBW').classList.toggle('active', ed === 'bw1080');
       document.getElementById('btnBlue').classList.toggle('active', ed === 'blue1080');
       document.getElementById('btnNeon').classList.toggle('active', ed === 'neon');
       document.getElementById('btnGold').classList.toggle('active', ed === 'gold');
-      document.getElementById('btnBlack').classList.toggle('active', ed === 'replica');
+      document.getElementById('btnSquare').classList.toggle('active', ed === 'square');
 
       const title = document.getElementById('svgCardTitle');
       const res = document.getElementById('svgCardRes');
+      const refImg = document.getElementById('refImg');
+      const refLabel = document.getElementById('refLabel');
 
-      if (ed === 'blue1080') {
+      if (ed === 'bw1080') {
+        title.textContent = 'Pitch Black & White 1080p Master SVG';
+        res.textContent = '1920x1080 60fps';
+        refImg.src = 'C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/.user_uploaded/media_1789207371797.png';
+        refLabel.textContent = 'Black Background';
+      } else if (ed === 'blue1080') {
         title.textContent = 'Chroma Blue 1080p Master SVG';
         res.textContent = '1920x1080 60fps';
+        refImg.src = 'C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/.user_uploaded/media_1789206658511.png';
+        refLabel.textContent = 'Chroma Blue Background';
       } else if (ed === 'neon') {
         title.textContent = 'Cyber Neon Comet Edition SVG';
         res.textContent = '1920x1080 60fps';
@@ -492,18 +495,10 @@
         title.textContent = 'Luxury VIP Gold Edition SVG';
         res.textContent = '1920x1080 60fps';
       } else {
-        title.textContent = 'Baseline Pitch Black Replica SVG';
-        res.textContent = '700x394 Baseline';
+        title.textContent = 'Square 1:1 Icon Edition SVG';
+        res.textContent = '1000x1000 1:1';
       }
 
-      reloadSvg();
-    }
-
-    function setMotion(m) {
-      currentMotion = m;
-      document.getElementById('btnStepped').classList.toggle('active', m === 'stepped');
-      document.getElementById('btnSmooth').classList.toggle('active', m === 'smooth');
-      // Apply style adjustment if embedded or reload
       reloadSvg();
     }
 
