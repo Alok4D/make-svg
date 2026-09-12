@@ -431,7 +431,7 @@
     <div class="preview-card">
       <div class="card-header">
         <span class="card-title">
-          <span id="svgTitle">Live Percentage Loader SVG (1% - 100%)</span>
+          <span id="svgTitle">Live Percentage Loader 1080p Master SVG</span>
           <span class="badge badge-svg">Vector Render</span>
         </span>
         <span id="svgRes" style="font-size: 12px; color: var(--text-dim);">1920x1080 (16:9)</span>
@@ -497,6 +497,7 @@
       document.getElementById('btn1080').classList.toggle('active', fmt === '1080p');
       document.getElementById('btnSquare').classList.toggle('active', fmt === 'square');
       document.getElementById('svgRes').textContent = fmt === '1080p' ? '1920x1080 (16:9)' : '1000x1000 (1:1)';
+      document.getElementById('svgTitle').textContent = fmt === '1080p' ? 'Live Percentage Loader 1080p Master SVG' : 'Live Percentage Loader Square SVG';
       reloadSvg();
     }
 
@@ -523,17 +524,17 @@
       try {
         const doc = document.getElementById('svgObject').contentDocument;
         if (doc) {
-          const outline = doc.getElementById('outlineText') || doc.getElementById('outlineTextSq');
-          const filled = doc.getElementById('filledText') || doc.getElementById('filledTextSq');
-          const clipRect = doc.getElementById('clipRect') || doc.getElementById('clipRectSq');
+          const outline = doc.getElementById('outlineText1080') || doc.getElementById('outlineTextSq');
+          const filled = doc.getElementById('filledText1080') || doc.getElementById('filledTextSq');
+          const clipRect = doc.getElementById('clipRect1080') || doc.getElementById('clipRectSq');
           if (outline && filled && clipRect) {
             const str = val + '%';
             outline.textContent = str;
             filled.textContent = str;
 
             const progress = (val - 1) / 99;
-            const Y_BOTTOM = currentFormat === '1080p' ? 790 : 600;
-            const Y_TOP = currentFormat === '1080p' ? 290 : 400;
+            const Y_BOTTOM = currentFormat === '1080p' ? 650 : 600;
+            const Y_TOP = currentFormat === '1080p' ? 430 : 400;
             const DELTA_Y = Y_BOTTOM - Y_TOP;
             const currentY = Y_BOTTOM - (progress * DELTA_Y);
             clipRect.setAttribute('y', currentY.toFixed(1));
@@ -589,11 +590,11 @@
       const totalFrames = Math.round(DURATION * FPS);
       let frame = 0;
 
-      const FONT_SIZE = currentFormat === '1080p' ? 380 : 260;
+      const FONT_SIZE = currentFormat === '1080p' ? 280 : 260;
       const CX = W / 2;
       const CY = H / 2;
-      const Y_BOTTOM = currentFormat === '1080p' ? 790 : 600;
-      const Y_TOP = currentFormat === '1080p' ? 290 : 400;
+      const Y_BOTTOM = currentFormat === '1080p' ? 650 : 600;
+      const Y_TOP = currentFormat === '1080p' ? 430 : 400;
 
       function renderFrame() {
         if (!isExporting) return;
@@ -610,7 +611,7 @@
 
         // 1. Draw outline
         ctx.strokeStyle = '#ffffff';
-        ctx.lineWidth = 4.5;
+        ctx.lineWidth = 3.5;
         ctx.strokeText(pct + '%', CX, CY);
 
         // 2. Draw solid fill clipped from bottom

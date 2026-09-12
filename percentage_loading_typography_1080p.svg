@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <style><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&display=swap');
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .bg-canvas {
+        fill: #141416;
+      }
+
+      .percentage-text {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        font-size: 280px;
+        font-weight: 900;
+        letter-spacing: -4px;
+        text-anchor: middle;
+        dominant-baseline: central;
+        user-select: none;
+      }
+
+      .text-wireframe {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 3.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0.95;
+      }
+
+      .text-solid {
+        fill: #ffffff;
+        stroke: #ffffff;
+        stroke-width: 3.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        filter: url(#whiteGlow1080);
+      }
+
+      .bg-radial-glow {
+        opacity: 0.25;
+      }
+    ]]></style>
+
+    <filter id="whiteGlow1080" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <radialGradient id="centerLight1080" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12" />
+      <stop offset="60%" stop-color="#27272a" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="#141416" stop-opacity="0" />
+    </radialGradient>
+
+    <clipPath id="fillClip1080">
+      <rect id="clipRect1080" x="0" y="650" width="1920" height="700" />
+    </clipPath>
+  </defs>
+
+  <rect class="bg-canvas" width="1920" height="1080" />
+  <circle cx="960" cy="540" r="500" fill="url(#centerLight1080)" class="bg-radial-glow" />
+
+  <text id="outlineText1080" class="percentage-text text-wireframe" x="960" y="540">1%</text>
+
+  <g clip-path="url(#fillClip1080)">
+    <text id="filledText1080" class="percentage-text text-solid" x="960" y="540">1%</text>
+  </g>
+
+  <script type="text/javascript"><![CDATA[
+    (function() {
+      const outline = document.getElementById('outlineText1080');
+      const filled = document.getElementById('filledText1080');
+      const clipRect = document.getElementById('clipRect1080');
+      if (!outline || !filled || !clipRect) return;
+
+      const DURATION = 3800;
+      const PAUSE = 1000;
+      const TOTAL = DURATION + PAUSE;
+
+      const Y_BOTTOM = 650;
+      const Y_TOP = 430;
+      const DELTA_Y = Y_BOTTOM - Y_TOP;
+
+      let startTime = null;
+
+      function update(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const elapsed = (timestamp - startTime) % TOTAL;
+
+        let pct = 1;
+        let progress = 0;
+
+        if (elapsed <= DURATION) {
+          const t = elapsed / DURATION;
+          progress = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+          pct = Math.min(100, Math.max(1, Math.round(progress * 99) + 1));
+        } else {
+          progress = 1.0;
+          pct = 100;
+        }
+
+        const currentY = Y_BOTTOM - (progress * DELTA_Y);
+        clipRect.setAttribute('y', currentY.toFixed(1));
+
+        const str = pct + '%';
+        if (outline.textContent !== str) {
+          outline.textContent = str;
+          filled.textContent = str;
+        }
+
+        requestAnimationFrame(update);
+      }
+
+      requestAnimationFrame(update);
+    })();
+  ]]></script>
+</svg>
