@@ -1,0 +1,227 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <style><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+      * {
+        box-sizing: border-box;
+      }
+
+      text {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        user-select: none;
+      }
+
+      /* Pure Pitch Black Canvas */
+      .bg-canvas {
+        fill: #000000;
+      }
+
+      /* Top Circular Spinner Rotation */
+      .spinner-group {
+        transform-origin: 960.0px 500.0px;
+        animation: spin 1s steps(12, end) infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Progress Bar Container Border */
+      .progress-border {
+        fill: rgba(255, 255, 255, 0.05);
+        stroke: #ffffff;
+        stroke-width: 3.5;
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.35));
+      }
+
+      /* Progress Bar Animated Fill - Pure Solid Crisp White */
+      .progress-fill-bar {
+        fill: #ffffff;
+        filter: url(#glowBarBW);
+        animation: fillProgress 4.8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+        transform-origin: 526px 746px;
+      }
+
+      /* Main Typography */
+      .loading-text {
+        font-size: 52px;
+        font-weight: 600;
+        fill: #ffffff;
+        letter-spacing: 0.8px;
+        text-anchor: middle;
+      }
+
+      .loading-word {
+        fill: #ffffff;
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+        animation: wordGlow 2.0s ease-in-out infinite;
+      }
+
+      @keyframes wordGlow {
+        0%, 100% {
+          opacity: 0.9;
+          filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
+        }
+        50% {
+          opacity: 1.0;
+          filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.85));
+        }
+      }
+
+      /* 3 Animated Sequential Dots */
+      .dot-1 {
+        animation: dotStep1 1.6s infinite;
+      }
+
+      .dot-2 {
+        animation: dotStep2 1.6s infinite;
+      }
+
+      .dot-3 {
+        animation: dotStep3 1.6s infinite;
+      }
+
+      @keyframes dotStep1 {
+        0%, 15% {
+          opacity: 0.12;
+          fill: #475569;
+        }
+        25%, 85% {
+          opacity: 1.0;
+          fill: #ffffff;
+          filter: drop-shadow(0 0 8px #ffffff);
+        }
+        95%, 100% {
+          opacity: 0.12;
+          fill: #475569;
+        }
+      }
+
+      @keyframes dotStep2 {
+        0%, 35% {
+          opacity: 0.12;
+          fill: #475569;
+        }
+        45%, 85% {
+          opacity: 1.0;
+          fill: #ffffff;
+          filter: drop-shadow(0 0 8px #ffffff);
+        }
+        95%, 100% {
+          opacity: 0.12;
+          fill: #475569;
+        }
+      }
+
+      @keyframes dotStep3 {
+        0%, 55% {
+          opacity: 0.12;
+          fill: #475569;
+        }
+        65%, 85% {
+          opacity: 1.0;
+          fill: #ffffff;
+          filter: drop-shadow(0 0 8px #ffffff);
+        }
+        95%, 100% {
+          opacity: 0.12;
+          fill: #475569;
+        }
+      }
+
+      @keyframes fillProgress {
+        0% {
+          width: 0px;
+          opacity: 0.85;
+        }
+        20% {
+          width: 243.0px;
+        }
+        45% {
+          width: 503.4px;
+        }
+        70% {
+          width: 711.8px;
+        }
+        88% {
+          width: 868px;
+          opacity: 1;
+        }
+        94%, 100% {
+          width: 868px;
+          opacity: 0.95;
+        }
+      }
+    ]]></style>
+
+    <!-- Head Dot Glow Filter -->
+    <filter id="glowHeadBW" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Progress Bar Glow Filter -->
+    <filter id="glowBarBW" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Clip Path for Progress Bar Fill -->
+    <clipPath id="barClipBW">
+      <rect x="526" y="746" width="868" height="32" rx="16.0" />
+    </clipPath>
+  </defs>
+
+  <!-- Pitch Black Canvas Background -->
+  <rect class="bg-canvas" width="1920" height="1080" />
+
+  <!-- 1. Top Circular Loading Spinner (12-Dot White-to-Black Stepped Rotation) -->
+  <g class="spinner-group">
+    <circle cx="960.0" cy="345.0" r="16.5" fill="#ffffff" opacity="1.0" filter="url(#glowHeadBW)" />
+    <circle cx="882.5" cy="365.77" r="16.5" fill="#f8fafc" opacity="0.92" />
+    <circle cx="825.77" cy="422.5" r="16.5" fill="#f1f5f9" opacity="0.83" />
+    <circle cx="805.0" cy="500.0" r="16.5" fill="#e2e8f0" opacity="0.74" />
+    <circle cx="825.77" cy="577.5" r="16.5" fill="#cbd5e1" opacity="0.65" />
+    <circle cx="882.5" cy="634.23" r="16.5" fill="#94a3b8" opacity="0.55" />
+    <circle cx="960.0" cy="655.0" r="16.5" fill="#64748b" opacity="0.45" />
+    <circle cx="1037.5" cy="634.23" r="16.5" fill="#475569" opacity="0.35" />
+    <circle cx="1094.23" cy="577.5" r="16.5" fill="#334155" opacity="0.25" />
+    <circle cx="1115.0" cy="500.0" r="16.5" fill="#1e293b" opacity="0.16" />
+    <circle cx="1094.23" cy="422.5" r="16.5" fill="#0f172a" opacity="0.08" />
+    <circle cx="1037.5" cy="365.77" r="16.5" fill="#000000" opacity="0.0" />
+  </g>
+
+  <!-- 2. Horizontal Rounded Progress Bar -->
+  <g class="progress-bar-container">
+    <!-- Outer Pill Border -->
+    <rect class="progress-border" x="520" y="740" width="880" height="44" rx="22" />
+
+    <!-- Animated Solid White Fill Bar (No Shimmer) -->
+    <g clip-path="url(#barClipBW)">
+      <rect class="progress-fill-bar" x="526" y="746" width="868" height="32" rx="16.0" />
+    </g>
+  </g>
+
+  <!-- 3. Bottom Centered Typography ("Loading...") with Animated Sequential 3 Dots -->
+  <g class="loading-text-group">
+    <text class="loading-text" x="960" y="875" text-anchor="middle">
+      <tspan class="loading-word">Loading</tspan>
+      <tspan class="text-dot dot-1">.</tspan>
+      <tspan class="text-dot dot-2">.</tspan>
+      <tspan class="text-dot dot-3">.</tspan>
+    </text>
+  </g>
+
+</svg>

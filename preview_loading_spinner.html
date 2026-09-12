@@ -61,12 +61,12 @@
       width: 44px;
       height: 44px;
       border-radius: var(--radius-md);
-      background: linear-gradient(135deg, #00f5ff, #000494);
+      background: linear-gradient(135deg, #ffffff, #1e293b);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 22px;
-      box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     }
 
     .brand-text h1 {
@@ -111,14 +111,14 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #000494, #0077ff);
+      background: linear-gradient(135deg, #2563eb, #38bdf8);
       color: #ffffff;
-      box-shadow: 0 4px 15px rgba(0, 119, 255, 0.4);
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(0, 119, 255, 0.6);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
     }
 
     /* Control Bar */
@@ -226,9 +226,9 @@
     }
 
     .badge-ref {
-      background: rgba(0, 245, 255, 0.2);
-      color: #38bdf8;
-      border: 1px solid rgba(0, 245, 255, 0.4);
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .badge-svg {
@@ -240,14 +240,14 @@
     .media-container {
       width: 100%;
       height: 420px;
-      background: #000494;
+      background: #000000;
       border-radius: var(--radius-md);
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .media-container img, .media-container object {
@@ -330,7 +330,7 @@
     .progress-fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, #00f5ff, #000494);
+      background: linear-gradient(90deg, #ffffff, #64748b);
       transition: width 0.1s;
     }
   </style>
@@ -340,17 +340,17 @@
   <!-- Header -->
   <header>
     <div class="brand">
-      <div class="brand-icon">⚡</div>
+      <div class="brand-icon">⚪</div>
       <div class="brand-text">
-        <h1>Full 1080p Loading UI Suite</h1>
-        <p>Spinner + Animated Progress Bar + Typography in Pure Scalable SVG</p>
+        <h1>Black & White Loading UI Suite</h1>
+        <p>12-Dot White-to-Black Stepped Motion + Animated Progress Bar + Glowing Typography</p>
       </div>
     </div>
     <div class="header-actions">
       <button class="btn btn-secondary" onclick="reloadSvg()">
         🔄 Restart Animations
       </button>
-      <a class="btn btn-secondary" id="downloadSvgBtn" href="loading_progress_bar_complete_1080p.svg" download="loading_progress_bar_complete_1080p.svg">
+      <a class="btn btn-secondary" id="downloadSvgBtn" href="loading_progress_bar_black_white_1080p.svg" download="loading_progress_bar_black_white_1080p.svg">
         📥 Download SVG
       </a>
       <button class="btn btn-primary" onclick="startExport()">
@@ -364,10 +364,10 @@
     <div class="control-group">
       <span class="control-label">Edition / Style:</span>
       <div class="pill-select">
-        <button class="pill-btn active" id="btnComplete1080" onclick="setEdition('complete1080')">✨ Full Loading UI (Spinner + Bar + Text)</button>
+        <button class="pill-btn active" id="btnBWComplete" onclick="setEdition('bwComplete')">⚫ Pitch B&W Full UI (1080p Master)</button>
+        <button class="pill-btn" id="btnBWSquare" onclick="setEdition('bwSquare')">⚫ Pitch B&W Square (1:1)</button>
+        <button class="pill-btn" id="btnCyanComplete" onclick="setEdition('cyanComplete')">🌊 Cyan-Blue Full UI (1080p)</button>
         <button class="pill-btn" id="btnCyanSquare" onclick="setEdition('cyanSquare')">🌊 Cyan-Blue Square (1:1)</button>
-        <button class="pill-btn" id="btnCyan1080" onclick="setEdition('cyan1080')">🌊 Cyan-Blue 1080p</button>
-        <button class="pill-btn" id="btnBW" onclick="setEdition('bw1080')">⚫ Pitch Black & White</button>
         <button class="pill-btn" id="btnBlue" onclick="setEdition('blue1080')">🔵 Chroma Blue</button>
         <button class="pill-btn" id="btnNeon" onclick="setEdition('neon')">✨ Cyber Neon</button>
         <button class="pill-btn" id="btnGold" onclick="setEdition('gold')">👑 VIP Gold</button>
@@ -391,12 +391,12 @@
       <div class="card-header">
         <span class="card-title">
           <span>User Uploaded Image Reference</span>
-          <span class="badge badge-ref">Reference Design</span>
+          <span class="badge badge-ref">Black & White Style</span>
         </span>
-        <span style="font-size: 12px; color: var(--text-dim);" id="refLabel">Full UI Composition</span>
+        <span style="font-size: 12px; color: var(--text-dim);" id="refLabel">Pitch Black Background</span>
       </div>
       <div class="media-container" id="leftMedia">
-        <img id="refImg" src="C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/.user_uploaded/media_1789210390119.png" alt="User Image Reference" />
+        <img id="refImg" src="C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/.user_uploaded/media_1789212034642.png" alt="User Image Reference" />
       </div>
     </div>
 
@@ -404,13 +404,13 @@
     <div class="preview-card">
       <div class="card-header">
         <span class="card-title">
-          <span id="svgCardTitle">Full Loading UI 1080p Master SVG</span>
+          <span id="svgCardTitle">Pitch B&W Full Loading UI 1080p Master SVG</span>
           <span class="badge badge-svg">Vector Render</span>
         </span>
         <span id="svgCardRes" style="font-size: 12px; color: var(--text-dim);">1920x1080 (16:9)</span>
       </div>
       <div class="media-container" id="svgHost">
-        <object id="svgObject" data="loading_progress_bar_complete_1080p.svg" type="image/svg+xml"></object>
+        <object id="svgObject" data="loading_progress_bar_black_white_1080p.svg" type="image/svg+xml"></object>
       </div>
     </div>
   </div>
@@ -418,20 +418,20 @@
   <!-- Unique Features Row -->
   <div class="stats-row">
     <div class="stat-card">
-      <h3>🌊 Deep Midnight Blue Canvas</h3>
-      <p>Solid saturated #000494 canvas background matching the exact color tone of your reference image.</p>
+      <h3>⚫ Pitch Black Canvas</h3>
+      <p>Clean solid #000000 background matching the exact darkness of your reference image.</p>
     </div>
     <div class="stat-card">
-      <h3>✨ 12-Dot Cyan Spinner</h3>
-      <p>Electric Cyan (#00f5ff) head dot with trailing fade into indigo, rotating in 12 discrete 30° steps.</p>
+      <h3>⚪ 12-Dot White-to-Black Trail</h3>
+      <p>Pure White (#ffffff) head dot with soft neon glow, smoothly trailing down to pitch black in 12 steps.</p>
     </div>
     <div class="stat-card">
-      <h3>📊 Animated Stream Progress Bar</h3>
-      <p>Pill-shaped border with animated cyan gradient fill stream and dynamic moving shimmer highlight.</p>
+      <h3>📊 Platinum Progress Stream</h3>
+      <p>Clean white pill border with smooth silver-to-white fill stream and moving translucent shimmer.</p>
     </div>
     <div class="stat-card">
-      <h3>🔤 Glowing "Loading..." Typography</h3>
-      <p>Crisp Plus Jakarta Sans typography with soft breathing luminescence in matching Sky Cyan (#38bdf8).</p>
+      <h3>🔤 Animated 3-Dot Typography</h3>
+      <p>Crisp white "Loading..." text with sequential animated dot reveal and soft breathing luminescence.</p>
     </div>
   </div>
 
@@ -448,19 +448,19 @@
   </div>
 
   <script>
-    let currentEdition = 'complete1080';
+    let currentEdition = 'bwComplete';
     let currentSpeed = 1.0;
     const downloadSvgBtn = document.getElementById('downloadSvgBtn');
 
     function getFileForEdition() {
-      if (currentEdition === 'complete1080') return 'loading_progress_bar_complete_1080p.svg';
+      if (currentEdition === 'bwComplete') return 'loading_progress_bar_black_white_1080p.svg';
+      if (currentEdition === 'bwSquare') return 'circular_dots_loading_spinner_bw_square.svg';
+      if (currentEdition === 'cyanComplete') return 'loading_progress_bar_complete_1080p.svg';
       if (currentEdition === 'cyanSquare') return 'circular_dots_loading_spinner_square.svg';
-      if (currentEdition === 'cyan1080') return 'cyan_blue_dots_loading_spinner_1080p.svg';
-      if (currentEdition === 'bw1080') return 'black_white_dots_loading_spinner_1080p.svg';
       if (currentEdition === 'blue1080') return 'unique_dots_loading_spinner_1080p.svg';
       if (currentEdition === 'neon') return 'unique_dots_loading_spinner.svg';
       if (currentEdition === 'gold') return 'unique_dots_loading_spinner_gold.svg';
-      return 'loading_progress_bar_complete_1080p.svg';
+      return 'loading_progress_bar_black_white_1080p.svg';
     }
 
     function reloadSvg() {
@@ -473,10 +473,10 @@
 
     function setEdition(ed) {
       currentEdition = ed;
-      document.getElementById('btnComplete1080').classList.toggle('active', ed === 'complete1080');
+      document.getElementById('btnBWComplete').classList.toggle('active', ed === 'bwComplete');
+      document.getElementById('btnBWSquare').classList.toggle('active', ed === 'bwSquare');
+      document.getElementById('btnCyanComplete').classList.toggle('active', ed === 'cyanComplete');
       document.getElementById('btnCyanSquare').classList.toggle('active', ed === 'cyanSquare');
-      document.getElementById('btnCyan1080').classList.toggle('active', ed === 'cyan1080');
-      document.getElementById('btnBW').classList.toggle('active', ed === 'bw1080');
       document.getElementById('btnBlue').classList.toggle('active', ed === 'blue1080');
       document.getElementById('btnNeon').classList.toggle('active', ed === 'neon');
       document.getElementById('btnGold').classList.toggle('active', ed === 'gold');
@@ -485,32 +485,38 @@
       const res = document.getElementById('svgCardRes');
       const refImg = document.getElementById('refImg');
       const refLabel = document.getElementById('refLabel');
+      const mediaHost = document.getElementById('leftMedia');
 
-      if (ed === 'complete1080') {
-        title.textContent = 'Full Loading UI 1080p Master SVG';
+      if (ed === 'bwComplete') {
+        title.textContent = 'Pitch B&W Full Loading UI 1080p Master SVG';
+        res.textContent = '1920x1080 (16:9)';
+        refImg.src = 'C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/.user_uploaded/media_1789212034642.png';
+        refLabel.textContent = 'Pitch Black Background';
+        mediaHost.style.background = '#000000';
+      } else if (ed === 'bwSquare') {
+        title.textContent = 'Pitch B&W Square Edition SVG';
+        res.textContent = '1000x1000 (1:1)';
+        refImg.src = 'C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/.user_uploaded/media_1789212034642.png';
+        refLabel.textContent = 'Pitch Black Background';
+        mediaHost.style.background = '#000000';
+      } else if (ed === 'cyanComplete') {
+        title.textContent = 'Cyan-Blue Full Loading UI 1080p Master SVG';
         res.textContent = '1920x1080 (16:9)';
         refImg.src = 'C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/.user_uploaded/media_1789210390119.png';
-        refLabel.textContent = 'Full UI Composition';
+        refLabel.textContent = 'Midnight Blue Background';
+        mediaHost.style.background = '#000494';
       } else if (ed === 'cyanSquare') {
         title.textContent = 'Cyan-Blue Square Edition SVG';
         res.textContent = '1000x1000 (1:1)';
         refImg.src = 'C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/.user_uploaded/media_1789209238949.png';
         refLabel.textContent = 'Midnight Blue Background';
-      } else if (ed === 'cyan1080') {
-        title.textContent = 'Cyan-Blue 1080p Master SVG';
-        res.textContent = '1920x1080 (16:9)';
-        refImg.src = 'C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/.user_uploaded/media_1789209238949.png';
-        refLabel.textContent = 'Midnight Blue Background';
-      } else if (ed === 'bw1080') {
-        title.textContent = 'Pitch Black & White 1080p Master SVG';
-        res.textContent = '1920x1080 (16:9)';
-        refImg.src = 'C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/.user_uploaded/media_1789207371797.png';
-        refLabel.textContent = 'Black Background';
+        mediaHost.style.background = '#000494';
       } else if (ed === 'blue1080') {
         title.textContent = 'Chroma Blue 1080p Master SVG';
         res.textContent = '1920x1080 (16:9)';
         refImg.src = 'C:/Users/USER/.gemini/antigravity-ide/brain/d9821bbe-f383-42a1-8ff7-3f42600af48d/.user_uploaded/media_1789206658511.png';
         refLabel.textContent = 'Chroma Blue Background';
+        mediaHost.style.background = '#000494';
       } else if (ed === 'neon') {
         title.textContent = 'Cyber Neon Comet Edition SVG';
         res.textContent = '1920x1080 (16:9)';
