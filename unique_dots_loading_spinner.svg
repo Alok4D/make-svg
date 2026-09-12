@@ -14,29 +14,10 @@
         opacity: 0.7;
       }
 
-      /* Orbital Track */
-      .orbit-track {
-        fill: none;
-        stroke: rgba(147, 197, 253, 0.08);
-        stroke-width: 2;
-        stroke-dasharray: 6 10;
-        animation: rotateTrack 24s linear infinite;
-        transform-origin: 960.0px 540.0px;
-      }
-
-      .orbit-track-inner {
-        fill: none;
-        stroke: rgba(168, 85, 247, 0.06);
-        stroke-width: 1.5;
-        stroke-dasharray: 4 8;
-        animation: rotateTrackReverse 18s linear infinite;
-        transform-origin: 960.0px 540.0px;
-      }
-
-      /* Main Comet-Tail Spinner */
+      /* Main Comet-Tail Spinner - Slower & Smoother Luxury Timing (1.5s) */
       .comet-spinner {
         transform-origin: 960.0px 540.0px;
-        animation: spinComet 1.0s steps(12, end) infinite;
+        animation: spinComet 1.5s steps(12, end) infinite;
       }
 
       @keyframes spinComet {
@@ -46,16 +27,6 @@
         100% {
           transform: rotate(360deg);
         }
-      }
-
-      @keyframes rotateTrack {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-
-      @keyframes rotateTrackReverse {
-        0% { transform: rotate(360deg); }
-        100% { transform: rotate(0deg); }
       }
     ]]></style>
 
@@ -97,12 +68,7 @@
   <!-- Center Ambient Radiance -->
   <circle cx="960.0" cy="540.0" r="560" fill="url(#centerGlow)" class="ambient-glow" />
 
-  <!-- High-Tech Orbital Guide Tracks -->
-  <circle cx="960.0" cy="540.0" r="360.0" class="orbit-track" />
-  <circle cx="960.0" cy="540.0" r="270.0" class="orbit-track-inner" />
-  <circle cx="960.0" cy="540.0" r="450.0" class="orbit-track-inner" />
-
-  <!-- 12-Dot Tapered Comet-Tail Motion Vector (Clean without Middle Point) -->
+  <!-- 12-Dot Tapered Comet-Tail Motion Vector (Pure Clean without Orbit Circles) -->
   <g class="comet-spinner">
     <!-- Head Node (Glowing Comet Leader) -->
     <circle cx="960.0" cy="180.0" r="52.0" fill="url(#neonHeadGrad)" filter="url(#glowNeon)" opacity="1.0" />
@@ -114,10 +80,9 @@
     <circle cx="780.0" cy="851.77" r="28.0" fill="url(#dotGrad)" opacity="0.54" />
     <circle cx="960.0" cy="900.0" r="24.0" fill="url(#dotGrad)" opacity="0.44" />
     <circle cx="1140.0" cy="851.77" r="20.0" fill="url(#dotGrad)" opacity="0.34" />
-    <circle cx="1271.77" cy="720.0" r="16.0" fill="url(#dotGrad)" opacity="0.24" />
-    <circle cx="1320.0" cy="540.0" r="13.0" fill="url(#dotGrad)" opacity="0.15" />
-    <circle cx="1271.77" cy="360.0" r="10.0" fill="url(#dotGrad)" opacity="0.08" />
-    <circle cx="1140.0" cy="228.23" r="7.0" fill="url(#dotGrad)" opacity="0.02" />
+    <circle cx="1271.77" cy="720.0" r="16.0" fill="url(#dotGrad)" opacity="0.22" />
+    <circle cx="1320.0" cy="540.0" r="13.0" fill="url(#dotGrad)" opacity="0.12" />
+    <circle cx="1271.77" cy="360.0" r="10.0" fill="url(#dotGrad)" opacity="0.04" />
   </g>
 
 </svg>
