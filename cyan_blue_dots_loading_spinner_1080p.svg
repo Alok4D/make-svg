@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <style><![CDATA[
+      * {
+        box-sizing: border-box;
+      }
+
+      .bg-canvas {
+        fill: #000494;
+      }
+
+      .spinner-group {
+        transform-origin: 960.0px 540.0px;
+        animation: spin 1s steps(12, end) infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    ]]></style>
+
+    <!-- Glowing Head Filter -->
+    <filter id="glowHead1080" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Deep Midnight Blue Background -->
+  <rect class="bg-canvas" width="1920" height="1080" />
+
+  <!-- 12-Dot Cyan to Indigo Stepped Loading Spinner (1080p Ultra-HD) -->
+  <g class="spinner-group">
+    <circle cx="960.0" cy="200.0" r="48.0" fill="#00f5ff" opacity="1.0" filter="url(#glowHead1080)" />
+    <circle cx="790.0" cy="245.55" r="48.0" fill="#00e1ff" opacity="0.92" />
+    <circle cx="665.55" cy="370.0" r="48.0" fill="#00cbff" opacity="0.83" />
+    <circle cx="620.0" cy="540.0" r="48.0" fill="#00b2ff" opacity="0.74" />
+    <circle cx="665.55" cy="710.0" r="48.0" fill="#0096ff" opacity="0.65" />
+    <circle cx="790.0" cy="834.45" r="48.0" fill="#007aff" opacity="0.55" />
+    <circle cx="960.0" cy="880.0" r="48.0" fill="#1d60ff" opacity="0.45" />
+    <circle cx="1130.0" cy="834.45" r="48.0" fill="#2d49ff" opacity="0.35" />
+    <circle cx="1254.45" cy="710.0" r="48.0" fill="#3a33ef" opacity="0.25" />
+    <circle cx="1300.0" cy="540.0" r="48.0" fill="#3420cc" opacity="0.16" />
+    <circle cx="1254.45" cy="370.0" r="48.0" fill="#2210a0" opacity="0.08" />
+    <circle cx="1130.0" cy="245.55" r="48.0" fill="#120478" opacity="0.0" />
+  </g>
+</svg>
