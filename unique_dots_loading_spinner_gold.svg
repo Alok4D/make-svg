@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <style><![CDATA[
+      * { box-sizing: border-box; }
+      .bg-canvas { fill: #080705; }
+      .ambient-glow { opacity: 0.65; }
+      .orbit-track {
+        fill: none;
+        stroke: rgba(251, 191, 36, 0.12);
+        stroke-width: 2;
+        stroke-dasharray: 6 10;
+        animation: rotateTrack 24s linear infinite;
+        transform-origin: 960.0px 540.0px;
+      }
+      .orbit-track-inner {
+        fill: none;
+        stroke: rgba(245, 158, 11, 0.08);
+        stroke-width: 1.5;
+        stroke-dasharray: 4 8;
+        animation: rotateTrackReverse 18s linear infinite;
+        transform-origin: 960.0px 540.0px;
+      }
+      .comet-spinner {
+        transform-origin: 960.0px 540.0px;
+        animation: spinComet 1.0s steps(12, end) infinite;
+      }
+      @keyframes spinComet {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes rotateTrack {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes rotateTrackReverse {
+        0% { transform: rotate(360deg); }
+        100% { transform: rotate(0deg); }
+      }
+    ]]></style>
+
+    <filter id="glowGold" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur1" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <radialGradient id="goldCenterGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25" />
+      <stop offset="40%" stop-color="#b45309" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#080705" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="goldHeadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+
+    <linearGradient id="goldDotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde68a" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+
+  <rect class="bg-canvas" width="1920" height="1080" />
+  <circle cx="960.0" cy="540.0" r="560" fill="url(#goldCenterGlow)" class="ambient-glow" />
+
+  <circle cx="960.0" cy="540.0" r="360.0" class="orbit-track" />
+  <circle cx="960.0" cy="540.0" r="270.0" class="orbit-track-inner" />
+  <circle cx="960.0" cy="540.0" r="450.0" class="orbit-track-inner" />
+
+  <g class="comet-spinner">
+    <circle cx="960.0" cy="180.0" r="52.0" fill="url(#goldHeadGrad)" filter="url(#glowGold)" opacity="1.0" />
+    <circle cx="960.0" cy="180.0" r="23.4" fill="#ffffff" opacity="0.95" />
+    <circle cx="780.0" cy="228.23" r="47.0" fill="url(#goldDotGrad)" opacity="0.92" />
+    <circle cx="648.23" cy="360.0" r="42.0" fill="url(#goldDotGrad)" opacity="0.83" />
+    <circle cx="600.0" cy="540.0" r="37.0" fill="url(#goldDotGrad)" opacity="0.74" />
+    <circle cx="648.23" cy="720.0" r="32.0" fill="url(#goldDotGrad)" opacity="0.64" />
+    <circle cx="780.0" cy="851.77" r="28.0" fill="url(#goldDotGrad)" opacity="0.54" />
+    <circle cx="960.0" cy="900.0" r="24.0" fill="url(#goldDotGrad)" opacity="0.44" />
+    <circle cx="1140.0" cy="851.77" r="20.0" fill="url(#goldDotGrad)" opacity="0.34" />
+    <circle cx="1271.77" cy="720.0" r="16.0" fill="url(#goldDotGrad)" opacity="0.24" />
+    <circle cx="1320.0" cy="540.0" r="13.0" fill="url(#goldDotGrad)" opacity="0.15" />
+    <circle cx="1271.77" cy="360.0" r="10.0" fill="url(#goldDotGrad)" opacity="0.08" />
+    <circle cx="1140.0" cy="228.23" r="7.0" fill="url(#goldDotGrad)" opacity="0.02" />
+  </g>
+</svg>

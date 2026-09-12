@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 394" width="100%" height="100%">
+  <defs>
+    <style><![CDATA[
+      * {
+        box-sizing: border-box;
+      }
+
+      .bg-rect {
+        fill: #000000;
+      }
+
+      .spinner-group {
+        fill: #ffffff;
+        transform-origin: 350.0px 197.0px;
+        animation: spin 1s steps(12, end) infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    ]]></style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg-rect" width="700" height="394" />
+
+  <!-- 12-Dot Stepped Loading Spinner -->
+  <g class="spinner-group">
+    <circle cx="350.0" cy="66.5" r="15.5" opacity="1.0" />
+    <circle cx="284.75" cy="83.98" r="15.5" opacity="0.9" />
+    <circle cx="236.98" cy="131.75" r="15.5" opacity="0.8" />
+    <circle cx="219.5" cy="197.0" r="15.5" opacity="0.72" />
+    <circle cx="236.98" cy="262.25" r="15.5" opacity="0.63" />
+    <circle cx="284.75" cy="310.02" r="15.5" opacity="0.55" />
+    <circle cx="350.0" cy="327.5" r="15.5" opacity="0.45" />
+    <circle cx="415.25" cy="310.02" r="15.5" opacity="0.36" />
+    <circle cx="463.02" cy="262.25" r="15.5" opacity="0.27" />
+    <circle cx="480.5" cy="197.0" r="15.5" opacity="0.18" />
+    <circle cx="463.02" cy="131.75" r="15.5" opacity="0.08" />
+    <circle cx="415.25" cy="83.98" r="15.5" opacity="0.0" />
+  </g>
+</svg>
