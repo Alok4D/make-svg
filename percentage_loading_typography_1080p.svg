@@ -9,29 +9,34 @@
         padding: 0;
       }
 
+      /* Dark Charcoal Canvas */
       .bg-canvas {
         fill: #141416;
       }
 
+      /* Default Typography with Tabular Numerics (No Jitter) */
       .percentage-text {
-        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-size: 280px;
         font-weight: 900;
-        letter-spacing: -4px;
+        font-feature-settings: 'tnum' 1;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -2px;
         text-anchor: middle;
         dominant-baseline: central;
         user-select: none;
       }
 
+      /* Wireframe Stroke Layer */
       .text-wireframe {
         fill: none;
         stroke: #ffffff;
         stroke-width: 3.5;
         stroke-linecap: round;
         stroke-linejoin: round;
-        opacity: 0.95;
       }
 
+      /* Solid White Fill Layer */
       .text-solid {
         fill: #ffffff;
         stroke: #ffffff;
@@ -46,80 +51,840 @@
       }
     ]]></style>
 
+    <!-- Subtle White Glow Filter -->
     <filter id="whiteGlow1080" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
       <feMerge>
         <feMergeNode in="blur" />
         <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
 
+    <!-- Center Ambient Soft Lighting -->
     <radialGradient id="centerLight1080" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12" />
       <stop offset="60%" stop-color="#27272a" stop-opacity="0.04" />
       <stop offset="100%" stop-color="#141416" stop-opacity="0" />
     </radialGradient>
 
+    <!-- Native SMIL Synchronized Vertical Rising Clip Path (100% Proportional) -->
     <clipPath id="fillClip1080">
-      <rect id="clipRect1080" x="0" y="650" width="1920" height="700" />
+      <rect id="clipRect1080" x="0" y="640.0" width="1920" height="1080">
+        <animate attributeName="y"
+                 values="640.0; 638.0; 636.0; 634.0; 632.0; 630.0; 628.0; 626.0; 624.0; 622.0; 620.0; 618.0; 616.0; 614.0; 612.0; 610.0; 608.0; 606.0; 604.0; 602.0; 600.0; 598.0; 596.0; 594.0; 592.0; 590.0; 588.0; 586.0; 584.0; 582.0; 580.0; 578.0; 576.0; 574.0; 572.0; 570.0; 568.0; 566.0; 564.0; 562.0; 560.0; 558.0; 556.0; 554.0; 552.0; 550.0; 548.0; 546.0; 544.0; 542.0; 540.0; 538.0; 536.0; 534.0; 532.0; 530.0; 528.0; 526.0; 524.0; 522.0; 520.0; 518.0; 516.0; 514.0; 512.0; 510.0; 508.0; 506.0; 504.0; 502.0; 500.0; 498.0; 496.0; 494.0; 492.0; 490.0; 488.0; 486.0; 484.0; 482.0; 480.0; 478.0; 476.0; 474.0; 472.0; 470.0; 468.0; 466.0; 464.0; 462.0; 460.0; 458.0; 456.0; 454.0; 452.0; 450.0; 448.0; 446.0; 444.0; 442.0; 440.0; 440.0; 640.0"
+                 keyTimes="0.00000; 0.00784; 0.01567; 0.02351; 0.03134; 0.03918; 0.04701; 0.05485; 0.06268; 0.07052; 0.07835; 0.08619; 0.09402; 0.10186; 0.10969; 0.11753; 0.12536; 0.13320; 0.14103; 0.14887; 0.15670; 0.16454; 0.17237; 0.18021; 0.18804; 0.19588; 0.20371; 0.21155; 0.21938; 0.22722; 0.23505; 0.24289; 0.25072; 0.25856; 0.26639; 0.27423; 0.28206; 0.28990; 0.29773; 0.30557; 0.31340; 0.32124; 0.32907; 0.33691; 0.34474; 0.35258; 0.36041; 0.36825; 0.37608; 0.38392; 0.39175; 0.39959; 0.40742; 0.41526; 0.42309; 0.43093; 0.43876; 0.44660; 0.45443; 0.46227; 0.47010; 0.47794; 0.48577; 0.49361; 0.50144; 0.50928; 0.51711; 0.52495; 0.53278; 0.54062; 0.54845; 0.55629; 0.56412; 0.57196; 0.57979; 0.58763; 0.59546; 0.60330; 0.61113; 0.61897; 0.62680; 0.63464; 0.64247; 0.65031; 0.65814; 0.66598; 0.67381; 0.68165; 0.68948; 0.69732; 0.70515; 0.71299; 0.72082; 0.72866; 0.73649; 0.74433; 0.75216; 0.76000; 0.76784; 0.77567; 0.78351; 0.98969; 1.00000"
+                 dur="4.85s"
+                 repeatCount="indefinite"
+                 calcMode="linear" />
+      </rect>
     </clipPath>
   </defs>
 
+  <!-- Background Canvas -->
   <rect class="bg-canvas" width="1920" height="1080" />
-  <circle cx="960" cy="540" r="500" fill="url(#centerLight1080)" class="bg-radial-glow" />
+  <circle cx="960" cy="540" r="540" fill="url(#centerLight1080)" class="bg-radial-glow" />
 
-  <text id="outlineText1080" class="percentage-text text-wireframe" x="960" y="540">1%</text>
-
-  <g clip-path="url(#fillClip1080)">
-    <text id="filledText1080" class="percentage-text text-solid" x="960" y="540">1%</text>
+  <!-- Synchronized Typography Percentage Counter (1% to 100%) -->
+  <g id="typographyCounter">
+    <g id="step-1" style="display: inline; opacity: 1;">
+      <animate attributeName="display" calcMode="discrete" values="inline;none;none" keyTimes="0;0.00784;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="1;0;0" keyTimes="0;0.00784;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">1%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">1%</text>
+      </g>
+    </g>
+    <g id="step-2" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.00784;0.01567;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.00784;0.01567;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">2%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">2%</text>
+      </g>
+    </g>
+    <g id="step-3" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.01567;0.02351;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.01567;0.02351;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">3%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">3%</text>
+      </g>
+    </g>
+    <g id="step-4" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.02351;0.03134;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.02351;0.03134;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">4%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">4%</text>
+      </g>
+    </g>
+    <g id="step-5" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.03134;0.03918;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.03134;0.03918;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">5%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">5%</text>
+      </g>
+    </g>
+    <g id="step-6" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.03918;0.04701;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.03918;0.04701;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">6%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">6%</text>
+      </g>
+    </g>
+    <g id="step-7" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.04701;0.05485;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.04701;0.05485;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">7%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">7%</text>
+      </g>
+    </g>
+    <g id="step-8" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.05485;0.06268;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.05485;0.06268;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">8%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">8%</text>
+      </g>
+    </g>
+    <g id="step-9" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.06268;0.07052;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.06268;0.07052;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">9%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">9%</text>
+      </g>
+    </g>
+    <g id="step-10" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.07052;0.07835;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.07052;0.07835;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">10%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">10%</text>
+      </g>
+    </g>
+    <g id="step-11" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.07835;0.08619;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.07835;0.08619;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">11%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">11%</text>
+      </g>
+    </g>
+    <g id="step-12" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.08619;0.09402;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.08619;0.09402;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">12%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">12%</text>
+      </g>
+    </g>
+    <g id="step-13" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.09402;0.10186;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.09402;0.10186;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">13%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">13%</text>
+      </g>
+    </g>
+    <g id="step-14" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.10186;0.10969;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.10186;0.10969;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">14%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">14%</text>
+      </g>
+    </g>
+    <g id="step-15" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.10969;0.11753;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.10969;0.11753;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">15%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">15%</text>
+      </g>
+    </g>
+    <g id="step-16" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.11753;0.12536;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.11753;0.12536;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">16%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">16%</text>
+      </g>
+    </g>
+    <g id="step-17" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.12536;0.13320;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.12536;0.13320;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">17%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">17%</text>
+      </g>
+    </g>
+    <g id="step-18" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.13320;0.14103;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.13320;0.14103;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">18%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">18%</text>
+      </g>
+    </g>
+    <g id="step-19" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.14103;0.14887;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.14103;0.14887;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">19%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">19%</text>
+      </g>
+    </g>
+    <g id="step-20" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.14887;0.15670;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.14887;0.15670;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">20%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">20%</text>
+      </g>
+    </g>
+    <g id="step-21" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.15670;0.16454;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.15670;0.16454;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">21%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">21%</text>
+      </g>
+    </g>
+    <g id="step-22" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.16454;0.17237;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.16454;0.17237;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">22%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">22%</text>
+      </g>
+    </g>
+    <g id="step-23" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.17237;0.18021;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.17237;0.18021;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">23%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">23%</text>
+      </g>
+    </g>
+    <g id="step-24" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.18021;0.18804;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.18021;0.18804;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">24%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">24%</text>
+      </g>
+    </g>
+    <g id="step-25" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.18804;0.19588;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.18804;0.19588;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">25%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">25%</text>
+      </g>
+    </g>
+    <g id="step-26" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.19588;0.20371;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.19588;0.20371;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">26%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">26%</text>
+      </g>
+    </g>
+    <g id="step-27" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.20371;0.21155;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.20371;0.21155;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">27%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">27%</text>
+      </g>
+    </g>
+    <g id="step-28" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.21155;0.21938;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.21155;0.21938;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">28%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">28%</text>
+      </g>
+    </g>
+    <g id="step-29" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.21938;0.22722;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.21938;0.22722;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">29%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">29%</text>
+      </g>
+    </g>
+    <g id="step-30" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.22722;0.23505;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.22722;0.23505;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">30%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">30%</text>
+      </g>
+    </g>
+    <g id="step-31" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.23505;0.24289;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.23505;0.24289;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">31%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">31%</text>
+      </g>
+    </g>
+    <g id="step-32" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.24289;0.25072;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.24289;0.25072;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">32%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">32%</text>
+      </g>
+    </g>
+    <g id="step-33" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.25072;0.25856;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.25072;0.25856;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">33%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">33%</text>
+      </g>
+    </g>
+    <g id="step-34" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.25856;0.26639;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.25856;0.26639;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">34%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">34%</text>
+      </g>
+    </g>
+    <g id="step-35" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.26639;0.27423;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.26639;0.27423;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">35%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">35%</text>
+      </g>
+    </g>
+    <g id="step-36" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.27423;0.28206;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.27423;0.28206;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">36%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">36%</text>
+      </g>
+    </g>
+    <g id="step-37" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.28206;0.28990;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.28206;0.28990;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">37%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">37%</text>
+      </g>
+    </g>
+    <g id="step-38" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.28990;0.29773;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.28990;0.29773;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">38%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">38%</text>
+      </g>
+    </g>
+    <g id="step-39" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.29773;0.30557;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.29773;0.30557;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">39%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">39%</text>
+      </g>
+    </g>
+    <g id="step-40" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.30557;0.31340;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.30557;0.31340;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">40%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">40%</text>
+      </g>
+    </g>
+    <g id="step-41" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.31340;0.32124;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.31340;0.32124;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">41%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">41%</text>
+      </g>
+    </g>
+    <g id="step-42" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.32124;0.32907;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.32124;0.32907;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">42%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">42%</text>
+      </g>
+    </g>
+    <g id="step-43" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.32907;0.33691;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.32907;0.33691;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">43%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">43%</text>
+      </g>
+    </g>
+    <g id="step-44" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.33691;0.34474;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.33691;0.34474;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">44%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">44%</text>
+      </g>
+    </g>
+    <g id="step-45" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.34474;0.35258;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.34474;0.35258;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">45%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">45%</text>
+      </g>
+    </g>
+    <g id="step-46" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.35258;0.36041;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.35258;0.36041;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">46%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">46%</text>
+      </g>
+    </g>
+    <g id="step-47" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.36041;0.36825;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.36041;0.36825;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">47%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">47%</text>
+      </g>
+    </g>
+    <g id="step-48" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.36825;0.37608;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.36825;0.37608;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">48%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">48%</text>
+      </g>
+    </g>
+    <g id="step-49" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.37608;0.38392;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.37608;0.38392;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">49%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">49%</text>
+      </g>
+    </g>
+    <g id="step-50" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.38392;0.39175;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.38392;0.39175;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">50%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">50%</text>
+      </g>
+    </g>
+    <g id="step-51" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.39175;0.39959;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.39175;0.39959;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">51%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">51%</text>
+      </g>
+    </g>
+    <g id="step-52" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.39959;0.40742;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.39959;0.40742;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">52%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">52%</text>
+      </g>
+    </g>
+    <g id="step-53" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.40742;0.41526;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.40742;0.41526;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">53%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">53%</text>
+      </g>
+    </g>
+    <g id="step-54" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.41526;0.42309;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.41526;0.42309;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">54%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">54%</text>
+      </g>
+    </g>
+    <g id="step-55" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.42309;0.43093;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.42309;0.43093;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">55%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">55%</text>
+      </g>
+    </g>
+    <g id="step-56" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.43093;0.43876;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.43093;0.43876;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">56%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">56%</text>
+      </g>
+    </g>
+    <g id="step-57" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.43876;0.44660;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.43876;0.44660;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">57%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">57%</text>
+      </g>
+    </g>
+    <g id="step-58" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.44660;0.45443;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.44660;0.45443;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">58%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">58%</text>
+      </g>
+    </g>
+    <g id="step-59" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.45443;0.46227;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.45443;0.46227;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">59%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">59%</text>
+      </g>
+    </g>
+    <g id="step-60" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.46227;0.47010;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.46227;0.47010;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">60%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">60%</text>
+      </g>
+    </g>
+    <g id="step-61" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.47010;0.47794;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.47010;0.47794;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">61%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">61%</text>
+      </g>
+    </g>
+    <g id="step-62" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.47794;0.48577;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.47794;0.48577;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">62%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">62%</text>
+      </g>
+    </g>
+    <g id="step-63" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.48577;0.49361;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.48577;0.49361;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">63%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">63%</text>
+      </g>
+    </g>
+    <g id="step-64" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.49361;0.50144;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.49361;0.50144;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">64%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">64%</text>
+      </g>
+    </g>
+    <g id="step-65" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.50144;0.50928;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.50144;0.50928;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">65%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">65%</text>
+      </g>
+    </g>
+    <g id="step-66" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.50928;0.51711;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.50928;0.51711;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">66%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">66%</text>
+      </g>
+    </g>
+    <g id="step-67" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.51711;0.52495;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.51711;0.52495;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">67%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">67%</text>
+      </g>
+    </g>
+    <g id="step-68" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.52495;0.53278;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.52495;0.53278;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">68%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">68%</text>
+      </g>
+    </g>
+    <g id="step-69" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.53278;0.54062;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.53278;0.54062;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">69%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">69%</text>
+      </g>
+    </g>
+    <g id="step-70" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.54062;0.54845;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.54062;0.54845;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">70%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">70%</text>
+      </g>
+    </g>
+    <g id="step-71" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.54845;0.55629;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.54845;0.55629;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">71%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">71%</text>
+      </g>
+    </g>
+    <g id="step-72" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.55629;0.56412;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.55629;0.56412;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">72%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">72%</text>
+      </g>
+    </g>
+    <g id="step-73" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.56412;0.57196;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.56412;0.57196;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">73%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">73%</text>
+      </g>
+    </g>
+    <g id="step-74" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.57196;0.57979;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.57196;0.57979;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">74%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">74%</text>
+      </g>
+    </g>
+    <g id="step-75" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.57979;0.58763;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.57979;0.58763;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">75%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">75%</text>
+      </g>
+    </g>
+    <g id="step-76" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.58763;0.59546;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.58763;0.59546;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">76%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">76%</text>
+      </g>
+    </g>
+    <g id="step-77" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.59546;0.60330;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.59546;0.60330;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">77%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">77%</text>
+      </g>
+    </g>
+    <g id="step-78" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.60330;0.61113;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.60330;0.61113;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">78%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">78%</text>
+      </g>
+    </g>
+    <g id="step-79" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.61113;0.61897;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.61113;0.61897;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">79%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">79%</text>
+      </g>
+    </g>
+    <g id="step-80" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.61897;0.62680;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.61897;0.62680;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">80%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">80%</text>
+      </g>
+    </g>
+    <g id="step-81" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.62680;0.63464;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.62680;0.63464;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">81%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">81%</text>
+      </g>
+    </g>
+    <g id="step-82" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.63464;0.64247;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.63464;0.64247;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">82%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">82%</text>
+      </g>
+    </g>
+    <g id="step-83" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.64247;0.65031;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.64247;0.65031;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">83%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">83%</text>
+      </g>
+    </g>
+    <g id="step-84" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.65031;0.65814;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.65031;0.65814;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">84%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">84%</text>
+      </g>
+    </g>
+    <g id="step-85" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.65814;0.66598;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.65814;0.66598;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">85%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">85%</text>
+      </g>
+    </g>
+    <g id="step-86" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.66598;0.67381;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.66598;0.67381;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">86%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">86%</text>
+      </g>
+    </g>
+    <g id="step-87" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.67381;0.68165;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.67381;0.68165;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">87%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">87%</text>
+      </g>
+    </g>
+    <g id="step-88" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.68165;0.68948;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.68165;0.68948;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">88%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">88%</text>
+      </g>
+    </g>
+    <g id="step-89" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.68948;0.69732;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.68948;0.69732;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">89%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">89%</text>
+      </g>
+    </g>
+    <g id="step-90" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.69732;0.70515;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.69732;0.70515;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">90%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">90%</text>
+      </g>
+    </g>
+    <g id="step-91" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.70515;0.71299;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.70515;0.71299;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">91%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">91%</text>
+      </g>
+    </g>
+    <g id="step-92" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.71299;0.72082;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.71299;0.72082;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">92%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">92%</text>
+      </g>
+    </g>
+    <g id="step-93" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.72082;0.72866;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.72082;0.72866;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">93%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">93%</text>
+      </g>
+    </g>
+    <g id="step-94" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.72866;0.73649;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.72866;0.73649;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">94%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">94%</text>
+      </g>
+    </g>
+    <g id="step-95" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.73649;0.74433;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.73649;0.74433;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">95%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">95%</text>
+      </g>
+    </g>
+    <g id="step-96" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.74433;0.75216;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.74433;0.75216;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">96%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">96%</text>
+      </g>
+    </g>
+    <g id="step-97" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.75216;0.76000;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.75216;0.76000;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">97%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">97%</text>
+      </g>
+    </g>
+    <g id="step-98" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.76000;0.76784;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.76000;0.76784;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">98%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">98%</text>
+      </g>
+    </g>
+    <g id="step-99" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.76784;0.77567;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.76784;0.77567;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">99%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">99%</text>
+      </g>
+    </g>
+    <g id="step-100" style="display: none; opacity: 0;">
+      <animate attributeName="display" calcMode="discrete" values="none;inline;none;none" keyTimes="0;0.77567;0.98969;1" dur="4.85s" repeatCount="indefinite" />
+      <animate attributeName="opacity" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.77567;0.98969;1" dur="4.85s" repeatCount="indefinite" />
+      <text class="percentage-text text-wireframe" x="960" y="540">100%</text>
+      <g clip-path="url(#fillClip1080)">
+        <text class="percentage-text text-solid" x="960" y="540">100%</text>
+      </g>
+    </g>
   </g>
-
-  <script type="text/javascript"><![CDATA[
-    (function() {
-      const outline = document.getElementById('outlineText1080');
-      const filled = document.getElementById('filledText1080');
-      const clipRect = document.getElementById('clipRect1080');
-      if (!outline || !filled || !clipRect) return;
-
-      const DURATION = 3800;
-      const PAUSE = 1000;
-      const TOTAL = DURATION + PAUSE;
-
-      const Y_BOTTOM = 650;
-      const Y_TOP = 430;
-      const DELTA_Y = Y_BOTTOM - Y_TOP;
-
-      let startTime = null;
-
-      function update(timestamp) {
-        if (!startTime) startTime = timestamp;
-        const elapsed = (timestamp - startTime) % TOTAL;
-
-        let pct = 1;
-        let progress = 0;
-
-        if (elapsed <= DURATION) {
-          const t = elapsed / DURATION;
-          progress = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-          pct = Math.min(100, Math.max(1, Math.round(progress * 99) + 1));
-        } else {
-          progress = 1.0;
-          pct = 100;
-        }
-
-        const currentY = Y_BOTTOM - (progress * DELTA_Y);
-        clipRect.setAttribute('y', currentY.toFixed(1));
-
-        const str = pct + '%';
-        if (outline.textContent !== str) {
-          outline.textContent = str;
-          filled.textContent = str;
-        }
-
-        requestAnimationFrame(update);
-      }
-
-      requestAnimationFrame(update);
-    })();
-  ]]></script>
 </svg>
