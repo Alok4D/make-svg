@@ -46,13 +46,13 @@
   <!-- Step 0: Solid Black Background -->
   <rect width="1920" height="1080" fill="#000000" />
 
-  <!-- STEP 1: Text 2027 Animation (Appears first at 0.35s on Black Background) -->
+  <!-- STEP 1: Text 2027 Animation (Appears first at 0.5s on Black Background, runs in 10s cycle) -->
   <!-- Text Glow Layer -->
   <g fill="#4ade80" filter="url(#neonGlow)">
     <animate attributeName="opacity"
       values="0; 0; 1.0; 0.88; 1.0; 0.90; 0; 0"
-      keyTimes="0; 0.05; 0.17; 0.45; 0.70; 0.88; 0.96; 1"
-      dur="6.5s" repeatCount="indefinite"
+      keyTimes="0; 0.05; 0.15; 0.50; 0.75; 0.92; 0.98; 1"
+      dur="10s" repeatCount="indefinite"
       calcMode="spline"
       keySplines="0.4 0.0 0.2 1.0; 0.16 1.0 0.3 1.0; 0.4 0.0 0.2 1.0; 0.4 0.0 0.2 1.0; 0.4 0.0 0.2 1.0; 0.4 0.0 0.2 1.0; 0.4 0.0 0.2 1.0" />
     <use href="#text2027" />
@@ -62,20 +62,20 @@
   <g>
     <animate attributeName="opacity"
       values="0; 0; 1; 1; 1; 1; 0; 0"
-      keyTimes="0; 0.05; 0.17; 0.45; 0.70; 0.88; 0.96; 1"
-      dur="6.5s" repeatCount="indefinite"
+      keyTimes="0; 0.05; 0.15; 0.50; 0.75; 0.92; 0.98; 1"
+      dur="10s" repeatCount="indefinite"
       calcMode="spline"
       keySplines="0.4 0.0 0.2 1.0; 0.16 1.0 0.3 1.0; 0.4 0.0 0.2 1.0; 0.4 0.0 0.2 1.0; 0.4 0.0 0.2 1.0; 0.4 0.0 0.2 1.0; 0.4 0.0 0.2 1.0" />
     <use href="#text2027" fill="#ffffff" />
   </g>
 
-  <!-- STEP 2: Bottom Waves Animation (Shows AFTER 2027 text is visible, and continuously flows horizontally) -->
+  <!-- STEP 2: Bottom Waves Animation (Shows AFTER 2027 text at 1.5s, continuously flows until 9.2s, loops at 10s) -->
   <g id="bottomWaveSection">
-    <!-- Entrance fade-in: 0% opacity until 2027 text is shown (keyTime 0.17), then smoothly fades in -->
+    <!-- Fade-in at 1.5s (keyTime 0.15) -> fully visible at 2.5s (keyTime 0.25) -> active until 9.2s (keyTime 0.92) -> fades out at 9.8s -->
     <animate attributeName="opacity"
       values="0; 0; 1; 1; 1; 0; 0"
-      keyTimes="0; 0.17; 0.28; 0.70; 0.88; 0.96; 1"
-      dur="6.5s" repeatCount="indefinite"
+      keyTimes="0; 0.15; 0.25; 0.75; 0.92; 0.98; 1"
+      dur="10s" repeatCount="indefinite"
       calcMode="spline"
       keySplines="0.4 0.0 0.2 1.0; 0.16 1.0 0.3 1.0; 0.4 0.0 0.2 1.0; 0.4 0.0 0.2 1.0; 0.4 0.0 0.2 1.0; 0.4 0.0 0.2 1.0" />
 
