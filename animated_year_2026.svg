@@ -1,13 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" style="background-color: #000000;">
   <defs>
-    <!-- Multi-stage Neon Glow Filter -->
-    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur1" />
-      <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="blur2" />
-      <feGaussianBlur in="SourceGraphic" stdDeviation="60" result="blur3" />
-      <feGaussianBlur in="SourceGraphic" stdDeviation="95" result="blur4" />
+    <!-- Full-Canvas Neon Glow Filter with sRGB interpolation (No rectangular clipping box or dark boundary shadow) -->
+    <filter id="neonGlow" filterUnits="userSpaceOnUse" x="0" y="0" width="1920" height="1080" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur1" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="25" result="blur2" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="55" result="blur3" />
       <feMerge>
-        <feMergeNode in="blur4" />
         <feMergeNode in="blur3" />
         <feMergeNode in="blur2" />
         <feMergeNode in="blur1" />
@@ -46,11 +44,10 @@
   <!-- Step 0: Solid Black Background -->
   <rect width="1920" height="1080" fill="#000000" />
 
-  <!-- STEP 1: Text 2027 Animation (Appears first at 0.5s on Black Background, runs in 10s cycle) -->
-  <!-- Text Glow Layer -->
+  <!-- STEP 1: Text 2027 Glow Layer (Clean diffuse green neon, 10s cycle) -->
   <g fill="#4ade80" filter="url(#neonGlow)">
     <animate attributeName="opacity"
-      values="0; 0; 1.0; 0.88; 1.0; 0.90; 0; 0"
+      values="0; 0; 0.95; 0.85; 0.95; 0.85; 0; 0"
       keyTimes="0; 0.05; 0.15; 0.50; 0.75; 0.92; 0.98; 1"
       dur="10s" repeatCount="indefinite"
       calcMode="spline"
@@ -58,7 +55,7 @@
     <use href="#text2027" />
   </g>
 
-  <!-- Crisp White 2027 Text -->
+  <!-- Crisp White 2027 Text (Pure #ffffff with zero rectangular artifacts) -->
   <g>
     <animate attributeName="opacity"
       values="0; 0; 1; 1; 1; 1; 0; 0"
@@ -69,9 +66,8 @@
     <use href="#text2027" fill="#ffffff" />
   </g>
 
-  <!-- STEP 2: Bottom Waves Animation (Shows AFTER 2027 text at 1.5s, continuously flows until 9.2s, loops at 10s) -->
+  <!-- STEP 2: Bottom Waves Animation (Shows AFTER 2027 text, continuously flows until 9.2s, loops at 10s) -->
   <g id="bottomWaveSection">
-    <!-- Fade-in at 1.5s (keyTime 0.15) -> fully visible at 2.5s (keyTime 0.25) -> active until 9.2s (keyTime 0.92) -> fades out at 9.8s -->
     <animate attributeName="opacity"
       values="0; 0; 1; 1; 1; 0; 0"
       keyTimes="0; 0.15; 0.25; 0.75; 0.92; 0.98; 1"
