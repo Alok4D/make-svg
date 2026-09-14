@@ -1,0 +1,1428 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" style="background: #000000; overflow: hidden;">
+  <rect width="1920" height="1080" fill="#000000" />
+  <defs>
+    <!-- Glow and Blur Filters -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feColorMatrix type="matrix" values="1 0 0 0 1   0 1 0 0 0.84   0 0 1 0 0   0 0 0 1 0"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="bokehBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" />
+    </filter>
+
+    <filter id="subtleShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+
+    <!-- Linear & Radial Gradients -->
+    <!-- Gold Money Bag Gradient -->
+    <linearGradient id="goldBagGrad" x1="20%" y1="10%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="25%" stop-color="#FFCA28" />
+      <stop offset="60%" stop-color="#FFA000" />
+      <stop offset="100%" stop-color="#E65100" />
+    </linearGradient>
+
+    <linearGradient id="goldTopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9C4" />
+      <stop offset="50%" stop-color="#FFD54F" />
+      <stop offset="100%" stop-color="#FF8F00" />
+    </linearGradient>
+
+    <linearGradient id="goldTieGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#BF360C" />
+      <stop offset="50%" stop-color="#FF6F00" />
+      <stop offset="100%" stop-color="#8D2500" />
+    </linearGradient>
+
+    <!-- Cash / Bill Gradients -->
+    <linearGradient id="billFaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#81C784" />
+      <stop offset="35%" stop-color="#4CAF50" />
+      <stop offset="85%" stop-color="#388E3C" />
+      <stop offset="100%" stop-color="#2E7D32" />
+    </linearGradient>
+
+    <linearGradient id="billEdgeGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2E7D32" />
+      <stop offset="100%" stop-color="#1B5E20" />
+    </linearGradient>
+
+    <linearGradient id="billEdgeGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#388E3C" />
+      <stop offset="100%" stop-color="#256B29" />
+    </linearGradient>
+
+    <linearGradient id="billBandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F1F8E9" />
+      <stop offset="50%" stop-color="#DCEDC8" />
+      <stop offset="100%" stop-color="#C5E1A5" />
+    </linearGradient>
+
+    <!-- Yellow / Gold Flashes -->
+    <radialGradient id="goldFlashGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF59D" stop-opacity="0.9" />
+      <stop offset="30%" stop-color="#FFD700" stop-opacity="0.65" />
+      <stop offset="70%" stop-color="#FFA000" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#FF8F00" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#FFF9C4" />
+      <stop offset="100%" stop-color="#FFD700" />
+    </linearGradient>
+
+    <!-- ================= SYMBOLS ================= -->
+
+    <!-- 1. Money Bag Symbol (width: 80, height: 100, origin centered around 40,55) -->
+    <g id="sym-money-bag" filter="url(#subtleShadow)">
+      <!-- Ruffled Bag Collar Top -->
+      <path d="M 28,38 C 22,26 24,14 34,17 C 39,19 41,27 43,32 C 45,27 47,19 52,17 C 62,14 64,26 58,38 Z" fill="url(#goldTopGrad)" stroke="#E65100" stroke-width="1.2" stroke-linejoin="round" />
+      <path d="M 33,26 C 36,32 39,36 43,37 C 47,36 50,32 53,26" fill="none" stroke="#FFA000" stroke-width="1.2" stroke-linecap="round"/>
+      
+      <!-- Cinched Rope / Ribbon -->
+      <path d="M 26,40 C 34,44 52,44 60,40 C 62,37 60,34 57,34 C 47,36 37,36 29,34 C 26,34 24,37 26,40 Z" fill="url(#goldTieGrad)" stroke="#8D2500" stroke-width="1" />
+      <!-- Hanging Knot Tassels -->
+      <path d="M 43,41 C 41,47 38,53 36,55 M 43,41 C 45,47 48,53 50,55" fill="none" stroke="#BF360C" stroke-width="2" stroke-linecap="round" />
+
+      <!-- Bag Main Belly -->
+      <path d="M 26,40 C 12,42 2,56 2,75 C 2,95 18,106 43,106 C 68,106 84,95 84,75 C 84,56 74,42 60,40 C 52,43 34,43 26,40 Z" fill="url(#goldBagGrad)" stroke="#B74700" stroke-width="1.5" stroke-linejoin="round" />
+
+      <!-- Inner Glow / 3D Specular Highlight -->
+      <path d="M 14,58 C 9,68 12,82 24,93 C 18,83 17,69 22,58 C 24,53 17,52 14,58 Z" fill="#FFF9C4" opacity="0.45" />
+
+      <!-- Dollar Sign ($) on Bag -->
+      <g transform="translate(43, 76)">
+        <text x="0" y="6" text-anchor="middle" dominant-baseline="central" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="28" fill="#5D2800" opacity="0.9" letter-spacing="-1">$</text>
+        <text x="-0.5" y="5.5" text-anchor="middle" dominant-baseline="central" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="28" fill="#FFD54F" opacity="0.3" letter-spacing="-1">$</text>
+      </g>
+    </g>
+
+    <!-- 2. Stack of Cash Symbol (width: 86, height: 64, origin around 43,32) -->
+    <g id="sym-money-stack" filter="url(#subtleShadow)">
+      <!-- Bottom Bill Edge -->
+      <g transform="translate(8, 14)">
+        <rect x="0" y="0" width="70" height="42" rx="4" fill="url(#billEdgeGrad1)" stroke="#1B5E20" stroke-width="1.2" />
+        <line x1="2" y1="42" x2="68" y2="42" stroke="#0E3A12" stroke-width="2" />
+      </g>
+      <!-- Middle Bill Edge -->
+      <g transform="translate(4, 7)">
+        <rect x="0" y="0" width="70" height="42" rx="4" fill="url(#billEdgeGrad2)" stroke="#1B5E20" stroke-width="1.2" />
+        <line x1="2" y1="42" x2="68" y2="42" stroke="#1B5E20" stroke-width="1.5" />
+      </g>
+      <!-- Top Bill Face -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="70" height="42" rx="4" fill="url(#billFaceGrad)" stroke="#1B5E20" stroke-width="1.2" />
+        <!-- Inner Border Line -->
+        <rect x="3" y="3" width="64" height="36" rx="2.5" fill="none" stroke="#A5D6A7" stroke-width="1.2" stroke-dasharray="6,2" opacity="0.9" />
+        <!-- Corner Embellishments -->
+        <circle cx="7" cy="7" r="1.8" fill="#E8F5E9" />
+        <circle cx="63" cy="7" r="1.8" fill="#E8F5E9" />
+        <circle cx="7" cy="35" r="1.8" fill="#E8F5E9" />
+        <circle cx="63" cy="35" r="1.8" fill="#E8F5E9" />
+        <!-- Center Oval Frame -->
+        <ellipse cx="35" cy="21" rx="14" ry="11" fill="#388E3C" stroke="#C8E6C9" stroke-width="1.2" />
+        <!-- White/Gold Center Dollar Symbol -->
+        <text x="35" y="22" text-anchor="middle" dominant-baseline="central" font-family="'Arial Black', 'Segoe UI', sans-serif" font-weight="900" font-size="14" fill="#E8F5E9">$</text>
+        <!-- Currency Strap / Band Around Stack -->
+        <g transform="translate(25, 0)">
+          <rect x="0" y="0" width="20" height="42" fill="url(#billBandGrad)" stroke="#4CAF50" stroke-width="0.8" />
+          <line x1="0" y1="2" x2="20" y2="2" stroke="#81C784" stroke-width="1" />
+          <line x1="0" y1="40" x2="20" y2="40" stroke="#81C784" stroke-width="1" />
+          <text x="10" y="21.5" text-anchor="middle" dominant-baseline="central" font-family="'Arial Black', sans-serif" font-weight="900" font-size="12" fill="#1B5E20">$</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- 3. Flying Dollar Bill Single (width: 78, height: 46) -->
+    <g id="sym-money-bill" filter="url(#subtleShadow)">
+      <rect x="0" y="0" width="76" height="44" rx="4" fill="url(#billFaceGrad)" stroke="#1B5E20" stroke-width="1.2" />
+      <rect x="3.5" y="3.5" width="69" height="37" rx="2.5" fill="none" stroke="#C8E6C9" stroke-width="1.2" opacity="0.85" />
+      <ellipse cx="38" cy="22" rx="15" ry="12" fill="#2E7D32" stroke="#E8F5E9" stroke-width="1.2" />
+      <text x="38" y="23" text-anchor="middle" dominant-baseline="central" font-family="'Arial Black', sans-serif" font-weight="900" font-size="16" fill="#FFFFFF">$</text>
+      <text x="9" y="11" text-anchor="middle" dominant-baseline="central" font-family="'Arial Black', sans-serif" font-weight="900" font-size="8" fill="#C8E6C9">$</text>
+      <text x="67" y="33" text-anchor="middle" dominant-baseline="central" font-family="'Arial Black', sans-serif" font-weight="900" font-size="8" fill="#C8E6C9">$</text>
+    </g>
+
+    <!-- 4. Gold Glow / Bokeh Flash Spot -->
+    <g id="sym-gold-flash">
+      <circle cx="0" cy="0" r="85" fill="url(#goldFlashGrad)" />
+    </g>
+  </defs>
+
+  <style>
+    /* CSS fallbacks and smooth GPU hardware acceleration */
+    .falling-item {
+      will-change: transform;
+    }
+  </style>
+
+  <!-- ================= ANIMATION LAYERS ================= -->
+  <!-- LAYER 0: Ambient Background Golden Flashes (#FFD700) -->
+  <g id="layer-bokeh">
+    <g transform="translate(220, 240) scale(1.1)">
+      <use href="#sym-gold-flash" opacity="0.35">
+        <animate attributeName="opacity" values="0.15;0.65;0.15" dur="4.5s" begin="-0.0s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" type="scale" values="0.8;1.25;0.8" dur="4.5s" begin="-0.0s" repeatCount="indefinite" additive="sum" />
+      </use>
+    </g>
+    <g transform="translate(850, 180) scale(0.9)">
+      <use href="#sym-gold-flash" opacity="0.35">
+        <animate attributeName="opacity" values="0.15;0.65;0.15" dur="5.0s" begin="-1.2s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" type="scale" values="0.8;1.25;0.8" dur="5.0s" begin="-1.2s" repeatCount="indefinite" additive="sum" />
+      </use>
+    </g>
+    <g transform="translate(1520, 310) scale(1.3)">
+      <use href="#sym-gold-flash" opacity="0.35">
+        <animate attributeName="opacity" values="0.15;0.65;0.15" dur="4.2s" begin="-2.1s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" type="scale" values="0.8;1.25;0.8" dur="4.2s" begin="-2.1s" repeatCount="indefinite" additive="sum" />
+      </use>
+    </g>
+    <g transform="translate(460, 680) scale(1.0)">
+      <use href="#sym-gold-flash" opacity="0.35">
+        <animate attributeName="opacity" values="0.15;0.65;0.15" dur="4.8s" begin="-0.8s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" type="scale" values="0.8;1.25;0.8" dur="4.8s" begin="-0.8s" repeatCount="indefinite" additive="sum" />
+      </use>
+    </g>
+    <g transform="translate(1180, 620) scale(1.2)">
+      <use href="#sym-gold-flash" opacity="0.35">
+        <animate attributeName="opacity" values="0.15;0.65;0.15" dur="5.2s" begin="-1.9s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" type="scale" values="0.8;1.25;0.8" dur="5.2s" begin="-1.9s" repeatCount="indefinite" additive="sum" />
+      </use>
+    </g>
+    <g transform="translate(1750, 750) scale(0.85)">
+      <use href="#sym-gold-flash" opacity="0.35">
+        <animate attributeName="opacity" values="0.15;0.65;0.15" dur="4.0s" begin="-3.0s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" type="scale" values="0.8;1.25;0.8" dur="4.0s" begin="-3.0s" repeatCount="indefinite" additive="sum" />
+      </use>
+    </g>
+    <g transform="translate(310, 920) scale(1.15)">
+      <use href="#sym-gold-flash" opacity="0.35">
+        <animate attributeName="opacity" values="0.15;0.65;0.15" dur="4.6s" begin="-2.5s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" type="scale" values="0.8;1.25;0.8" dur="4.6s" begin="-2.5s" repeatCount="indefinite" additive="sum" />
+      </use>
+    </g>
+    <g transform="translate(1380, 960) scale(1.0)">
+      <use href="#sym-gold-flash" opacity="0.35">
+        <animate attributeName="opacity" values="0.15;0.65;0.15" dur="5.5s" begin="-0.4s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" type="scale" values="0.8;1.25;0.8" dur="5.5s" begin="-0.4s" repeatCount="indefinite" additive="sum" />
+      </use>
+    </g>
+    <g transform="translate(960, 440) scale(1.4)">
+      <use href="#sym-gold-flash" opacity="0.35">
+        <animate attributeName="opacity" values="0.15;0.65;0.15" dur="6.0s" begin="-1.5s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" type="scale" values="0.8;1.25;0.8" dur="6.0s" begin="-1.5s" repeatCount="indefinite" additive="sum" />
+      </use>
+    </g>
+  </g>
+
+  <!-- LAYER 1: Falling Money Elements (Bags, Stacks, Bills) -->
+  <g id="layer-money-rain">
+    <!-- Item 1: BAG (Scale: 0.59, Dur: 4.65s) -->
+    <g class="falling-item" opacity="0.87">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="10.021510445333874 -160; 10.021510445333874 1180"
+        dur="4.65s" begin="-1.043s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 23.9 0; 0 0; -23.9 0; 0 0"
+          dur="1.73s" begin="-0.73s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.59) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-5.5 43 60; -40.2 43 60; -5.5 43 60"
+              dur="3.95s" begin="-0.52s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 2: STACK (Scale: 0.56, Dur: 3.96s) -->
+    <g class="falling-item" opacity="0.83">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="253.79999557731225 -160; 253.79999557731225 1180"
+        dur="3.96s" begin="-11.315s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 17.1 0; 0 0; -17.1 0; 0 0"
+          dur="2.0s" begin="-7.92s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.56) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="26.3 43 32; 66.9 43 32; 26.3 43 32"
+              dur="3.37s" begin="-5.66s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 3: BAG (Scale: 0.58, Dur: 4.42s) -->
+    <g class="falling-item" opacity="0.87">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1245.7037404008483 -160; 1245.7037404008483 1180"
+        dur="4.42s" begin="-5.141s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 22.5 0; 0 0; -22.5 0; 0 0"
+          dur="2.5s" begin="-3.60s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.58) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="5.8 43 60; 46.8 43 60; 5.8 43 60"
+              dur="3.76s" begin="-2.57s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 4: BAG (Scale: 0.56, Dur: 4.57s) -->
+    <g class="falling-item" opacity="0.81">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="320.4763146838232 -160; 320.4763146838232 1180"
+        dur="4.57s" begin="-5.066s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 22.9 0; 0 0; -22.9 0; 0 0"
+          dur="1.97s" begin="-3.55s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.56) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-30.6 43 60; 29.199999999999996 43 60; -30.6 43 60"
+              dur="3.88s" begin="-2.53s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 5: BILL (Scale: 0.72, Dur: 3.86s) -->
+    <g class="falling-item" opacity="0.84">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="522.4901796747472 -160; 522.4901796747472 1180"
+        dur="3.86s" begin="-8.759s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 20.4 0; 0 0; -20.4 0; 0 0"
+          dur="2.17s" begin="-6.13s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.72) translate(-38, -22)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-20.9 38 22; 29.0 38 22; -20.9 38 22"
+              dur="3.28s" begin="-4.38s" repeatCount="indefinite" />
+            <use href="#sym-money-bill" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 6: BAG (Scale: 0.6, Dur: 3.86s) -->
+    <g class="falling-item" opacity="0.87">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="617.9817700126873 -160; 617.9817700126873 1180"
+        dur="3.86s" begin="-11.226s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 16.3 0; 0 0; -16.3 0; 0 0"
+          dur="1.97s" begin="-7.86s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.6) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="5.0 43 60; 47.1 43 60; 5.0 43 60"
+              dur="3.28s" begin="-5.61s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 7: BAG (Scale: 0.68, Dur: 4.2s) -->
+    <g class="falling-item" opacity="0.84">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="635.3529980742968 -160; 635.3529980742968 1180"
+        dur="4.2s" begin="-0.65s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 23.6 0; 0 0; -23.6 0; 0 0"
+          dur="2.23s" begin="-0.45s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.68) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="10.7 43 60; -22.3 43 60; 10.7 43 60"
+              dur="3.57s" begin="-0.33s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 8: STACK (Scale: 0.59, Dur: 3.74s) -->
+    <g class="falling-item" opacity="0.85">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="695.029625543085 -160; 695.029625543085 1180"
+        dur="3.74s" begin="-5.552s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 16.8 0; 0 0; -16.8 0; 0 0"
+          dur="2.36s" begin="-3.89s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.59) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="26.2 43 32; -26.000000000000004 43 32; 26.2 43 32"
+              dur="3.18s" begin="-2.78s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 9: BILL (Scale: 0.75, Dur: 5.15s) -->
+    <g class="falling-item" opacity="0.88">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="722.5162656224924 -160; 722.5162656224924 1180"
+        dur="5.15s" begin="-10.184s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 24.3 0; 0 0; -24.3 0; 0 0"
+          dur="2.36s" begin="-7.13s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.75) translate(-38, -22)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-23.4 38 22; 30.700000000000003 38 22; -23.4 38 22"
+              dur="4.38s" begin="-5.09s" repeatCount="indefinite" />
+            <use href="#sym-money-bill" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 10: STACK (Scale: 0.55, Dur: 5.08s) -->
+    <g class="falling-item" opacity="0.84">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="780.1221432755274 -160; 780.1221432755274 1180"
+        dur="5.08s" begin="-3.423s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 22.9 0; 0 0; -22.9 0; 0 0"
+          dur="1.8s" begin="-2.40s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.55) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="13.8 43 32; 51.5 43 32; 13.8 43 32"
+              dur="4.32s" begin="-1.71s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 11: BILL (Scale: 0.72, Dur: 5.1s) -->
+    <g class="falling-item" opacity="0.84">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="97.0426654075847 -160; 97.0426654075847 1180"
+        dur="5.1s" begin="-6.947s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 20.7 0; 0 0; -20.7 0; 0 0"
+          dur="2.08s" begin="-4.86s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.72) translate(-38, -22)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-32.2 38 22; -83.2 38 22; -32.2 38 22"
+              dur="4.33s" begin="-3.47s" repeatCount="indefinite" />
+            <use href="#sym-money-bill" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 12: BAG (Scale: 0.67, Dur: 3.67s) -->
+    <g class="falling-item" opacity="0.86">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="941.7867143722411 -160; 941.7867143722411 1180"
+        dur="3.67s" begin="-6.071s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 20.4 0; 0 0; -20.4 0; 0 0"
+          dur="2.38s" begin="-4.25s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.67) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-25.7 43 60; 48.3 43 60; -25.7 43 60"
+              dur="3.12s" begin="-3.04s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 13: BAG (Scale: 0.72, Dur: 4.54s) -->
+    <g class="falling-item" opacity="0.87">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="953.4763544369442 -160; 953.4763544369442 1180"
+        dur="4.54s" begin="-7.848s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 24.9 0; 0 0; -24.9 0; 0 0"
+          dur="1.6s" begin="-5.49s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.72) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-34.5 43 60; 42.099999999999994 43 60; -34.5 43 60"
+              dur="3.86s" begin="-3.92s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 14: STACK (Scale: 0.73, Dur: 3.76s) -->
+    <g class="falling-item" opacity="0.87">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1018.9063482486796 -160; 1018.9063482486796 1180"
+        dur="3.76s" begin="-2.528s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 17.8 0; 0 0; -17.8 0; 0 0"
+          dur="1.75s" begin="-1.77s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.73) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-11.0 43 32; 44.3 43 32; -11.0 43 32"
+              dur="3.20s" begin="-1.26s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 15: BILL (Scale: 0.68, Dur: 3.57s) -->
+    <g class="falling-item" opacity="0.88">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1060.4079523109285 -160; 1060.4079523109285 1180"
+        dur="3.57s" begin="-1.57s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 18.3 0; 0 0; -18.3 0; 0 0"
+          dur="2.05s" begin="-1.10s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.68) translate(-38, -22)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="33.6 38 22; -33.49999999999999 38 22; 33.6 38 22"
+              dur="3.03s" begin="-0.79s" repeatCount="indefinite" />
+            <use href="#sym-money-bill" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 16: STACK (Scale: 0.57, Dur: 5.04s) -->
+    <g class="falling-item" opacity="0.89">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1076.384345949034 -160; 1076.384345949034 1180"
+        dur="5.04s" begin="-10.015s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 20.5 0; 0 0; -20.5 0; 0 0"
+          dur="1.54s" begin="-7.01s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.57) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="5.8 43 32; -45.7 43 32; 5.8 43 32"
+              dur="4.28s" begin="-5.01s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 17: BILL (Scale: 0.58, Dur: 3.8s) -->
+    <g class="falling-item" opacity="0.88">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1181.2881911284778 -160; 1181.2881911284778 1180"
+        dur="3.8s" begin="-2.152s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 19.1 0; 0 0; -19.1 0; 0 0"
+          dur="2.36s" begin="-1.51s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.58) translate(-38, -22)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="29.7 38 22; 99.8 38 22; 29.7 38 22"
+              dur="3.23s" begin="-1.08s" repeatCount="indefinite" />
+            <use href="#sym-money-bill" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 18: STACK (Scale: 0.71, Dur: 4.98s) -->
+    <g class="falling-item" opacity="0.81">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1215.5374658287194 -160; 1215.5374658287194 1180"
+        dur="4.98s" begin="-2.669s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 23.6 0; 0 0; -23.6 0; 0 0"
+          dur="2.32s" begin="-1.87s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.71) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="22.2 43 32; 69.7 43 32; 22.2 43 32"
+              dur="4.23s" begin="-1.33s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 19: BAG (Scale: 0.68, Dur: 3.97s) -->
+    <g class="falling-item" opacity="0.84">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1258.5661517931503 -160; 1258.5661517931503 1180"
+        dur="3.97s" begin="-9.28s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 15.7 0; 0 0; -15.7 0; 0 0"
+          dur="2.34s" begin="-6.50s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.68) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-10.4 43 60; 53.6 43 60; -10.4 43 60"
+              dur="3.37s" begin="-4.64s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 20: BAG (Scale: 0.73, Dur: 4.49s) -->
+    <g class="falling-item" opacity="0.83">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1271.5574934107203 -160; 1271.5574934107203 1180"
+        dur="4.49s" begin="-0.459s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 24.8 0; 0 0; -24.8 0; 0 0"
+          dur="1.81s" begin="-0.32s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.73) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="6.8 43 60; 73.2 43 60; 6.8 43 60"
+              dur="3.82s" begin="-0.23s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 21: BILL (Scale: 0.74, Dur: 4.03s) -->
+    <g class="falling-item" opacity="0.82">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1485.9630402681187 -160; 1485.9630402681187 1180"
+        dur="4.03s" begin="-1.768s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 23.1 0; 0 0; -23.1 0; 0 0"
+          dur="2.27s" begin="-1.24s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.74) translate(-38, -22)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-31.8 38 22; 28.8 38 22; -31.8 38 22"
+              dur="3.43s" begin="-0.88s" repeatCount="indefinite" />
+            <use href="#sym-money-bill" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 22: STACK (Scale: 0.64, Dur: 3.81s) -->
+    <g class="falling-item" opacity="0.89">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1848.149987841808 -160; 1848.149987841808 1180"
+        dur="3.81s" begin="-3.928s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 17.6 0; 0 0; -17.6 0; 0 0"
+          dur="1.88s" begin="-2.75s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.64) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-3.2 43 32; 64.89999999999999 43 32; -3.2 43 32"
+              dur="3.24s" begin="-1.96s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 23: STACK (Scale: 0.99, Dur: 3.19s) -->
+    <g class="falling-item" opacity="0.98">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="45.10093645249901 -160; 45.10093645249901 1180"
+        dur="3.19s" begin="-3.338s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 26.7 0; 0 0; -26.7 0; 0 0"
+          dur="1.84s" begin="-2.34s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.99) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="25.9 43 32; -39.00000000000001 43 32; 25.9 43 32"
+              dur="2.71s" begin="-1.67s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 24: STACK (Scale: 0.96, Dur: 3.47s) -->
+    <g class="falling-item" opacity="0.99">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="143.65578819896854 -160; 143.65578819896854 1180"
+        dur="3.47s" begin="-6.928s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 32.9 0; 0 0; -32.9 0; 0 0"
+          dur="2.27s" begin="-4.85s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.96) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="14.3 43 32; -48.8 43 32; 14.3 43 32"
+              dur="2.95s" begin="-3.46s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 25: BILL (Scale: 0.97, Dur: 3.62s) -->
+    <g class="falling-item" opacity="0.93">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="221.8327293856247 -160; 221.8327293856247 1180"
+        dur="3.62s" begin="-4.553s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 22.5 0; 0 0; -22.5 0; 0 0"
+          dur="2.34s" begin="-3.19s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.97) translate(-38, -22)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="34.3 38 22; -29.900000000000006 38 22; 34.3 38 22"
+              dur="3.08s" begin="-2.28s" repeatCount="indefinite" />
+            <use href="#sym-money-bill" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 26: STACK (Scale: 1.04, Dur: 2.76s) -->
+    <g class="falling-item" opacity="0.97">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="347.57070599909065 -160; 347.57070599909065 1180"
+        dur="2.76s" begin="-9.011s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 33.3 0; 0 0; -33.3 0; 0 0"
+          dur="1.93s" begin="-6.31s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(1.04) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="18.8 43 32; 54.400000000000006 43 32; 18.8 43 32"
+              dur="2.35s" begin="-4.51s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 27: STACK (Scale: 0.88, Dur: 3.89s) -->
+    <g class="falling-item" opacity="1.0">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="424.94555508823663 -160; 424.94555508823663 1180"
+        dur="3.89s" begin="-7.187s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 33.8 0; 0 0; -33.8 0; 0 0"
+          dur="2.38s" begin="-5.03s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.88) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-0.8 43 32; -77.3 43 32; -0.8 43 32"
+              dur="3.31s" begin="-3.59s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 28: BAG (Scale: 0.86, Dur: 3.93s) -->
+    <g class="falling-item" opacity="0.99">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="496.58327646805895 -160; 496.58327646805895 1180"
+        dur="3.93s" begin="-5.832s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 21.3 0; 0 0; -21.3 0; 0 0"
+          dur="1.98s" begin="-4.08s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.86) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-30.2 43 60; -66.6 43 60; -30.2 43 60"
+              dur="3.34s" begin="-2.92s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 29: STACK (Scale: 0.9, Dur: 2.63s) -->
+    <g class="falling-item" opacity="0.93">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1759.228169285891 -160; 1759.228169285891 1180"
+        dur="2.63s" begin="-7.061s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 28.3 0; 0 0; -28.3 0; 0 0"
+          dur="2.41s" begin="-4.94s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.9) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-34.5 43 32; -75.9 43 32; -34.5 43 32"
+              dur="2.24s" begin="-3.53s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 30: BAG (Scale: 0.96, Dur: 2.68s) -->
+    <g class="falling-item" opacity="0.98">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="823.4354682484579 -160; 823.4354682484579 1180"
+        dur="2.68s" begin="-6.034s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 28.8 0; 0 0; -28.8 0; 0 0"
+          dur="2.01s" begin="-4.22s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.96) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="24.7 43 60; -8.099999999999998 43 60; 24.7 43 60"
+              dur="2.28s" begin="-3.02s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 31: STACK (Scale: 0.93, Dur: 2.96s) -->
+    <g class="falling-item" opacity="0.97">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1325.3104426653072 -160; 1325.3104426653072 1180"
+        dur="2.96s" begin="-0.02s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 30.6 0; 0 0; -30.6 0; 0 0"
+          dur="1.57s" begin="-0.01s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.93) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="29.8 43 32; -18.400000000000002 43 32; 29.8 43 32"
+              dur="2.52s" begin="-0.01s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 32: BILL (Scale: 0.91, Dur: 3.61s) -->
+    <g class="falling-item" opacity="0.99">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1368.2118842455636 -160; 1368.2118842455636 1180"
+        dur="3.61s" begin="-3.711s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 24.5 0; 0 0; -24.5 0; 0 0"
+          dur="2.05s" begin="-2.60s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.91) translate(-38, -22)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-6.4 38 22; 58.50000000000001 38 22; -6.4 38 22"
+              dur="3.07s" begin="-1.86s" repeatCount="indefinite" />
+            <use href="#sym-money-bill" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 33: STACK (Scale: 1.0, Dur: 3.4s) -->
+    <g class="falling-item" opacity="0.93">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1289.858868425543 -160; 1289.858868425543 1180"
+        dur="3.4s" begin="-10.005s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 26.1 0; 0 0; -26.1 0; 0 0"
+          dur="2.08s" begin="-7.00s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(1.0) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-13.7 43 32; -65.2 43 32; -13.7 43 32"
+              dur="2.89s" begin="-5.00s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 34: BAG (Scale: 0.94, Dur: 3.26s) -->
+    <g class="falling-item" opacity="0.94">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1447.7352811851536 -160; 1447.7352811851536 1180"
+        dur="3.26s" begin="-9.552s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 33.5 0; 0 0; -33.5 0; 0 0"
+          dur="2.16s" begin="-6.69s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.94) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-23.1 43 60; -67.30000000000001 43 60; -23.1 43 60"
+              dur="2.77s" begin="-4.78s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 35: STACK (Scale: 0.94, Dur: 2.95s) -->
+    <g class="falling-item" opacity="0.94">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1659.860405161663 -160; 1659.860405161663 1180"
+        dur="2.95s" begin="-9.19s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 29.6 0; 0 0; -29.6 0; 0 0"
+          dur="1.58s" begin="-6.43s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.94) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="1.5 43 32; -42.2 43 32; 1.5 43 32"
+              dur="2.51s" begin="-4.59s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 36: BILL (Scale: 0.96, Dur: 2.92s) -->
+    <g class="falling-item" opacity="0.93">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="503.4302141643692 -160; 503.4302141643692 1180"
+        dur="2.92s" begin="-8.477s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 30.4 0; 0 0; -30.4 0; 0 0"
+          dur="1.97s" begin="-5.93s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.96) translate(-38, -22)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-30.5 38 22; 16.0 38 22; -30.5 38 22"
+              dur="2.48s" begin="-4.24s" repeatCount="indefinite" />
+            <use href="#sym-money-bill" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 37: BAG (Scale: 1.03, Dur: 3.35s) -->
+    <g class="falling-item" opacity="0.99">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1749.9306326186193 -160; 1749.9306326186193 1180"
+        dur="3.35s" begin="-9.598s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 31.0 0; 0 0; -31.0 0; 0 0"
+          dur="1.94s" begin="-6.72s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(1.03) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="27.8 43 60; 68.8 43 60; 27.8 43 60"
+              dur="2.85s" begin="-4.80s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 38: BILL (Scale: 0.99, Dur: 2.83s) -->
+    <g class="falling-item" opacity="0.95">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1776.4512409973358 -160; 1776.4512409973358 1180"
+        dur="2.83s" begin="-1.532s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 27.0 0; 0 0; -27.0 0; 0 0"
+          dur="2.09s" begin="-1.07s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(0.99) translate(-38, -22)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="8.6 38 22; -66.7 38 22; 8.6 38 22"
+              dur="2.41s" begin="-0.77s" repeatCount="indefinite" />
+            <use href="#sym-money-bill" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 39: BILL (Scale: 1.24, Dur: 2.22s) -->
+    <g class="falling-item" opacity="1.0">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="62.77397499058908 -160; 62.77397499058908 1180"
+        dur="2.22s" begin="-10.17s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 26.9 0; 0 0; -26.9 0; 0 0"
+          dur="2.04s" begin="-7.12s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(1.24) translate(-38, -22)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="7.3 38 22; -59.2 38 22; 7.3 38 22"
+              dur="1.89s" begin="-5.08s" repeatCount="indefinite" />
+            <use href="#sym-money-bill" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 40: BAG (Scale: 1.38, Dur: 2.59s) -->
+    <g class="falling-item" opacity="1.0">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="184.26107603303788 -160; 184.26107603303788 1180"
+        dur="2.59s" begin="-10.009s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 34.1 0; 0 0; -34.1 0; 0 0"
+          dur="1.77s" begin="-7.01s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(1.38) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-23.6 43 60; 16.9 43 60; -23.6 43 60"
+              dur="2.20s" begin="-5.00s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 41: BILL (Scale: 1.39, Dur: 2.44s) -->
+    <g class="falling-item" opacity="1.0">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="397.6861853164603 -160; 397.6861853164603 1180"
+        dur="2.44s" begin="-2.144s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 35.0 0; 0 0; -35.0 0; 0 0"
+          dur="2.01s" begin="-1.50s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(1.39) translate(-38, -22)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="28.9 38 22; 101.0 38 22; 28.9 38 22"
+              dur="2.07s" begin="-1.07s" repeatCount="indefinite" />
+            <use href="#sym-money-bill" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 42: STACK (Scale: 1.21, Dur: 3.03s) -->
+    <g class="falling-item" opacity="1.0">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="881.139135776598 -160; 881.139135776598 1180"
+        dur="3.03s" begin="-4.749s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 29.8 0; 0 0; -29.8 0; 0 0"
+          dur="2.43s" begin="-3.32s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(1.21) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="12.0 43 32; 64.9 43 32; 12.0 43 32"
+              dur="2.58s" begin="-2.37s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 43: BAG (Scale: 1.16, Dur: 2.57s) -->
+    <g class="falling-item" opacity="1.0">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1826.1760210413083 -160; 1826.1760210413083 1180"
+        dur="2.57s" begin="-8.003s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 38.6 0; 0 0; -38.6 0; 0 0"
+          dur="2.25s" begin="-5.60s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(1.16) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-10.2 43 60; 68.5 43 60; -10.2 43 60"
+              dur="2.18s" begin="-4.00s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 44: STACK (Scale: 1.31, Dur: 3.03s) -->
+    <g class="falling-item" opacity="1.0">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1517.7708084190044 -160; 1517.7708084190044 1180"
+        dur="3.03s" begin="-4.796s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 32.7 0; 0 0; -32.7 0; 0 0"
+          dur="2.36s" begin="-3.36s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(1.31) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-24.7 43 32; -99.3 43 32; -24.7 43 32"
+              dur="2.58s" begin="-2.40s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 45: BAG (Scale: 1.21, Dur: 3.15s) -->
+    <g class="falling-item" opacity="1.0">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1579.2732602754934 -160; 1579.2732602754934 1180"
+        dur="3.15s" begin="-5.575s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 38.9 0; 0 0; -38.9 0; 0 0"
+          dur="2.3s" begin="-3.90s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(1.21) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="4.0 43 60; -48.8 43 60; 4.0 43 60"
+              dur="2.68s" begin="-2.79s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 46: BAG (Scale: 1.31, Dur: 3.34s) -->
+    <g class="falling-item" opacity="1.0">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1608.3788866293175 -160; 1608.3788866293175 1180"
+        dur="3.34s" begin="-7.352s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 42.8 0; 0 0; -42.8 0; 0 0"
+          dur="2.05s" begin="-5.15s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(1.31) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="15.3 43 60; 86.8 43 60; 15.3 43 60"
+              dur="2.84s" begin="-3.68s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 47: STACK (Scale: 1.26, Dur: 3.1s) -->
+    <g class="falling-item" opacity="1.0">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1698.1132855291792 -160; 1698.1132855291792 1180"
+        dur="3.1s" begin="-0.234s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 43.9 0; 0 0; -43.9 0; 0 0"
+          dur="2.44s" begin="-0.16s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(1.26) translate(-43, -32)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="26.6 43 32; 80.4 43 32; 26.6 43 32"
+              dur="2.63s" begin="-0.12s" repeatCount="indefinite" />
+            <use href="#sym-money-stack" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <!-- Item 48: BAG (Scale: 1.22, Dur: 2.21s) -->
+    <g class="falling-item" opacity="1.0">
+      <!-- Fall Translation (Y: -160 -> 1180) -->
+      <animateTransform attributeName="transform" type="translate"
+        values="1892.6004911777393 -160; 1892.6004911777393 1180"
+        dur="2.21s" begin="-6.473s" repeatCount="indefinite" />
+      
+      <!-- Horizontal Drift (X wobble) -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 25.4 0; 0 0; -25.4 0; 0 0"
+          dur="1.57s" begin="-4.53s" repeatCount="indefinite" additive="sum" />
+        
+        <!-- Scale and Center Offset -->
+        <g transform="scale(1.22) translate(-43, -60)">
+          <!-- Tumbling Rotation -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="35.0 43 60; 76.2 43 60; 35.0 43 60"
+              dur="1.88s" begin="-3.24s" repeatCount="indefinite" />
+            <use href="#sym-money-bag" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
