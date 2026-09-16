@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <!-- Background Ambient Radial Glow -->
+    <radialGradient id="bgGlow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#220B0B" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#120606" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0A0A0A" />
+    </radialGradient>
+
+    <!-- Red Emissive Glow Filter for Text and Arc -->
+    <filter id="redTextGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blurWide" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blurMid" />
+      <feMerge>
+        <feMergeNode in="blurWide" />
+        <feMergeNode in="blurMid" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="arcGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <style><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700;800&family=Inter:wght@600;700;800&display=swap');
+
+      /* Continuous 5-Second Clockwise Progress Arc Fill */
+      @keyframes progressFill {
+        0% {
+          stroke-dashoffset: 1319.47;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      /* Number Tick Pulse Effect (5 -> 4 -> 3 -> 2 -> 1) */
+      @keyframes numPop5 {
+        0% { display: block; opacity: 1; transform: scale(1.05); }
+        5% { transform: scale(1); }
+        19.9% { display: block; opacity: 1; }
+        20%, 100% { display: none; opacity: 0; }
+      }
+
+      @keyframes numPop4 {
+        0%, 19.9% { display: none; opacity: 0; }
+        20% { display: block; opacity: 1; transform: scale(1.08); }
+        25% { transform: scale(1); }
+        39.9% { display: block; opacity: 1; }
+        40%, 100% { display: none; opacity: 0; }
+      }
+
+      @keyframes numPop3 {
+        0%, 39.9% { display: none; opacity: 0; }
+        40% { display: block; opacity: 1; transform: scale(1.08); }
+        45% { transform: scale(1); }
+        59.9% { display: block; opacity: 1; }
+        60%, 100% { display: none; opacity: 0; }
+      }
+
+      @keyframes numPop2 {
+        0%, 59.9% { display: none; opacity: 0; }
+        60% { display: block; opacity: 1; transform: scale(1.08); }
+        65% { transform: scale(1); }
+        79.9% { display: block; opacity: 1; }
+        80%, 100% { display: none; opacity: 0; }
+      }
+
+      @keyframes numPop1 {
+        0%, 79.9% { display: none; opacity: 0; }
+        80% { display: block; opacity: 1; transform: scale(1.08); }
+        85% { transform: scale(1); }
+        99.9% { display: block; opacity: 1; }
+        100% { display: none; opacity: 0; }
+      }
+
+      .progress-arc {
+        stroke-dasharray: 1319.47;
+        stroke-dashoffset: 1319.47;
+        transform-origin: 960px 480px;
+        transform: rotate(-90deg);
+        animation: progressFill 5s linear infinite;
+      }
+
+      .countdown-number {
+        font-family: 'Open Sans', 'Inter', -apple-system, sans-serif;
+        font-weight: 700;
+        font-size: 190px;
+        fill: #FFFFFF;
+        text-anchor: middle;
+        dominant-baseline: central;
+        transform-origin: 960px 480px;
+      }
+
+      .num-5 { animation: numPop5 5s step-end infinite; }
+      .num-4 { animation: numPop4 5s step-end infinite; }
+      .num-3 { animation: numPop3 5s step-end infinite; }
+      .num-2 { animation: numPop2 5s step-end infinite; }
+      .num-1 { animation: numPop1 5s step-end infinite; }
+
+      .subtext-label {
+        font-family: 'Open Sans', 'Inter', -apple-system, sans-serif;
+        font-weight: 600;
+        font-size: 22px;
+        letter-spacing: 6px;
+        fill: #888888;
+        text-anchor: middle;
+      }
+    ]]></style>
+  </defs>
+
+  <!-- Deep Dark Background with Subtle Red Ambient Glow -->
+  <rect width="1920" height="1080" fill="#0A0A0A" />
+  <rect width="1920" height="1080" fill="url(#bgGlow)" />
+
+  <!-- Countdown Container Centered at (960, 480) -->
+  <g>
+    <!-- Background Track Ring (Dark Slate/Grey) -->
+    <circle cx="960" cy="480" r="210" fill="none" stroke="#262626" stroke-width="12" />
+
+    <!-- Active Red Progress Arc (Coral Red #FF4D4D with Glow) -->
+    <circle class="progress-arc" cx="960" cy="480" r="210" fill="none" stroke="#FF4D4D" stroke-width="16" stroke-linecap="round" filter="url(#arcGlow)" />
+
+    <!-- Big Central Countdown Numbers (5 -> 4 -> 3 -> 2 -> 1) with Soft Red Glow -->
+    <g filter="url(#redTextGlow)">
+      <text x="960" y="480" class="countdown-number num-5">5</text>
+      <text x="960" y="480" class="countdown-number num-4">4</text>
+      <text x="960" y="480" class="countdown-number num-3">3</text>
+      <text x="960" y="480" class="countdown-number num-2">2</text>
+      <text x="960" y="480" class="countdown-number num-1">1</text>
+    </g>
+
+    <!-- Bottom Subtext: "STARTING IN" -->
+    <text x="960" y="765" class="subtext-label">STARTING IN</text>
+  </g>
+</svg>
