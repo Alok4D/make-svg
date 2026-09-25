@@ -25,46 +25,8 @@
       </feMerge>
     </filter>
 
-    <!-- Top Text Periwinkle Glow -->
-    <filter id="textNeonGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="glow" />
-      <feMerge>
-        <feMergeNode in="glow" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
     <style><![CDATA[
-      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap');
-
       * { box-sizing: border-box; }
-
-      .header-text {
-        font-family: 'Open Sans', 'Inter', -apple-system, sans-serif;
-        font-weight: 700;
-        font-size: 24px;
-        letter-spacing: 8px;
-        fill: #7B8CDE;
-        text-anchor: middle;
-      }
-
-      .song-title {
-        font-family: 'Open Sans', 'Inter', -apple-system, sans-serif;
-        font-weight: 700;
-        font-size: 42px;
-        letter-spacing: 0.5px;
-        fill: #FFFFFF;
-        text-anchor: middle;
-      }
-
-      .artist-subtitle {
-        font-family: 'Open Sans', 'Inter', -apple-system, sans-serif;
-        font-weight: 500;
-        font-size: 20px;
-        letter-spacing: 1px;
-        fill: #64748B;
-        text-anchor: middle;
-      }
 
       /* Equalizer Bars Animations (Fluid Vertically Centered Scaling) */
 
@@ -305,10 +267,7 @@
   <rect width="1920" height="1080" fill="#080712" />
   <rect width="1920" height="1080" fill="url(#bgAmbient)" />
 
-  <!-- Top Header Label: NOW PLAYING -->
-  <text x="960" y="215" class="header-text" filter="url(#textNeonGlow)">NOW PLAYING</text>
-
-  <!-- Center Audio Waveform Equalizer Bars -->
+    <!-- Center Audio Waveform Equalizer Bars -->
   <g filter="url(#neonPurpleGlow)">
     <rect class="bar-0" x="720.0" y="445.0" width="14" height="70" rx="7.0" fill="url(#barGrad)" />
     <rect class="bar-1" x="744.0" y="432.5" width="14" height="95" rx="7.0" fill="url(#barGrad)" />
@@ -331,14 +290,5 @@
     <rect class="bar-18" x="1152.0" y="420.0" width="14" height="120" rx="7.0" fill="url(#barGrad)" />
     <rect class="bar-19" x="1176.0" y="432.5" width="14" height="95" rx="7.0" fill="url(#barGrad)" />
     <rect class="bar-20" x="1200.0" y="445.0" width="14" height="70" rx="7.0" fill="url(#barGrad)" />
-  </g>
-
-  <!-- Bottom Track Metadata -->
-  <g>
-    <!-- Song Title: Midnight Dreams -->
-    <text x="960" y="695" class="song-title">Midnight Dreams</text>
-
-    <!-- Subtitle: Electronic Vibes -->
-    <text x="960" y="740" class="artist-subtitle">Electronic Vibes</text>
   </g>
 </svg>
